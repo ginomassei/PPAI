@@ -2,171 +2,79 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class CentroInvestigacion {
 
-    /**
-     * Default constructor
-     */
-    public CentroInvestigacion() {
+    private String nombre;
+    private String sigla;
+    private Direccion direccion;
+    private Telefono telefonos;
+    private String correoElectronico;
+    private PersonalCientifico director;
+    private Integer tiempoPrevioReserva;
+    private Date fechaInicio;
+    private Estado estado;
+    private Date fechaBaja;
+    private String motivoBaja;
+    private RecursoTecnologico recursos;
+    private Integer númeroResolución;
+    private Date fechaResolución;
+    private String reglamento;
+    private Date fechaAlta;
+    private String caracteristicas;
+    private AsignacionDirector direc;
+    private AsignacionCientificoCI cientificos;
+
+    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, RecursoTecnologico recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, AsignacionCientificoCI cientificos) {
+        this.nombre = nombre;
+        this.sigla = sigla;
+        this.direccion = direccion;
+        this.telefonos = telefonos;
+        this.correoElectronico = correoElectronico;
+        this.director = director;
+        this.tiempoPrevioReserva = tiempoPrevioReserva;
+        this.fechaInicio = fechaInicio;
+        this.estado = estado;
+        this.fechaBaja = fechaBaja;
+        this.motivoBaja = motivoBaja;
+        this.recursos = recursos;
+        this.númeroResolución = númeroResolución;
+        this.fechaResolución = fechaResolución;
+        this.reglamento = reglamento;
+        this.fechaAlta = fechaAlta;
+        this.caracteristicas = caracteristicas;
+        this.direc = direc;
+        this.cientificos = cientificos;
     }
 
-    /**
-     * 
-     */
-    public void nombre;
-
-    /**
-     * 
-     */
-    public void sigla;
-
-    /**
-     * 
-     */
-    public Dirección direccion;
-
-    /**
-     * 
-     */
-    public Telefono telefonos;
-
-    /**
-     * 
-     */
-    public void correoElectronico;
-
-    /**
-     * 
-     */
-    public Cientifico director;
-
-    /**
-     * 
-     */
-    public void tiempoPrevioReserva;
-
-    /**
-     * 
-     */
-    public void fechaInicio;
-
-    /**
-     * 
-     */
-    public Estado estado;
-
-    /**
-     * 
-     */
-    public void fechaBaja;
-
-    /**
-     * 
-     */
-    public void motivoBaja;
-
-    /**
-     * 
-     */
-    public RecursoTecnologico recursos;
-
-    /**
-     * 
-     */
-    public void númeroResolución;
-
-    /**
-     * 
-     */
-    public void fechaResolución;
-
-    /**
-     * 
-     */
-    public void reglamento;
-
-    /**
-     * 
-     */
-    public void fechaAlta;
-
-    /**
-     * 
-     */
-    public void caracteristicas;
-
-    /**
-     * 
-     */
-    public AsignacionDirector director;
-
-    /**
-     * 
-     */
-    public AsignacionCientificoCI cientificos;
-
-    /**
-     * 
-     */
-    public void crear() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
     public void darDeBaja() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void listarRecursosTecnológicos() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void listarPersonal() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void agregarPersonal() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void mostrarPersonal() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void estaDeBaja() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void listarRecursosTecnologicosPorTipo() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void esTuCientifico() {
         // TODO implement here
     }

@@ -4,39 +4,23 @@ import com.ppai.domain.AsignacionCientifico;
 
 import java.util.*;
 
-/**
- * 
- */
 public class AsignacionCientificoCI extends AsignacionCientifico {
 
-    /**
-     * Default constructor
-     */
-    public AsignacionCientificoCI() {
+    private PersonalCientifico cientifico;
+    private Turno turnos;
+
+    public AsignacionCientificoCI(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, RolPersonalCientifico rol, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, PersonalCientifico cientifico1, Turno turnos) {
+        super(cientifico, centroInvestigacion, rol, fechaInicio, fechaFin, personalCientifico);
+        this.cientifico = cientifico1;
+        this.turnos = turnos;
     }
 
-    /**
-     * 
-     */
-    public PersonalCientifico cientifico;
-
-    /**
-     * 
-     */
-    public Turno turnos;
-
-    /**
-     * 
-     */
-    public void mostrarCientifico() {
-        // TODO implement here
+    public PersonalCientifico mostrarCientifico() {
+        return cientifico;
     }
 
-    /**
-     * 
-     */
-    public void mostrarTurnos() {
-        // TODO implement here
+    public Turno mostrarTurnos() {
+        return turnos;
     }
 
 }

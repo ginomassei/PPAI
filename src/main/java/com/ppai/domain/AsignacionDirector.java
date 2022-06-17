@@ -2,27 +2,16 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
 public class AsignacionDirector extends AsignacionCientifico {
 
-    /**
-     * Default constructor
-     */
-    public AsignacionDirector() {
+    private PersonalCientifico director;
+
+    public AsignacionDirector(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, RolPersonalCientifico rol, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, PersonalCientifico director) {
+        super(cientifico, centroInvestigacion, rol, fechaInicio, fechaFin, personalCientifico);
+        this.director = director;
     }
 
-    /**
-     * 
-     */
-    public PersonalCientifico director;
-
-    /**
-     * 
-     */
-    public void mostrarDirector() {
-        // TODO implement here
+    public PersonalCientifico mostrarDirector() {
+        return director;
     }
-
 }

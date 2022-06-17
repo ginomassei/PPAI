@@ -7,22 +7,13 @@ import java.util.*;
  */
 public class ControladorReservaTurno {
 
-    /**
-     * Default constructor
-     */
     public ControladorReservaTurno() {
     }
 
-    /**
-     * 
-     */
     public void buscarTipoRecursoTecnológico() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void obtenerTiposRecursoTecnologico() {
         // TODO implement here
     }
