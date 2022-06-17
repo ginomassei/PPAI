@@ -1,45 +1,20 @@
 package com.ppai.domain;
 
-import java.util.*;
-
-/**
- * 
- */
 public class TipoRecurso {
+    private String nombre;
+    private String descripcion;
+    private Caracteristica caracteristicas;
 
-    /**
-     * Default constructor
-     */
     public TipoRecurso() {
     }
 
-    /**
-     * 
-     */
-    public void nombre;
-
-    /**
-     * 
-     */
-    public void descripcion;
-
-    /**
-     * 
-     */
-    public Caracteristica caracteristicas;
-
-    /**
-     * 
-     */
-    public void crear() {
-        // TODO implement here
+    public TipoRecurso(String nombre, String descripcion, Caracteristica caracteristicas) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.caracteristicas = caracteristicas;
     }
 
-    /**
-     * 
-     */
     public void mostrarCategoria() {
         // TODO implement here
     }
-
 }

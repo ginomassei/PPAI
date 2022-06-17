@@ -2,109 +2,51 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Turno {
+    private CambioEstado estado;
+    private PersonalCientifico cientificoReserva;
+    private PersonalCientifico cientifico;
+    private Date fechaHoraDesde;
+    private Date fechaHoraHasta;
+    private SolicitudReservaTurno solicitudesReserva;
+    private Date fechaHoraInicioTurno;
+    private Date fechaHoraFinTurno;
 
-    /**
-     * Default constructor
-     */
-    public Turno() {
+    public Turno(CambioEstado estado, PersonalCientifico cientificoReserva, PersonalCientifico cientifico, Date fechaHoraDesde, Date fechaHoraHasta, SolicitudReservaTurno solicitudesReserva, Date fechaHoraInicioTurno, Date fechaHoraFinTurno) {
+        this.estado = estado;
+        this.cientificoReserva = cientificoReserva;
+        this.cientifico = cientifico;
+        this.fechaHoraDesde = fechaHoraDesde;
+        this.fechaHoraHasta = fechaHoraHasta;
+        this.solicitudesReserva = solicitudesReserva;
+        this.fechaHoraInicioTurno = fechaHoraInicioTurno;
+        this.fechaHoraFinTurno = fechaHoraFinTurno;
     }
 
-    /**
-     * 
-     */
-    public CambioEstado estado;
-
-    /**
-     * 
-     */
-    public PersonalCientifico cientificoReserva;
-
-    /**
-     * 
-     */
-    public PersonalCientifico cientifico;
-
-    /**
-     * 
-     */
-    public void fechaHoraDesde;
-
-    /**
-     * 
-     */
-    public void fechaHoraHasta;
-
-    /**
-     * 
-     */
-    public SolicitudReservaTurno solicitudesReserva;
-
-    /**
-     * 
-     */
-    public void fechaHoraInicioTurno;
-
-    /**
-     * 
-     */
-    public void fechaHoraFinTurno;
-
-    /**
-     * 
-     */
-    public void crear() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
     public void notificarInasistencia() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void reservarTurno() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void esActivo() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void esPosteriorA() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void cambiarEstado() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void vincularNuevoCambioEstado() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void finalizarUltimoCambioEstado() {
         // TODO implement here
     }

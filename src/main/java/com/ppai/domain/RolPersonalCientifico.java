@@ -1,26 +1,11 @@
 package com.ppai.domain;
 
-import java.util.*;
-
-/**
- * 
- */
 public class RolPersonalCientifico {
+    private String descripcion;
+    private String nombre;
 
-    /**
-     * Default constructor
-     */
-    public RolPersonalCientifico() {
+    public RolPersonalCientifico(String descripcion, String nombre) {
+        this.descripcion = descripcion;
+        this.nombre = nombre;
     }
-
-    /**
-     * 
-     */
-    public void nombre;
-
-    /**
-     * 
-     */
-    public void descripcion;
-
 }

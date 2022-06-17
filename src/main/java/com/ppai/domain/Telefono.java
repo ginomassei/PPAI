@@ -1,24 +1,11 @@
 package com.ppai.domain;
 
-/**
- * 
- */
 public class Telefono {
+    private String nroTelefono;
+    private String referencia;
 
-    /**
-     * Default constructor
-     */
-    public Telefono() {
+    public Telefono(String nroTelefono, String referencia) {
+        this.nroTelefono = nroTelefono;
+        this.referencia = referencia;
     }
-
-    /**
-     * 
-     */
-    public void nroTelefono;
-
-    /**
-     * 
-     */
-    public void referencia;
-
 }

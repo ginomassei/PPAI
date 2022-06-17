@@ -6,56 +6,27 @@ import java.util.*;
  * 
  */
 public class Marca {
+    private String nombre;
+    private String descripción;
 
-    /**
-     * Default constructor
-     */
-    public Marca() {
+    public Marca(String nombre, String descripción) {
+        this.nombre = nombre;
+        this.descripción = descripción;
     }
 
-    /**
-     * 
-     */
-    public void nombre;
-
-    /**
-     * 
-     */
-    public void descripción;
-
-    /**
-     * 
-     */
-    public void crear() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
     public void mostrar() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void modificar() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void mostrarMarca() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void mostrarNombre() {
         // TODO implement here
     }
-
 }

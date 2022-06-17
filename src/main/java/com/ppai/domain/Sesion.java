@@ -1,28 +1,13 @@
 package com.ppai.domain;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Sesion {
-
-    /**
-     * Default constructor
-     */
-    public Sesion() {
-    }
-
-    /**
-     * 
-     */
     public Usuario usuario;
 
-    /**
-     * 
-     */
+    public Sesion(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public void obtenerCientifico() {
         // TODO implement here
     }
-
 }

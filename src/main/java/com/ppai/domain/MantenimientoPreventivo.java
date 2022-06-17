@@ -2,20 +2,10 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
 public class MantenimientoPreventivo extends Mantenimiento {
+    private Date fechaInicioPrevista;
 
-    /**
-     * Default constructor
-     */
-    public MantenimientoPreventivo() {
+    public MantenimientoPreventivo(Date fechaInicioPrevista) {
+        this.fechaInicioPrevista = fechaInicioPrevista;
     }
-
-    /**
-     * 
-     */
-    public void fechaInicioPrevista;
-
 }
