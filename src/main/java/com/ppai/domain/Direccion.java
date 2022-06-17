@@ -2,40 +2,20 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Direccion {
 
-    /**
-     * Default constructor
-     */
-    public Direccion() {
+    private String calle;
+    private Integer numero;
+    private String edificio;
+    private Integer piso;
+    private String coordenadas;
+
+    public Direccion(String calle, Integer numero, String edificio, Integer piso, String coordenadas) {
+        this.calle = calle;
+        this.numero = numero;
+        this.edificio = edificio;
+        this.piso = piso;
+        this.coordenadas = coordenadas;
     }
-
-    /**
-     * 
-     */
-    public void calle;
-
-    /**
-     * 
-     */
-    public void numero;
-
-    /**
-     * 
-     */
-    public void edificio;
-
-    /**
-     * 
-     */
-    public void piso;
-
-    /**
-     * 
-     */
-    public void coordenadas;
 
 }
