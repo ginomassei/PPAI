@@ -264,7 +264,7 @@ public class GlobalVendor {
 
         RecursoTecnologico recurso1 = new RecursoTecnologico(39,null,tiposRecurso.get(0),
                 caracteristicasRecurso1,null,null,null,
-                cambiosEstadoRecursoActivo,null,null,modelos.get(0),turnosRecurso1,
+                cambiosEstadoRecursoDeBaja,null,null,modelos.get(0),turnosRecurso1,
                 null, null);
 
         caracteristicasRecurso2.add(caracteristicasRecurso.get(11));
@@ -354,7 +354,151 @@ public class GlobalVendor {
 
         RecursoTecnologico recurso6 = new RecursoTecnologico(77,null,tiposRecurso.get(1),
                 caracteristicasRecurso6,null,null,null,
-                cambiosEstadoRecursoActivo,null,null,modelos.get(5),turnosRecurso6,
+                cambiosEstadoRecursoDeBaja,null,null,modelos.get(5),turnosRecurso6,
+                null, null);
+
+        caracteristicasRecurso7.add(caracteristicasRecurso.get(12));
+        caracteristicasRecurso7.add(caracteristicasRecurso.get(17));
+        caracteristicasRecurso7.add(caracteristicasRecurso.get(26));
+        caracteristicasRecurso7.add(caracteristicasRecurso.get(28));
+
+        turnosRecurso7.add(turnos.get(0));
+        turnosRecurso7.add(turnos.get(1));
+        turnosRecurso7.add(turnos.get(2));
+        turnosRecurso7.add(turnos.get(11));
+        turnosRecurso7.add(turnos.get(14));
+
+        RecursoTecnologico recurso7 = new RecursoTecnologico(84,null,tiposRecurso.get(2),
+                caracteristicasRecurso7,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(6),turnosRecurso7,
+                null, null);
+
+        caracteristicasRecurso8.add(caracteristicasRecurso.get(13));
+        caracteristicasRecurso8.add(caracteristicasRecurso.get(15));
+        caracteristicasRecurso8.add(caracteristicasRecurso.get(27));
+        caracteristicasRecurso8.add(caracteristicasRecurso.get(29));
+
+        turnosRecurso8.add(turnos.get(0));
+        turnosRecurso8.add(turnos.get(1));
+        turnosRecurso8.add(turnos.get(6));
+        turnosRecurso8.add(turnos.get(10));
+        turnosRecurso8.add(turnos.get(12));
+
+        RecursoTecnologico recurso8 = new RecursoTecnologico(33,null,tiposRecurso.get(2),
+                caracteristicasRecurso8,null,null,null,
+                cambiosEstadoRecursoDeBaja,null,null,modelos.get(7),turnosRecurso8,
+                null, null);
+
+        caracteristicasRecurso9.add(caracteristicasRecurso.get(11));
+        caracteristicasRecurso9.add(caracteristicasRecurso.get(19));
+        caracteristicasRecurso9.add(caracteristicasRecurso.get(26));
+        caracteristicasRecurso9.add(caracteristicasRecurso.get(29));
+
+        turnosRecurso9.add(turnos.get(0));
+        turnosRecurso9.add(turnos.get(1));
+        turnosRecurso9.add(turnos.get(4));
+        turnosRecurso9.add(turnos.get(8));
+        turnosRecurso9.add(turnos.get(11));
+
+        RecursoTecnologico recurso9 = new RecursoTecnologico(5,null,tiposRecurso.get(2),
+                caracteristicasRecurso9,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(8),turnosRecurso9,
+                null, null);
+
+        caracteristicasRecurso10.add(caracteristicasRecurso.get(13));
+        caracteristicasRecurso10.add(caracteristicasRecurso.get(18));
+        caracteristicasRecurso10.add(caracteristicasRecurso.get(0));
+        caracteristicasRecurso10.add(caracteristicasRecurso.get(26));
+
+        turnosRecurso10.add(turnos.get(0));
+        turnosRecurso10.add(turnos.get(1));
+        turnosRecurso10.add(turnos.get(5));
+        turnosRecurso10.add(turnos.get(7));
+        turnosRecurso10.add(turnos.get(13));
+
+        RecursoTecnologico recurso10 = new RecursoTecnologico(19,null,tiposRecurso.get(3),
+                caracteristicasRecurso10,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(9),turnosRecurso10,
+                null, null);
+
+        caracteristicasRecurso11.add(caracteristicasRecurso.get(11));
+        caracteristicasRecurso11.add(caracteristicasRecurso.get(16));
+        caracteristicasRecurso11.add(caracteristicasRecurso.get(1));
+        caracteristicasRecurso11.add(caracteristicasRecurso.get(27));
+
+        turnosRecurso11.add(turnos.get(0));
+        turnosRecurso11.add(turnos.get(1));
+        turnosRecurso11.add(turnos.get(3));
+        turnosRecurso11.add(turnos.get(6));
+        turnosRecurso11.add(turnos.get(11));
+
+        RecursoTecnologico recurso11 = new RecursoTecnologico(39,null,tiposRecurso.get(3),
+                caracteristicasRecurso11,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(10),turnosRecurso11,
+                null, null);
+
+        caracteristicasRecurso12.add(caracteristicasRecurso.get(14));
+        caracteristicasRecurso12.add(caracteristicasRecurso.get(15));
+        caracteristicasRecurso12.add(caracteristicasRecurso.get(0));
+        caracteristicasRecurso12.add(caracteristicasRecurso.get(27));
+
+        turnosRecurso12.add(turnos.get(0));
+        turnosRecurso12.add(turnos.get(1));
+        turnosRecurso12.add(turnos.get(5));
+        turnosRecurso12.add(turnos.get(9));
+        turnosRecurso12.add(turnos.get(14));
+
+        RecursoTecnologico recurso12 = new RecursoTecnologico(2,null,tiposRecurso.get(3),
+                caracteristicasRecurso12,null,null,null,
+                cambiosEstadoRecursoDeBaja,null,null,modelos.get(11),turnosRecurso12,
+                null, null);
+
+        caracteristicasRecurso13.add(caracteristicasRecurso.get(12));
+        caracteristicasRecurso13.add(caracteristicasRecurso.get(18));
+        caracteristicasRecurso13.add(caracteristicasRecurso.get(6));
+        caracteristicasRecurso13.add(caracteristicasRecurso.get(20));
+
+        turnosRecurso13.add(turnos.get(0));
+        turnosRecurso13.add(turnos.get(1));
+        turnosRecurso13.add(turnos.get(3));
+        turnosRecurso13.add(turnos.get(4));
+        turnosRecurso13.add(turnos.get(12));
+
+        RecursoTecnologico recurso13 = new RecursoTecnologico(94,null,tiposRecurso.get(4),
+                caracteristicasRecurso13,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(12),turnosRecurso13,
+                null, null);
+
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(11));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(15));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(7));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(21));
+
+        turnosRecurso14.add(turnos.get(0));
+        turnosRecurso14.add(turnos.get(1));
+        turnosRecurso14.add(turnos.get(2));
+        turnosRecurso14.add(turnos.get(7));
+        turnosRecurso14.add(turnos.get(11));
+
+        RecursoTecnologico recurso14 = new RecursoTecnologico(94,null,tiposRecurso.get(4),
+                caracteristicasRecurso14,null,null,null,
+                cambiosEstadoRecursoDeBaja,null,null,modelos.get(13),turnosRecurso14,
+                null, null);
+
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(10));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(19));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(6));
+        caracteristicasRecurso14.add(caracteristicasRecurso.get(21));
+
+        turnosRecurso15.add(turnos.get(0));
+        turnosRecurso15.add(turnos.get(1));
+        turnosRecurso15.add(turnos.get(4));
+        turnosRecurso15.add(turnos.get(5));
+        turnosRecurso15.add(turnos.get(6));
+
+        RecursoTecnologico recurso15 = new RecursoTecnologico(94,null,tiposRecurso.get(4),
+                caracteristicasRecurso15,null,null,null,
+                cambiosEstadoRecursoActivo,null,null,modelos.get(14),turnosRecurso15,
                 null, null);
 
     }
