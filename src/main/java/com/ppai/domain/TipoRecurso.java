@@ -13,10 +13,7 @@ public class TipoRecurso {
         this.caracteristicas = caracteristicas;
     }
 
-    public void mostrarCategoria() {
-        // TODO implement here
-    }
-
-    public static ArrayList<TipoRecurso> getAll() {
+    public String mostrarCategoria() {
+        return this.nombre;
     }
 }
