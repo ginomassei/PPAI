@@ -1,5 +1,6 @@
 package com.ppai.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,15 +9,15 @@ public class RecursoTecnologico {
     private int nroInventario;
     private Date fechaAlta;
     private TipoRecurso tipo;
-    private CaracteristicaRecurso caracteristicas;
+    private ArrayList<CaracteristicaRecurso> caracteristicas;
     private List<String> imagenes;
     private Disponibilidad disponibilidad;
     private PersonalCientifico responsableTecnico;
-    private CambioEstado estado;
+    private ArrayList<CambioEstado> estado;
     private MantenimientoPreventivo mantPreventivos;
     private MantenimientoCorrectivo mantCorrectivos;
     private Modelo modelo;
-    private Turno turno;
+    private ArrayList<Turno> turno;
     private String periodicidadMp;
     private String duraciónMp;
 
@@ -24,15 +25,15 @@ public class RecursoTecnologico {
         int nroInventario,
         Date fechaAlta,
         TipoRecurso tipo,
-        CaracteristicaRecurso caracteristicas,
+        ArrayList<CaracteristicaRecurso> caracteristicas,
         List<String> imagenes,
         Disponibilidad disponibilidad,
         PersonalCientifico responsableTecnico,
-        CambioEstado estado,
+        ArrayList<CambioEstado> estado,
         MantenimientoPreventivo mantPreventivos,
         MantenimientoCorrectivo mantCorrectivos,
         Modelo modelo,
-        Turno turno,
+        ArrayList<Turno> turno,
         String periodicidadMp,
         String duraciónMp
     ) {

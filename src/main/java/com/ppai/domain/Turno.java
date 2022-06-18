@@ -3,7 +3,7 @@ package com.ppai.domain;
 import java.util.*;
 
 public class Turno {
-    private CambioEstado estado;
+    private ArrayList<CambioEstado> estado;
     private PersonalCientifico cientificoReserva;
     private PersonalCientifico cientifico;
     private Date fechaHoraDesde;
@@ -12,7 +12,7 @@ public class Turno {
     private Date fechaHoraInicioTurno;
     private Date fechaHoraFinTurno;
 
-    public Turno(CambioEstado estado, PersonalCientifico cientificoReserva, PersonalCientifico cientifico, Date fechaHoraDesde, Date fechaHoraHasta, SolicitudReservaTurno solicitudesReserva, Date fechaHoraInicioTurno, Date fechaHoraFinTurno) {
+    public Turno(ArrayList<CambioEstado> estado, PersonalCientifico cientificoReserva, PersonalCientifico cientifico, Date fechaHoraDesde, Date fechaHoraHasta, SolicitudReservaTurno solicitudesReserva, Date fechaHoraInicioTurno, Date fechaHoraFinTurno) {
         this.estado = estado;
         this.cientificoReserva = cientificoReserva;
         this.cientifico = cientifico;
