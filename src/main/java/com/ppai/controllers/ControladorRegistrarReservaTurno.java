@@ -1,18 +1,17 @@
-package com.ppai.domain;
+package com.ppai.controllers;
 
-import java.util.*;
+import com.ppai.domain.TipoRecurso;
 
-public class ControladorReservaTurno {
+import java.util.ArrayList;
 
-    public ControladorReservaTurno() {
+public class ControladorRegistrarReservaTurno {
+    public ArrayList<TipoRecurso> buscarTipoRecursoTecnologico() {
+        return obtenerTiposRecursoTecnologico();
     }
 
-    public void buscarTipoRecursoTecnológico() {
-        // TODO implement here
-    }
+    private ArrayList<TipoRecurso> obtenerTiposRecursoTecnologico() {
 
-    public void obtenerTiposRecursoTecnologico() {
-        // TODO implement here
+        return TipoRecurso.getAll();
     }
 
     public void buscarRecursosTecnologicosPorTipo() {

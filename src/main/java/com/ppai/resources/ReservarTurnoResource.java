@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/hello")
-public class ExampleResource {
+public class ReservarTurnoResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
