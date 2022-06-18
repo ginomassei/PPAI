@@ -15,12 +15,67 @@ public class GlobalVendor {
     public static ArrayList<TipoRecurso> tiposRecurso;
     public static ArrayList<Modelo> modelos;
     public static ArrayList<Marca> marcas;
+    public static ArrayList<PersonalCientifico> cientificos;
     public static ArrayList<RecursoTecnologico> recursosTecnologicos;
     public static ArrayList<CentroInvestigacion> centrosInvestigacion;
     public static ArrayList<CambioEstado> cambiosEstado;
     public static ArrayList<Turno> turnos;
     public static ArrayList<Estado> estados;
     public static ArrayList<CaracteristicaRecurso> caracteristicasRecurso;
+    public static ArrayList<Usuario> usuarios;
+    public static ArrayList<AsignacionCientificoCI> asignacionesCientificoCI;
+
+    public static ArrayList<Caracteristica> getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public static ArrayList<TipoRecurso> getTiposRecurso() {
+        return tiposRecurso;
+    }
+
+    public static ArrayList<Modelo> getModelos() {
+        return modelos;
+    }
+
+    public static ArrayList<Marca> getMarcas() {
+        return marcas;
+    }
+
+    public static ArrayList<PersonalCientifico> getCientificos() {
+        return cientificos;
+    }
+
+    public static ArrayList<RecursoTecnologico> getRecursosTecnologicos() {
+        return recursosTecnologicos;
+    }
+
+    public static ArrayList<CentroInvestigacion> getCentrosInvestigacion() {
+        return centrosInvestigacion;
+    }
+
+    public static ArrayList<CambioEstado> getCambiosEstado() {
+        return cambiosEstado;
+    }
+
+    public static ArrayList<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public static ArrayList<Estado> getEstados() {
+        return estados;
+    }
+
+    public static ArrayList<CaracteristicaRecurso> getCaracteristicasRecurso() {
+        return caracteristicasRecurso;
+    }
+
+    public static ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public static ArrayList<AsignacionCientificoCI> getAsignacionesCientificoCI() {
+        return asignacionesCientificoCI;
+    }
 
     @PostConstruct
     public static void init(){
@@ -32,6 +87,9 @@ public class GlobalVendor {
         crearEstados();
         crearCambiosEstado();
         crearTurnos();
+        crearUsuarios();
+        crearPersonalCientifico();
+        crearAsignacionesCientificosCI();
         crearRecursosTecnologicos();
         crearCentrosInvestigacion();
     }
@@ -118,11 +176,9 @@ public class GlobalVendor {
         tiposRecurso.add(tipoRecurso3);
         tiposRecurso.add(tipoRecurso4);
         tiposRecurso.add(tipoRecurso5);
-
     }
 
-    public static void crearModelos(){
-
+    public static void crearModelos() {
         Modelo modelo1 = new Modelo("TXB312", null);
         Modelo modelo2 = new Modelo("TXB203", null);
         Modelo modelo3 = new Modelo("TXB465", null);
@@ -154,11 +210,9 @@ public class GlobalVendor {
         modelos.add(modelo13);
         modelos.add(modelo14);
         modelos.add(modelo15);
-
     }
 
-    public static void crearMarcas(){
-
+    public static void crearMarcas() {
         ArrayList<Modelo> modelosMarca1 = new ArrayList<>();
         ArrayList<Modelo> modelosMarca2 = new ArrayList<>();
         ArrayList<Modelo> modelosMarca3 = new ArrayList<>();
@@ -200,11 +254,9 @@ public class GlobalVendor {
         marcas.add(marca3);
         marcas.add(marca4);
         marcas.add(marca5);
-
     }
 
-    public static void crearRecursosTecnologicos(){
-
+    public static void crearRecursosTecnologicos() {
         ArrayList<CambioEstado> cambiosEstadoRecursoActivo = new ArrayList<>();
         ArrayList<CambioEstado> cambiosEstadoRecursoDeBaja = new ArrayList<>();
 
@@ -501,57 +553,214 @@ public class GlobalVendor {
                 cambiosEstadoRecursoActivo,null,null,modelos.get(14),turnosRecurso15,
                 null, null);
 
+        recursosTecnologicos.add(recurso1);
+        recursosTecnologicos.add(recurso2);
+        recursosTecnologicos.add(recurso3);
+        recursosTecnologicos.add(recurso4);
+        recursosTecnologicos.add(recurso5);
+        recursosTecnologicos.add(recurso6);
+        recursosTecnologicos.add(recurso7);
+        recursosTecnologicos.add(recurso8);
+        recursosTecnologicos.add(recurso9);
+        recursosTecnologicos.add(recurso10);
+        recursosTecnologicos.add(recurso11);
+        recursosTecnologicos.add(recurso12);
+        recursosTecnologicos.add(recurso13);
+        recursosTecnologicos.add(recurso14);
+        recursosTecnologicos.add(recurso15);
     }
 
-    public static void crearCentrosInvestigacion(){
+    public static void crearPersonalCientifico() {
+        PersonalCientifico cientifico1 = new PersonalCientifico(2901, "Pedro", "Sanchez",
+                "20948277", null, null, null,usuarios.get(0));
 
+        PersonalCientifico cientifico2 = new PersonalCientifico(2923, "Maria", "Tretta",
+                "24248567", null, null, null,usuarios.get(1));
+
+        PersonalCientifico cientifico3 = new PersonalCientifico(2832, "Gabriel", "Lazcano",
+                "23229098", null, null, null,usuarios.get(2));
+
+        PersonalCientifico cientifico4 = new PersonalCientifico(2143, "Carlos", "Ruiz",
+                "27525878", null, null, null,usuarios.get(3));
+
+        PersonalCientifico cientifico5 = new PersonalCientifico(3001, "Andrea", "Reynoso",
+                "19610500", null, null, null,usuarios.get(4));
+
+        PersonalCientifico cientifico6 = new PersonalCientifico(2789, "Tomas", "Diaz",
+                "21404747", null, null, null,usuarios.get(5));
+
+        cientificos.add(cientifico1);
+        cientificos.add(cientifico2);
+        cientificos.add(cientifico3);
+        cientificos.add(cientifico4);
+        cientificos.add(cientifico5);
+        cientificos.add(cientifico6);
+
+    }
+
+    public static void crearAsignacionesCientificosCI() {
+        Date fechaDesde1 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion1 = new AsignacionCientificoCI(cientificos.get(0), null, fechaDesde1,
+                null, null);
+
+        Date fechaDesde2 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion2 = new AsignacionCientificoCI(cientificos.get(1), null, fechaDesde2,
+                null, null);
+
+        Date fechaDesde3 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion3 = new AsignacionCientificoCI(cientificos.get(2), null, fechaDesde3,
+                null, null);
+
+        Date fechaDesde4 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion4 = new AsignacionCientificoCI(cientificos.get(3), null, fechaDesde4,
+                null, null);
+
+        Date fechaDesde5 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion5 = new AsignacionCientificoCI(cientificos.get(4), null, fechaDesde5,
+                null, null);
+
+        Date fechaDesde6 = new Date(2022,01,23);
+
+        AsignacionCientificoCI asignacion6 = new AsignacionCientificoCI(cientificos.get(5), null, fechaDesde6,
+                null, null);
+
+        asignacionesCientificoCI.add(asignacion1);
+        asignacionesCientificoCI.add(asignacion2);
+        asignacionesCientificoCI.add(asignacion3);
+        asignacionesCientificoCI.add(asignacion4);
+        asignacionesCientificoCI.add(asignacion5);
+        asignacionesCientificoCI.add(asignacion6);
+    }
+
+    public static void crearUsuarios(){
+
+        Usuario usuario1 = new Usuario(null, null, "psanchez");
+        Usuario usuario2 = new Usuario(null, null, "mtretta");
+        Usuario usuario3 = new Usuario(null, null, "glazcano");
+        Usuario usuario4 = new Usuario(null, null, "cruiz");
+        Usuario usuario5 = new Usuario(null, null, "areynoso");
+        Usuario usuario6 = new Usuario(null, null, "tdiaz");
+
+        usuarios.add(usuario1);
+        usuarios.add(usuario2);
+        usuarios.add(usuario3);
+        usuarios.add(usuario4);
+        usuarios.add(usuario5);
+        usuarios.add(usuario6);
+    }
+
+    public static void crearCentrosInvestigacion() {
+        ArrayList<RecursoTecnologico> recursosCentro1 = new ArrayList<>();
+        ArrayList<RecursoTecnologico> recursosCentro2 = new ArrayList<>();
+        ArrayList<RecursoTecnologico> recursosCentro3 = new ArrayList<>();
+        ArrayList<RecursoTecnologico> recursosCentro4 = new ArrayList<>();
+
+        Date fechaDesde1 = new Date(2022,01,23);
+
+        recursosCentro1.add(recursosTecnologicos.get(0));
+        recursosCentro1.add(recursosTecnologicos.get(3));
+        recursosCentro1.add(recursosTecnologicos.get(6));
+        recursosCentro1.add(recursosTecnologicos.get(9));
+        recursosCentro1.add(recursosTecnologicos.get(12));
+
+        ArrayList<AsignacionCientificoCI> asignacionesCentro1 = new ArrayList<>();
+        asignacionesCentro1.add(asignacionesCientificoCI.get(0));
+        asignacionesCentro1.add(asignacionesCientificoCI.get(1));
+
+        CentroInvestigacion centro1 = new CentroInvestigacion("Estructura","EST", null,
+                null, null, null, null, fechaDesde1,
+                null, null, null, recursosCentro1, null, null,
+                null, null, null, null, asignacionesCentro1);
+
+        Date fechaDesde2 = new Date(2022,01,23);
+
+        recursosCentro2.add(recursosTecnologicos.get(1));
+        recursosCentro2.add(recursosTecnologicos.get(4));
+        recursosCentro2.add(recursosTecnologicos.get(7));
+        recursosCentro2.add(recursosTecnologicos.get(10));
+        recursosCentro2.add(recursosTecnologicos.get(13));
+
+        ArrayList<AsignacionCientificoCI> asignacionesCentro2 = new ArrayList<>();
+        asignacionesCentro2.add(asignacionesCientificoCI.get(2));
+        asignacionesCentro2.add(asignacionesCientificoCI.get(3));
+
+        CentroInvestigacion centro2 = new CentroInvestigacion("Quimica","QUI", null,
+                null, null, null, null, fechaDesde2,
+                null, null, null, recursosCentro2, null, null,
+                null, null, null, null, asignacionesCentro2);
+
+        Date fechaDesde3 = new Date(2022,01,23);
+
+        recursosCentro3.add(recursosTecnologicos.get(2));
+        recursosCentro3.add(recursosTecnologicos.get(5));
+        recursosCentro3.add(recursosTecnologicos.get(8));
+        recursosCentro3.add(recursosTecnologicos.get(11));
+        recursosCentro3.add(recursosTecnologicos.get(14));
+
+        ArrayList<AsignacionCientificoCI> asignacionesCentro3 = new ArrayList<>();
+        asignacionesCentro3.add(asignacionesCientificoCI.get(4));
+        asignacionesCentro3.add(asignacionesCientificoCI.get(5));
+
+        CentroInvestigacion centro3 = new CentroInvestigacion("Fisica","FIS", null,
+                null, null, null, null, fechaDesde3,
+                null, null, null, recursosCentro3, null, null,
+                null, null, null, null, asignacionesCentro3);
+
+        Date fechaDesde4 = new Date(2022,01,23);
+        Date fechaBaja4 = new Date(2022,02,23);
+
+        recursosCentro4.add(recursosTecnologicos.get(1));
+        recursosCentro4.add(recursosTecnologicos.get(3));
+        recursosCentro4.add(recursosTecnologicos.get(7));
+        recursosCentro4.add(recursosTecnologicos.get(11));
+        recursosCentro4.add(recursosTecnologicos.get(13));
+
+        ArrayList<AsignacionCientificoCI> asignacionesCentro4 = new ArrayList<>();
+        asignacionesCentro4.add(asignacionesCientificoCI.get(1));
+        asignacionesCentro4.add(asignacionesCientificoCI.get(4));
+
+        CentroInvestigacion centro4 = new CentroInvestigacion("Demografia","DEM", null,
+                null, null, null, null, fechaDesde4,
+                null, fechaBaja4, "Incendio", recursosCentro4, null, null,
+                null, null, null, null, asignacionesCentro4);
+
+        centrosInvestigacion.add(centro1);
+        centrosInvestigacion.add(centro2);
+        centrosInvestigacion.add(centro3);
+        centrosInvestigacion.add(centro4);
     }
 
     public static void crearCambiosEstado(){
-
-        //Cambios de estado para turnos
-
+        // Cambios de estado para turnos
         Date fechaDesde1 = new Date(2022,01,23,9,00);
         Date fechaHasta1 = new Date(2022,01,23,12,00);
-
         CambioEstado cambioEstado1 = new CambioEstado(fechaDesde1, fechaHasta1, estados.get(0));
-
         Date fechaDesde2 = new Date(2022,01,25,11,00);
         Date fechaHasta2 = new Date(2022,01,25,12,00);
-
         CambioEstado cambioEstado2 = new CambioEstado(fechaDesde2, fechaHasta2, estados.get(2));
-
         Date fechaDesde3 = new Date(2022,02,2,18,00);
         Date fechaHasta3 = new Date(2022,02,2,20,30);
-
         CambioEstado cambioEstado3 = new CambioEstado(fechaDesde3, fechaHasta3, estados.get(5));
-
         Date fechaDesde4 = new Date(2022,02,5,17,00);
-
         CambioEstado cambioEstado4 = new CambioEstado(fechaDesde4, null, estados.get(6));
-
         Date fechaDesde5 = new Date(2022,03,2,8,00);
-
         CambioEstado cambioEstado5 = new CambioEstado(fechaDesde5, null, estados.get(0));
 
-        //Cambios de estado para recursos
-
+        // Cambios de estado para recursos
         Date fechaDesde6 = new Date(2022,01,23,9,00);
         Date fechaHasta6 = new Date(2022,01,23,12,00);
-
         CambioEstado cambioEstado6 = new CambioEstado(fechaDesde6, fechaHasta6, estados.get(8));
-
         Date fechaDesde7 = new Date(2022,01,25,11,00);
         Date fechaHasta7 = new Date(2022,01,25,12,00);
-
         CambioEstado cambioEstado7 = new CambioEstado(fechaDesde7, fechaHasta7, estados.get(9));
-
         Date fechaDesde8 = new Date(2022,02,2,18,00);
-
         CambioEstado cambioEstado8 = new CambioEstado(fechaDesde8, null, estados.get(8));
-
         Date fechaDesde9 = new Date(2022,02,2,18,00);
-
         CambioEstado cambioEstado9 = new CambioEstado(fechaDesde9, null, estados.get(9));
 
         cambiosEstado.add(cambioEstado1);
@@ -563,11 +772,9 @@ public class GlobalVendor {
         cambiosEstado.add(cambioEstado7);
         cambiosEstado.add(cambioEstado8);
         cambiosEstado.add(cambioEstado9);
-
     }
 
-    public static void crearEstados(){
-
+    public static void crearEstados() {
         Estado estado1 = new Estado("Disponible", "Turno");
         Estado estado2 = new Estado("Anulado", "Turno");
         Estado estado3 = new Estado("PendienteDeConfirmacion", "Turno");
@@ -589,13 +796,10 @@ public class GlobalVendor {
         estados.add(estado8);
         estados.add(estado9);
         estados.add(estado10);
-
     }
 
-    public static void crearTurnos(){
-
-        //Turno finalizado
-
+    public static void crearTurnos() {
+        // Turno finalizado
         ArrayList<CambioEstado> cambiosEstadoFinalizado = new ArrayList<>();
         cambiosEstadoFinalizado.add(cambiosEstado.get(0));
         cambiosEstadoFinalizado.add(cambiosEstado.get(1));
@@ -608,65 +812,56 @@ public class GlobalVendor {
         cambiosEstadoDisponible.add(cambiosEstado.get(2));
         cambiosEstadoDisponible.add(cambiosEstado.get(4));
 
-        //Turno finalizado
-
+        // Turno finalizado
         Date fechaDesde1 = new Date(2022,03,23,9,00);
         Date fechaHasta1 = new Date(2022,03,23,12,00);
 
         Turno turno1 = new Turno(cambiosEstadoFinalizado, null, null, fechaDesde1, fechaHasta1,
                 null, null, null);
 
-        //Turno finalizado
-
+        // Turno finalizado
         Date fechaDesde2 = new Date(2022,04,2,12,00);
         Date fechaHasta2 = new Date(2022,04,2,14,30);
 
         Turno turno2 = new Turno(cambiosEstadoFinalizado, null, null, fechaDesde2, fechaHasta2,
                 null, null, null);
 
-        //Turno disponible
-
+        // Turno disponible
         Date fechaDesde3 = new Date(2022,04,3,8,00);
         Date fechaHasta3 = new Date(2022,04,3,9,30);
 
         Turno turno3 = new Turno(cambiosEstadoDisponible, null, null, fechaDesde3, fechaHasta3,
                 null, null, null);
 
-        //Turno disponible
-
+        // Turno disponible
         Date fechaDesde4 = new Date(2022,05,7,18,30);
         Date fechaHasta4 = new Date(2022,05,7,20,00);
 
         Turno turno4 = new Turno(cambiosEstadoDisponible, null, null, fechaDesde4, fechaHasta4,
                 null, null, null);
 
-        //Turno disponible
-
+        // Turno disponible
         Date fechaDesde5 = new Date(2022,05,10,11,00);
         Date fechaHasta5 = new Date(2022,05,10,14,00);
 
         Turno turno5 = new Turno(cambiosEstadoDisponible, null, null, fechaDesde5, fechaHasta5,
                 null, null, null);
 
-        //Turno disponible
-
+        // Turno disponible
         Date fechaDesde6 = new Date(2022,06,2,13,45);
         Date fechaHasta6 = new Date(2022,06,2,17,00);
 
         Turno turno6 = new Turno(cambiosEstadoDisponible, null, null, fechaDesde6, fechaHasta6,
                 null, null, null);
 
-        //Turno disponible
-
+        // Turno disponible
         Date fechaDesde7 = new Date(2022,06,9,7,30);
         Date fechaHasta7 = new Date(2022,06,9,11,00);
 
         Turno turno7 = new Turno(cambiosEstadoDisponible, null, null, fechaDesde7, fechaHasta7,
                 null, null, null);
 
-        //Turno disponible
-
-
+        // Turno disponible
         Date fechaDesde8 = new Date(2022,06,16,17,00);
         Date fechaHasta8 = new Date(2022,06,16,19,00);
 
@@ -735,11 +930,9 @@ public class GlobalVendor {
         turnos.add(turno12);
         turnos.add(turno13);
         turnos.add(turno14);
-
     }
 
     private static void crearCaracteristicasRecurso(){
-
         CaracteristicaRecurso caracteristicaRecurso1 = new CaracteristicaRecurso(caracteristicas.get(0),"20");
         CaracteristicaRecurso caracteristicaRecurso2 = new CaracteristicaRecurso(caracteristicas.get(0),"45");
         CaracteristicaRecurso caracteristicaRecurso3 = new CaracteristicaRecurso(caracteristicas.get(1),"1,2");
@@ -801,7 +994,5 @@ public class GlobalVendor {
         caracteristicasRecurso.add(caracteristicaRecurso28);
         caracteristicasRecurso.add(caracteristicaRecurso29);
         caracteristicasRecurso.add(caracteristicaRecurso30);
-
     }
-
 }

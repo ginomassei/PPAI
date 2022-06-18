@@ -6,7 +6,7 @@ import com.ppai.domain.TipoRecurso;
 import java.util.ArrayList;
 
 public class ControladorRegistrarReservaTurno {
-    public static ArrayList<TipoRecurso> tiposDeRecursos = GlobalVendor.getTiposRecursos();
+    public static ArrayList<TipoRecurso> tiposDeRecursos = GlobalVendor.getTiposRecurso();
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();

@@ -23,9 +23,9 @@ public class CentroInvestigacion {
     private Date fechaAlta;
     private String caracteristicas;
     private AsignacionDirector direc;
-    private AsignacionCientificoCI cientificos;
+    private ArrayList<AsignacionCientificoCI> cientificos;
 
-    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, ArrayList<RecursoTecnologico> recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, AsignacionCientificoCI cientificos) {
+    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, ArrayList<RecursoTecnologico> recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, ArrayList<AsignacionCientificoCI> cientificos) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.direccion = direccion;
