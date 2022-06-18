@@ -5,9 +5,9 @@ import com.ppai.controllers.ControladorRegistrarReservaTurno;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 
 @Path("/turnos")
 public class PantallaReservarTurno {
@@ -17,7 +17,11 @@ public class PantallaReservarTurno {
     @Path("/buscar-tipo-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscarTipoRecursoTecnologico() {
-        controladorReservaTurno.buscarTipoRecursoTecnologico();
+        ArrayList<String> tiposRecurso = controladorReservaTurno.buscarTipoRecursoTecnologico();
+        return Response
+            .ok(tiposRecurso)
+            .entity(tiposRecurso)
+            .build();
     }
 
     @GET
@@ -31,6 +35,7 @@ public class PantallaReservarTurno {
     @Path("/seleccionar-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
     public Response seleccionarRecursoTecnologico() {
+        controladorReservaTurno.seleccionarRecursoTecnologico();
         return Response.ok("{\"message\":\"Hello World\"}").build();
     }
 
@@ -86,23 +91,14 @@ public class PantallaReservarTurno {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void solicitarConfirmacionYNotificacion() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void mostrarDatosReservaParcial() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
     public void solicitarMetodoNotificacion() {
         // TODO implement here
     }

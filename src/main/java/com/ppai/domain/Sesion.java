@@ -1,5 +1,8 @@
 package com.ppai.domain;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class Sesion {
     public Usuario usuario;
 
