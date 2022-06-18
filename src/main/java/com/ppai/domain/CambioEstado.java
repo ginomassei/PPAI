@@ -6,16 +6,20 @@ public class CambioEstado {
 
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
-    private Estado e;
+    private Estado estado;
 
-    public CambioEstado(Date fechaHoraDesde, Date fechaHoraHasta, Estado e) {
+    public CambioEstado(Date fechaHoraDesde, Date fechaHoraHasta, Estado estado) {
         this.fechaHoraDesde = fechaHoraDesde;
         this.fechaHoraHasta = fechaHoraHasta;
-        this.e = e;
+        this.estado = estado;
     }
 
-    public void esActual() {
-        // TODO implement here
+    public String mostrarEstado(){
+        return this.estado.mostrar();
+    }
+
+    public boolean esActual() {
+        return fechaHoraHasta == null;
     }
 
 }

@@ -16,8 +16,8 @@ public class Estado {
         // TODO implement here
     }
 
-    public void mostrar() {
-        // TODO implement here
+    public String mostrar() {
+        return this.nombre;
     }
 
     public void eliminar() {

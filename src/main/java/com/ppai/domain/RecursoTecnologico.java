@@ -1,5 +1,6 @@
 package com.ppai.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class RecursoTecnologico {
     private List<String> imagenes;
     private Disponibilidad disponibilidad;
     private PersonalCientifico responsableTecnico;
-    private CambioEstado estado;
+    private ArrayList<CambioEstado> estado;
     private MantenimientoPreventivo mantPreventivos;
     private MantenimientoCorrectivo mantCorrectivos;
     private Modelo modelo;
@@ -28,7 +29,7 @@ public class RecursoTecnologico {
         List<String> imagenes,
         Disponibilidad disponibilidad,
         PersonalCientifico responsableTecnico,
-        CambioEstado estado,
+        ArrayList<CambioEstado> estado,
         MantenimientoPreventivo mantPreventivos,
         MantenimientoCorrectivo mantCorrectivos,
         Modelo modelo,
@@ -80,20 +81,31 @@ public class RecursoTecnologico {
         // TODO implement here
     }
 
-    public void esDeTipo() {
-        // TODO implement here
+    public boolean esDeTipo( String nombreTipo) {
+        return this.tipo.mostrarCategoria() == nombreTipo;
     }
 
-    public void mostrarModeloYMarca() {
-        // TODO implement here
+    public ArrayList<String> mostrarModeloYMarca() {
+        String modelo = this.modelo.mostrarNombre();
+        String marca = this.modelo.mostrarMarca();
+        ArrayList<String> modeloYMarca = new ArrayList<>();
+        modeloYMarca.add(modelo);
+        modeloYMarca.add(marca);
+        return modeloYMarca;
     }
 
-    public void mostrarNumeroRT() {
-        // TODO implement here
+    public String mostrarNumeroRT() {
+        return Integer.toString(this.nroInventario);
     }
 
-    public void mostrarEstado() {
-        // TODO implement here
+    public String mostrarEstado() {
+        String estadoActual = null;
+        for (CambioEstado e: estado){
+            if(e.esActual()){
+                estadoActual = e.mostrarEstado();
+            }
+        }
+        return estadoActual;
     }
 
     public void mostrarTurnosFuturos() {

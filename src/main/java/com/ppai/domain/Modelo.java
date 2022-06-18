@@ -18,15 +18,11 @@ public class Modelo {
         // TODO implement here
     }
 
-    public void mostrarModeloYMarca() {
-        // TODO implement here
+    public String mostrarMarca() {
+        return this.mostrarNombre();
     }
 
-    public void mostrarMarca() {
-        // TODO implement here
-    }
-
-    public void mostrarNombre() {
-        // TODO implement here
+    public String mostrarNombre() {
+        return this.nombre;
     }
 }
