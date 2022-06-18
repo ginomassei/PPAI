@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
 @Path("/turnos")
-public class PantallaReservarTurno {
+public class ResourceReservarTurno {
     ControladorRegistrarReservaTurno controladorReservaTurno = new ControladorRegistrarReservaTurno();
 
     @GET
