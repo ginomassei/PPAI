@@ -6,20 +6,16 @@ import java.util.*;
 
 public class AsignacionCientificoCI extends AsignacionCientifico {
 
-    private PersonalCientifico cientifico;
-    private Turno turnos;
+    private ArrayList<Turno> turnos;
 
-    public AsignacionCientificoCI(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, RolPersonalCientifico rol, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, PersonalCientifico cientifico1, Turno turnos) {
-        super(cientifico, centroInvestigacion, rol, fechaInicio, fechaFin, personalCientifico);
-        this.cientifico = cientifico1;
+    public AsignacionCientificoCI(PersonalCientifico cientifico, RolPersonalCientifico rol, Date fechaInicio, Date fechaFin,ArrayList<Turno> turnos) {
+        super(cientifico, rol, fechaInicio, fechaFin);
         this.turnos = turnos;
     }
 
-    public PersonalCientifico mostrarCientifico() {
-        return cientifico;
-    }
 
-    public Turno mostrarTurnos() {
+
+    public ArrayList<Turno> mostrarTurnos() {
         return turnos;
     }
 

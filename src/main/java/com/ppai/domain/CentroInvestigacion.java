@@ -16,16 +16,16 @@ public class CentroInvestigacion {
     private Estado estado;
     private Date fechaBaja;
     private String motivoBaja;
-    private RecursoTecnologico recursos;
+    private ArrayList<RecursoTecnologico> recursos;
     private Integer númeroResolución;
     private Date fechaResolución;
     private String reglamento;
     private Date fechaAlta;
     private String caracteristicas;
     private AsignacionDirector direc;
-    private AsignacionCientificoCI cientificos;
+    private ArrayList<AsignacionCientificoCI> cientificos;
 
-    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, RecursoTecnologico recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, AsignacionCientificoCI cientificos) {
+    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, ArrayList<RecursoTecnologico> recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, ArrayList<AsignacionCientificoCI> cientificos) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.direccion = direccion;
