@@ -8,10 +8,12 @@ import java.util.*;
 public class Marca {
     private String nombre;
     private String descripción;
+    private ArrayList<Modelo> modelos;
 
-    public Marca(String nombre, String descripción) {
+    public Marca(String nombre, String descripción, ArrayList<Modelo> modelos) {
         this.nombre = nombre;
         this.descripción = descripción;
+        this.modelos = modelos;
     }
 
     public void mostrar() {

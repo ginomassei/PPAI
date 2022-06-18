@@ -1,17 +1,23 @@
 package com.ppai.controllers;
 
+import com.ppai.config.GlobalVendor;
 import com.ppai.domain.TipoRecurso;
 
 import java.util.ArrayList;
 
 public class ControladorRegistrarReservaTurno {
-    public ArrayList<TipoRecurso> buscarTipoRecursoTecnologico() {
+    public static ArrayList<TipoRecurso> tiposDeRecursos = GlobalVendor.getTiposRecurso();
+
+    public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
     }
 
-    private ArrayList<TipoRecurso> obtenerTiposRecursoTecnologico() {
-
-        return TipoRecurso.getAll();
+    private ArrayList<String> obtenerTiposRecursoTecnologico() {
+        ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
+        for (TipoRecurso tipoRecurso : tiposDeRecursos) {
+            tipoRecurso.mostrarCategoria();
+        }
+        return tiposRecursoTecnologico;
     }
 
     public void buscarRecursosTecnologicosPorTipo() {
@@ -27,11 +33,11 @@ public class ControladorRegistrarReservaTurno {
     }
 
     public void seleccionarRecursoTecnologico() {
-        // TODO implement here
+        validarCientificoPerteneceCIRecurso();
     }
 
     public void validarCientificoPerteneceCIRecurso() {
-        // TODO implement here
+
     }
 
     public void seleccionarTurnoRT() {

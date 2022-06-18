@@ -9,7 +9,7 @@ public class RecursoTecnologico {
     private int nroInventario;
     private Date fechaAlta;
     private TipoRecurso tipo;
-    private CaracteristicaRecurso caracteristicas;
+    private ArrayList<CaracteristicaRecurso> caracteristicas;
     private List<String> imagenes;
     private Disponibilidad disponibilidad;
     private PersonalCientifico responsableTecnico;
@@ -17,7 +17,7 @@ public class RecursoTecnologico {
     private MantenimientoPreventivo mantPreventivos;
     private MantenimientoCorrectivo mantCorrectivos;
     private Modelo modelo;
-    private Turno turno;
+    private ArrayList<Turno> turno;
     private String periodicidadMp;
     private String duraciónMp;
 
@@ -25,7 +25,7 @@ public class RecursoTecnologico {
         int nroInventario,
         Date fechaAlta,
         TipoRecurso tipo,
-        CaracteristicaRecurso caracteristicas,
+        ArrayList<CaracteristicaRecurso> caracteristicas,
         List<String> imagenes,
         Disponibilidad disponibilidad,
         PersonalCientifico responsableTecnico,
@@ -33,7 +33,7 @@ public class RecursoTecnologico {
         MantenimientoPreventivo mantPreventivos,
         MantenimientoCorrectivo mantCorrectivos,
         Modelo modelo,
-        Turno turno,
+        ArrayList<Turno> turno,
         String periodicidadMp,
         String duraciónMp
     ) {
