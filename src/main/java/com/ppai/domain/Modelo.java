@@ -20,6 +20,7 @@ public class Modelo {
 
     public String mostrarMarca() {
         // TODO Llamar al vendor, traer las marcas, mandar esTuModelo(this) y recuperar nombre.
+        // la marca que devuelve true se llama delModelo.
     }
 
     public String mostrarNombre() {

@@ -15,7 +15,7 @@ public class ControladorRegistrarReservaTurno {
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
         for (TipoRecurso tipoRecurso : tiposDeRecursos) {
-            tipoRecurso.mostrarCategoria();
+            tiposRecursoTecnologico.add(tipoRecurso.mostrarCategoria());
         }
         return tiposRecursoTecnologico;
     }
