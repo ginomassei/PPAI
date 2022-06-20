@@ -37,4 +37,8 @@ public class PersonalCientifico {
     public boolean esTuUsuario(Usuario usuario) {
         return this.usuario.equals(usuario);
     }
+
+    public int getLegajo() {
+        return legajo;
+    }
 }

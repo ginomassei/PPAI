@@ -2,7 +2,6 @@ package com.ppai.domain;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class CentroInvestigacion {
     private String nombre;
@@ -115,7 +114,7 @@ public class CentroInvestigacion {
     public boolean esTuCientifico(PersonalCientifico cientifico) {
         AtomicBoolean esTuCientifico = new AtomicBoolean(false);
         this.asignacionCientificoCIS.forEach(asignacionCientificoCI -> {
-            if (asignacionCientificoCI.esCientifico(cientifico) && asignacionCientificoCI.esCientificoActivo()) {
+            if (asignacionCientificoCI.esTuCientifico(cientifico) && asignacionCientificoCI.esCientificoActivo()) {
                 esTuCientifico.set(true);
             }
         });

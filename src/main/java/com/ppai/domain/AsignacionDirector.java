@@ -6,8 +6,8 @@ public class AsignacionDirector extends AsignacionCientifico {
 
     private PersonalCientifico director;
 
-    public AsignacionDirector(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, RolPersonalCientifico rol, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, PersonalCientifico director) {
-        super(cientifico, rol, fechaInicio, fechaFin);
+    public AsignacionDirector(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, PersonalCientifico director) {
+        super(cientifico, fechaInicio, fechaFin);
         this.director = director;
     }
 

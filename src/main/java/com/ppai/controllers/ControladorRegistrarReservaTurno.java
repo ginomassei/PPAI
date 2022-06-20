@@ -72,8 +72,10 @@ public class ControladorRegistrarReservaTurno {
     }
 
     private CentroInvestigacion validarCientificoPerteneceCIRecurso(String centroInv) {
+        PersonalCientifico cientificoLogueado = sesionActual.obtenerCientifico();
+
         for (CentroInvestigacion centro : centrosDeInvestigacion) {
-            if (centro.esTuNombre(centroInv) && centro.esTuCientifico(sesionActual.obtenerCientifico())) {
+            if (centro.esTuCientifico(cientificoLogueado)) {
                 return centro;
             }
         }

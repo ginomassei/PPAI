@@ -79,9 +79,7 @@ public class RecursoTecnologico {
     }
 
     public boolean esMiModeloYMarca(String modelo, String marca) {
-        if (this.modelo.mostrarNombre().equals(modelo) && this.modelo.mostrarMarca().equals(marca)) {
-            return true;
-        } else return false;
+        return this.modelo.mostrarNombre() == modelo && this.modelo.mostrarMarca() == marca;
     }
 
     public boolean esDeTipo(String nombreTipo) {
