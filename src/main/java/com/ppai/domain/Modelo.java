@@ -1,5 +1,8 @@
 package com.ppai.domain;
 
+import com.ppai.config.vendors.MarcasVendor;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Modelo {
     private String nombre;
@@ -19,8 +22,13 @@ public class Modelo {
     }
 
     public String mostrarMarca() {
-        // TODO Llamar al vendor, traer las marcas, mandar esTuModelo(this) y recuperar nombre.
-        // la marca que devuelve true se llama delModelo.
+        String miMarca = "";
+        for (Marca marca: MarcasVendor.getMarcas()) {
+            if (marca.esTuModelo(this)) {
+                miMarca = marca.mostrarNombre();
+            }
+        }
+        return miMarca;
     }
 
     public String mostrarNombre() {

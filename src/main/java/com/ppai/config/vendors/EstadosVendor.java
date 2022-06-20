@@ -77,7 +77,8 @@ public class EstadosVendor {
         Estado estado7 = new Estado("Finalizado", "Turno");
         Estado estado8 = new Estado("AnuladoNoEjecutado", "Turno");
         Estado estado9 = new Estado("Activo", "RecursoTecnologico");
-        Estado estado10 = new Estado("DeBaja", "RecursoTecnologico");
+        Estado estado10 = new Estado("Baja Tecnica", "RecursoTecnologico");
+        Estado estado11 = new Estado("Baja Definitiva", "RecursoTecnologico");
 
         estados.add(estado1);
         estados.add(estado2);
@@ -89,6 +90,7 @@ public class EstadosVendor {
         estados.add(estado8);
         estados.add(estado9);
         estados.add(estado10);
+        estados.add(estado11);
     }
 
     private void crearTurnos() {

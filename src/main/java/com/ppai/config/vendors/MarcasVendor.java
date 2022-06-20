@@ -11,8 +11,8 @@ import java.util.ArrayList;
 @Singleton
 @Startup
 public class MarcasVendor {
-    public ArrayList<Modelo> modelos;
-    public ArrayList<Marca> marcas;
+    private static ArrayList<Modelo> modelos;
+    private static ArrayList<Marca> marcas;
 
     @PostConstruct
     public void init() {
@@ -23,7 +23,7 @@ public class MarcasVendor {
         crearMarcas();
     }
 
-    public ArrayList<Marca> getMarcas() {
+    public static ArrayList<Marca> getMarcas() {
         return marcas;
     }
 

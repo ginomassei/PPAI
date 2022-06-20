@@ -3,6 +3,7 @@ package com.ppai.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RecursoTecnologico {
 
@@ -81,8 +82,8 @@ public class RecursoTecnologico {
         // TODO implement here
     }
 
-    public boolean esDeTipo( String nombreTipo) {
-        return this.tipo.mostrarCategoria() == nombreTipo;
+    public boolean esDeTipo(String nombreTipo) {
+        return this.tipo.mostrarCategoria().equals(nombreTipo);
     }
 
     public ArrayList<String> mostrarModeloYMarca() {
@@ -100,12 +101,22 @@ public class RecursoTecnologico {
 
     public String mostrarEstado() {
         String estadoActual = null;
-        for (CambioEstado e: estado){
-            if(e.esActual()){
+        for (CambioEstado e: estado) {
+            if (e.esActual()) {
                 estadoActual = e.mostrarEstado();
             }
         }
         return estadoActual;
+    }
+
+    public boolean estaAptoReserva() {
+        AtomicBoolean aptoReserva = new AtomicBoolean(false);
+        this.estado.forEach(cambioEstado -> {
+            if (cambioEstado.esActual()) {
+                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
+            }
+        });
+        return aptoReserva.get();
     }
 
     public void mostrarTurnosFuturos() {

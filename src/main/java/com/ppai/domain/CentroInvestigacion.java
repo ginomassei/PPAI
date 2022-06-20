@@ -2,9 +2,7 @@ package com.ppai.domain;
 
 import java.util.*;
 
-
 public class CentroInvestigacion {
-
     private String nombre;
     private String sigla;
     private Direccion direccion;
@@ -68,23 +66,26 @@ public class CentroInvestigacion {
     }
 
     public boolean estaDeBaja() {
-        return this.fechaBaja != null || this.fechaBaja.after(new Date(System.currentTimeMillis())) ;
+        if (this.fechaBaja == null) {
+            return true;
+        } else return new Date(System.currentTimeMillis()).after(this.fechaBaja);
     }
 
-    public ArrayList<ArrayList<String>> listarRecursosTecnologicosPorTipo(String nombreTipo) {
-        // retorna [[],[],[]] matriz de recursos donde cada fila tiene modelo,marca,nroInventario y estado
+    public ArrayList<ArrayList<String>> listarRecursosTecnologicosPorTipo(ArrayList<String> tiposRecursos) {
         ArrayList<ArrayList<String>> recursosEncontrados = new ArrayList<>();
 
-        this.recursos.forEach( rt -> {
-            if (rt.esDeTipo(nombreTipo)){
-                ArrayList<String> modeloYMarca = rt.mostrarModeloYMarca(); // retorna [modelo, marca]
-                String nroInventario = rt.mostrarNumeroRT();
-                String estado = rt.mostrarEstado();
+        tiposRecursos.forEach(tipo -> {
+            this.recursos.forEach( rt -> {
+                if (rt.esDeTipo(tipo) & rt.estaAptoReserva()) {
+                    ArrayList<String> modeloYMarca = rt.mostrarModeloYMarca();
+                    String nroInventario = rt.mostrarNumeroRT();
+                    String estado = rt.mostrarEstado();
 
-                recursosEncontrados.add( new ArrayList<>(
+                    recursosEncontrados.add(new ArrayList<>(
                         List.of(modeloYMarca.get(0), modeloYMarca.get(1), nroInventario, estado)
-                ));
-            }
+                    ));
+                }
+            });
         });
         return recursosEncontrados;
     }
@@ -92,5 +93,4 @@ public class CentroInvestigacion {
     public void esTuCientifico() {
         // TODO implement here
     }
-
 }

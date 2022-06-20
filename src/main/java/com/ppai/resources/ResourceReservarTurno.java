@@ -5,9 +5,11 @@ import com.ppai.controllers.ControladorRegistrarReservaTurno;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Path("/turnos")
 public class ResourceReservarTurno {
@@ -19,16 +21,24 @@ public class ResourceReservarTurno {
     public Response buscarTipoRecursoTecnologico() {
         ArrayList<String> tiposRecurso = controladorReservaTurno.buscarTipoRecursoTecnologico();
         return Response
-            .ok(tiposRecurso)
+            .ok()
             .entity(tiposRecurso)
             .build();
     }
 
     @GET
-    @Path("/buscar-recursos-por-tipo")
+    @Path("/buscar-recursos-tecnologicos-por-tipo")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscarRecursosPorTipo() {
-        return Response.ok("{\"message\":\"Hello World\"}").build();
+    public Response buscarRecursosPorTipo(@QueryParam("tiposRecurso") String tiposRecurso) {
+
+        if (tiposRecurso == null) return Response.serverError().build();
+        ArrayList<String> tiposDeRecursos = new ArrayList<>(Arrays.asList(tiposRecurso.split(",")));
+
+        ArrayList<ArrayList<ArrayList<String>>> recursosTecnologicosPorTipo = controladorReservaTurno.buscarRecursosTecnologicosPorTipo(tiposDeRecursos);
+        return Response
+            .ok()
+            .entity(recursosTecnologicosPorTipo)
+            .build();
     }
 
     @GET

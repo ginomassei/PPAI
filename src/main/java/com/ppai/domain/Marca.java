@@ -2,9 +2,6 @@ package com.ppai.domain;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Marca {
     private String nombre;
     private String descripción;
@@ -28,7 +25,11 @@ public class Marca {
         // TODO implement here
     }
 
-    public void mostrarNombre() {
-        // TODO implement here
+    public String mostrarNombre() {
+        return this.nombre;
+    }
+
+    public boolean esTuModelo(Modelo modelo) {
+        return this.modelos.contains(modelo);
     }
 }

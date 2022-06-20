@@ -1,5 +1,6 @@
 package com.ppai.controllers;
 
+import com.ppai.config.vendors.CDIVendor;
 import com.ppai.config.vendors.RecursosVendor;
 import com.ppai.domain.*;
 
@@ -10,7 +11,7 @@ public class ControladorRegistrarReservaTurno {
 //    private static Sesion sesionActual = .getSesionActual();
 //    private static PersonalCientifico cientificoLogueado = GlobalVendor.getCientificoLogueado();
 //    private static Estado estadoReservado = GlobalVendor.getEstadoReservado();
-//    private static ArrayList<CentroInvestigacion> centrosDeInvestigacion = GlobalVendor.getCentrosDeInvestigacion();
+    private static ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
 //    private static Turno turnoSeleccionado = GlobalVendor.getTurnoSeleccionado();
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
@@ -25,12 +26,18 @@ public class ControladorRegistrarReservaTurno {
         return tiposRecursoTecnologico;
     }
 
-    public void buscarRecursosTecnologicosPorTipo() {
-        // TODO implement here
+    public ArrayList<ArrayList<ArrayList<String>>> buscarRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
+        return obtenerRecursosTecnologicosPorTipo(tiposRecurso);
     }
 
-    public void obtenerRecursosTecnologicosPorTipo() {
-        // TODO implement here
+    public ArrayList<ArrayList<ArrayList<String>>> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
+        ArrayList<ArrayList<ArrayList<String>>> recursosTecnologicos = new ArrayList<>();
+        centrosDeInvestigacion.forEach(centro -> {
+            if (centro.estaDeBaja()) return;
+            ArrayList<ArrayList<String>> recursosDelCentro = centro.listarRecursosTecnologicosPorTipo(tiposRecurso);
+            if (recursosDelCentro != null) recursosTecnologicos.add(recursosDelCentro);
+        });
+        return recursosTecnologicos;
     }
 
     public void mostrarTurnosRecursoTecnologico() {

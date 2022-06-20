@@ -28,4 +28,11 @@ public class Estado {
         // TODO implement here
     }
 
+    public boolean esBajaTecnica() {
+        return this.nombre.equals("Baja Tecnica");
+    }
+
+    public boolean esBajaDefinitiva() {
+        return this.nombre.equals("Baja Definitiva");
+    }
 }

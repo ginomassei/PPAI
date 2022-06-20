@@ -22,4 +22,11 @@ public class CambioEstado {
         return fechaHoraHasta == null;
     }
 
+    public boolean esBajaTecnica() {
+        return this.estado.esBajaTecnica();
+    }
+
+    public boolean esBajaDefinitiva() {
+        return this.estado.esBajaDefinitiva();
+    }
 }

@@ -20,7 +20,7 @@ public class CDIVendor {
     @Inject
     CientificosVendor cientificosVendor;
 
-    private ArrayList<CentroInvestigacion> centrosInvestigacion;
+    private static ArrayList<CentroInvestigacion> centrosInvestigacion;
 
     @PostConstruct
     public void init() {
@@ -29,7 +29,7 @@ public class CDIVendor {
         crearCentrosInvestigacion();
     }
 
-    public ArrayList<CentroInvestigacion> getCentrosInvestigacion() {
+    public static ArrayList<CentroInvestigacion> getCentrosInvestigacion() {
         return centrosInvestigacion;
     }
 
