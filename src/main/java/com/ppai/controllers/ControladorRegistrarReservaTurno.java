@@ -99,8 +99,9 @@ public class ControladorRegistrarReservaTurno {
         };
     }
 
-    public void seleccionarMetodoNotificacion(String metodoNotificacion) {
+    public String seleccionarMetodoNotificacion(String metodoNotificacion) {
         metodoDeNotificacionSeleccionado = metodoNotificacion;
+        return metodoNotificacion;
     }
 
     public void confirmarReservaTurno() {

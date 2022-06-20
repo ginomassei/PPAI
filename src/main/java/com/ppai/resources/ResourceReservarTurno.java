@@ -71,6 +71,9 @@ public class ResourceReservarTurno {
         controladorReservaTurno.seleccionarMetodoNotificacion(metodoNotificacion);
         return Response
             .ok()
+            .entity(new Object() {
+                public String status = "Metodo de notificacion seleccionado correctamente.";
+            })
             .build();
     }
 
@@ -81,6 +84,9 @@ public class ResourceReservarTurno {
         controladorReservaTurno.confirmarReservaTurno();
         return Response
             .ok()
+            .entity(new Object() {
+                public String status = "Reserva realizada con éxito.";
+            })
             .build();
     }
 
