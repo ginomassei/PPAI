@@ -67,8 +67,8 @@ public class CentroInvestigacion {
 
     public boolean estaDeBaja() {
         if (this.fechaBaja == null) {
-            return true;
-        } else return new Date(System.currentTimeMillis()).after(this.fechaBaja);
+            return false;
+        } else return new Date(System.currentTimeMillis()).before(this.fechaBaja);
     }
 
     public ArrayList<ArrayList<String>> listarRecursosTecnologicosPorTipo(ArrayList<String> tiposRecursos) {
@@ -92,5 +92,9 @@ public class CentroInvestigacion {
 
     public void esTuCientifico() {
         // TODO implement here
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

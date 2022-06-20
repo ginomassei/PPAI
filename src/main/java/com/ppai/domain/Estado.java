@@ -1,7 +1,5 @@
 package com.ppai.domain;
 
-import java.util.*;
-
 public class Estado {
 
     private String nombre;

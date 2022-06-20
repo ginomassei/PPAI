@@ -2,8 +2,6 @@ package com.ppai.domain;
 
 import com.ppai.config.vendors.MarcasVendor;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class Modelo {
     private String nombre;
     private String descripción;

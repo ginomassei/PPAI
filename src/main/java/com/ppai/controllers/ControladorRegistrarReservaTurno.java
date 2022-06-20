@@ -26,16 +26,23 @@ public class ControladorRegistrarReservaTurno {
         return tiposRecursoTecnologico;
     }
 
-    public ArrayList<ArrayList<ArrayList<String>>> buscarRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
+    public Object buscarRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
         return obtenerRecursosTecnologicosPorTipo(tiposRecurso);
     }
 
-    public ArrayList<ArrayList<ArrayList<String>>> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
-        ArrayList<ArrayList<ArrayList<String>>> recursosTecnologicos = new ArrayList<>();
+    public ArrayList<Object> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
+        ArrayList<Object> recursosTecnologicos = new ArrayList<>();
         centrosDeInvestigacion.forEach(centro -> {
+            var recursos = new Object() {
+                public final String centroTecnologico = centro.getNombre();
+                public ArrayList<ArrayList<String>> recursosTecnologicos = new ArrayList<>();
+            };
             if (centro.estaDeBaja()) return;
             ArrayList<ArrayList<String>> recursosDelCentro = centro.listarRecursosTecnologicosPorTipo(tiposRecurso);
-            if (recursosDelCentro != null) recursosTecnologicos.add(recursosDelCentro);
+            if (recursosDelCentro != null) {
+                recursos.recursosTecnologicos = recursosDelCentro;
+            }
+            recursosTecnologicos.add(recursos);
         });
         return recursosTecnologicos;
     }

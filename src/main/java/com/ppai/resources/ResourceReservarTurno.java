@@ -34,7 +34,7 @@ public class ResourceReservarTurno {
         if (tiposRecurso == null) return Response.serverError().build();
         ArrayList<String> tiposDeRecursos = new ArrayList<>(Arrays.asList(tiposRecurso.split(",")));
 
-        ArrayList<ArrayList<ArrayList<String>>> recursosTecnologicosPorTipo = controladorReservaTurno.buscarRecursosTecnologicosPorTipo(tiposDeRecursos);
+        Object recursosTecnologicosPorTipo = controladorReservaTurno.buscarRecursosTecnologicosPorTipo(tiposDeRecursos);
         return Response
             .ok()
             .entity(recursosTecnologicosPorTipo)
