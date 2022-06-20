@@ -142,10 +142,14 @@ public class RecursoTecnologico {
                 Date fechaHoraDesde = c1.getTime();
                 Date fechaHoraHasta = c2.getTime();
 
-                String[] newTurno = {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta)};
+                String[] newTurno = {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta),t.mostrarId()};
                 turnosFuturos.add(newTurno);
             }
         }
         return turnosFuturos;
+    }
+
+    public ArrayList<Turno> getTurnos() {
+        return turno;
     }
 }

@@ -5,7 +5,6 @@ import com.ppai.domain.*;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
-import java.util.Date;
 
 @RequestScoped
 public class ControladorRegistrarReservaTurno {
@@ -80,18 +79,22 @@ public class ControladorRegistrarReservaTurno {
         return null;
     }
 
-    public Object seleccionarTurnoRecursoTecnologico(Date fechaHoraDesde, Date fechaHoraHasta) {
-        return solicitarConfirmacionRT(fechaHoraDesde, fechaHoraHasta);
+    public Object seleccionarTurnoRecursoTecnologico(String idTurnoSeleccionado) {
+        return solicitarConfirmacionRT(idTurnoSeleccionado);
     }
 
-    private Object solicitarConfirmacionRT(Date fechaHoraDesde, Date fechaHoraHasta) {
+    private Object solicitarConfirmacionRT(String idTurnoSeleccionado) {
         // Buscar turno seleccionado
-
-        ControladorRegistrarReservaTurno.turnoSeleccionado = turnoSeleccionado;
+        for (Turno turno : recursoSeleccionado.getTurnos()) {
+            if (turno.esTuId(Integer.parseInt(idTurnoSeleccionado))) {
+                turnoSeleccionado = turno;
+                break;
+            }
+        }
 
         return new Object() {
             // Mostrar datos reserva parcial.
-            public final Turno reservaParcial = turnoSeleccionado;
+            public final String[] reservaParcial = turnoSeleccionado.mostrarTurno();
             public final ArrayList<String> metodosDeNotificacionDisponibles = metodosDeNotificacion;
         };
     }

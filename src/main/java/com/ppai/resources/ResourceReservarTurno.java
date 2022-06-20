@@ -1,7 +1,6 @@
 package com.ppai.resources;
 
 import com.ppai.controllers.ControladorRegistrarReservaTurno;
-import com.ppai.domain.Turno;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -9,7 +8,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 
 @Path("/turnos")
 public class ResourceReservarTurno {
@@ -59,11 +57,7 @@ public class ResourceReservarTurno {
     @Path("/seleccionar-turno-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
     public Response seleccionarTurnoRecursoTecnologico(@QueryParam("turnoSeleccionado") String turnoSeleccionado) {
-        String[] res = turnoSeleccionado.split(",");
-        Date fechaHoraDesde = new Date(Long.parseLong(res[0]));
-        Date fechaHoraHasta = new Date(Long.parseLong(res[1]));
-
-        Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(fechaHoraDesde, fechaHoraHasta);
+        Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(turnoSeleccionado);
         return Response
             .ok()
             .entity(responseObject)
@@ -73,7 +67,7 @@ public class ResourceReservarTurno {
     @GET
     @Path("/seleccionar-metodo-notificacion")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response seleccionarMetodoNotificacion(String metodoNotificacion) {
+    public Response seleccionarMetodoNotificacion(@QueryParam("turnoSeleccionado") String metodoNotificacion) {
         controladorReservaTurno.seleccionarMetodoNotificacion(metodoNotificacion);
         return Response
             .ok()

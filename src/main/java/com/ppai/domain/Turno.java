@@ -1,14 +1,17 @@
 package com.ppai.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Turno {
+    private static int turnoGlobalTracker = 0;
     private ArrayList<CambioEstado> cambioEstados;
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private Date fechaHoraInicioTurno;
     private Date fechaHoraFinTurno;
+    private int id;
 
     public Date getFechaHoraDesde() {
         return fechaHoraDesde;
@@ -38,6 +41,7 @@ public class Turno {
         this.fechaHoraHasta = fechaHoraHasta;
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
+        id = turnoGlobalTracker++;
     }
 
     public void notificarInasistencia() {
@@ -76,7 +80,30 @@ public class Turno {
         }
     }
 
-    public boolean soyElTurno(Date fechaHoraDesde, Date fechaHoraHasta) {
-        return fechaHoraDesde.equals(this.fechaHoraDesde) && fechaHoraHasta.equals(this.fechaHoraHasta);
+    public String mostrarId() {
+        return Integer.toString(id);
+    }
+
+    public boolean esTuId(int id) {
+        return this.id == id;
+    }
+
+    public String[] mostrarTurno() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        // Convert Date to Calendar
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+
+        c1.setTime(getFechaHoraDesde());
+        c2.setTime(getFechaHoraHasta());
+        // Perform addition/subtraction
+        c1.add(Calendar.YEAR, -1900);
+        c2.add(Calendar.YEAR, -1900);
+
+        // Convert calendar back to Date
+        Date fechaHoraDesde = c1.getTime();
+        Date fechaHoraHasta = c2.getTime();
+
+        return new String[] {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta), mostrarId()};
     }
 }
