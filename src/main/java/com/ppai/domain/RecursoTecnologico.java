@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RecursoTecnologico {
-
     private int nroInventario;
     private Date fechaAlta;
     private TipoRecurso tipo;
@@ -124,12 +123,13 @@ public class RecursoTecnologico {
         return aptoReserva.get();
     }
 
-    public ArrayList<Turno> mostrarTurnosFuturos() {
-        ArrayList<Turno> turnosFuturos = new ArrayList<>();
+    public ArrayList<String[]> mostrarTurnosFuturos() {
+        ArrayList<String[]> turnosFuturos = new ArrayList<>();
         for (Turno t: turno) {
             Date fechaActual = new Date();
             if (t.esPosteriorA(fechaActual) && t.esActivo()) {
-                turnosFuturos.add(t);
+                String[] newTurno = {String.valueOf(t.getFechaHoraDesde()), String.valueOf(t.getFechaHoraHasta())};
+                turnosFuturos.add(newTurno);
             }
         }
         return turnosFuturos;

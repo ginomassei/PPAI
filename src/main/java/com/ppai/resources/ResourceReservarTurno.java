@@ -47,16 +47,15 @@ public class ResourceReservarTurno {
     public Response seleccionarRecursoTecnologico(@QueryParam("recursoSeleccionado") String recursoSeleccionado) {
         String[] res = recursoSeleccionado.split(",");
         // [nombre del centro, modelo, marca]
-        ArrayList<Turno> turnosFuturos = controladorReservaTurno.seleccionarRecursoTecnologico(res);
+        ArrayList<String[]> turnosFuturos = controladorReservaTurno.seleccionarRecursoTecnologico(res);
         return Response
             .ok()
             .entity(turnosFuturos)
             .build();
     }
 
-    @POST
+    @GET
     @Path("/seleccionar-turno-recurso-tecnologico")
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
         Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(turnoSeleccionado);

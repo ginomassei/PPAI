@@ -5,8 +5,6 @@ import com.ppai.domain.*;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 @RequestScoped
 public class ControladorRegistrarReservaTurno {
@@ -53,8 +51,7 @@ public class ControladorRegistrarReservaTurno {
         // TODO implement here
     }
 
-    public ArrayList<Turno> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
-        ArrayList<Turno> turnosFuturos = null;
+    public ArrayList<String[]> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
         //recursoTecnologicoSeleccionado = [centro, modelo, marca];
         CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
@@ -62,12 +59,11 @@ public class ControladorRegistrarReservaTurno {
             ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
             for (RecursoTecnologico recurso : recursosDelCentro) {
                 if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
-                    turnosFuturos = recurso.mostrarTurnosFuturos();
-                    return turnosFuturos;
+                    return recurso.mostrarTurnosFuturos();
                 }
             }
         }
-        return null
+        return null;
     }
 
     private CentroInvestigacion validarCientificoPerteneceCIRecurso(String centroInv) {

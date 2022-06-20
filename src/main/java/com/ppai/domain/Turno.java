@@ -5,30 +5,37 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Turno {
     private ArrayList<CambioEstado> cambioEstados;
-    private PersonalCientifico cientificoReserva;
-    private PersonalCientifico cientifico;
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
-    private SolicitudReservaTurno solicitudesReserva;
     private Date fechaHoraInicioTurno;
     private Date fechaHoraFinTurno;
 
+    public Date getFechaHoraDesde() {
+        return fechaHoraDesde;
+    }
+
+    public Date getFechaHoraHasta() {
+        return fechaHoraHasta;
+    }
+
+    public Date getFechaHoraInicioTurno() {
+        return fechaHoraInicioTurno;
+    }
+
+    public Date getFechaHoraFinTurno() {
+        return fechaHoraFinTurno;
+    }
+
     public Turno(
         ArrayList<CambioEstado> cambioEstados,
-        PersonalCientifico cientificoReserva,
-        PersonalCientifico cientifico,
         Date fechaHoraDesde,
         Date fechaHoraHasta,
-        SolicitudReservaTurno solicitudesReserva,
         Date fechaHoraInicioTurno,
         Date fechaHoraFinTurno
     ) {
         this.cambioEstados = cambioEstados;
-        this.cientificoReserva = cientificoReserva;
-        this.cientifico = cientifico;
         this.fechaHoraDesde = fechaHoraDesde;
         this.fechaHoraHasta = fechaHoraHasta;
-        this.solicitudesReserva = solicitudesReserva;
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
     }
