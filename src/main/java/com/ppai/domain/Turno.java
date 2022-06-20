@@ -75,4 +75,8 @@ public class Turno {
             }
         }
     }
+
+    public boolean soyElTurno(Date fechaHoraDesde, Date fechaHoraHasta) {
+        return fechaHoraDesde.equals(this.fechaHoraDesde) && fechaHoraHasta.equals(this.fechaHoraHasta);
+    }
 }

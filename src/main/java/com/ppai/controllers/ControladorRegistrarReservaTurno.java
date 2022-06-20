@@ -5,6 +5,7 @@ import com.ppai.domain.*;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
+import java.util.Date;
 
 @RequestScoped
 public class ControladorRegistrarReservaTurno {
@@ -13,6 +14,7 @@ public class ControladorRegistrarReservaTurno {
     private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
     private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
     private static String metodoDeNotificacionSeleccionado;
+    private static RecursoTecnologico recursoSeleccionado;
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
@@ -59,6 +61,7 @@ public class ControladorRegistrarReservaTurno {
             ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
             for (RecursoTecnologico recurso : recursosDelCentro) {
                 if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
+                    recursoSeleccionado = recurso;
                     return recurso.mostrarTurnosFuturos();
                 }
             }
@@ -77,12 +80,13 @@ public class ControladorRegistrarReservaTurno {
         return null;
     }
 
-    public Object seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
-        return solicitarConfirmacionRT(turnoSeleccionado);
+    public Object seleccionarTurnoRecursoTecnologico(Date fechaHoraDesde, Date fechaHoraHasta) {
+        return solicitarConfirmacionRT(fechaHoraDesde, fechaHoraHasta);
     }
 
-    private Object solicitarConfirmacionRT(Turno turnoSeleccionado) {
-        // Guardamos el turno seleccionado.
+    private Object solicitarConfirmacionRT(Date fechaHoraDesde, Date fechaHoraHasta) {
+        // Buscar turno seleccionado
+
         ControladorRegistrarReservaTurno.turnoSeleccionado = turnoSeleccionado;
 
         return new Object() {

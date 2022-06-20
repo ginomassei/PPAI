@@ -30,7 +30,7 @@ public class CambioEstado {
     }
 
     public void finalizar() {
-        this.fechaHoraHasta = new Date(System.currentTimeMillis());
+        this.fechaHoraHasta = new Date();
     }
 
     public Estado getEstado() {

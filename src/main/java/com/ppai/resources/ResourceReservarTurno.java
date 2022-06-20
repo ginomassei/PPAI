@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 @Path("/turnos")
 public class ResourceReservarTurno {
@@ -57,8 +58,12 @@ public class ResourceReservarTurno {
     @GET
     @Path("/seleccionar-turno-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
-        Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(turnoSeleccionado);
+    public Response seleccionarTurnoRecursoTecnologico(@QueryParam("turnoSeleccionado") String turnoSeleccionado) {
+        String[] res = turnoSeleccionado.split(",");
+        Date fechaHoraDesde = new Date(Long.parseLong(res[0]));
+        Date fechaHoraHasta = new Date(Long.parseLong(res[1]));
+
+        Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(fechaHoraDesde, fechaHoraHasta);
         return Response
             .ok()
             .entity(responseObject)

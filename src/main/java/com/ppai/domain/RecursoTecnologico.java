@@ -1,9 +1,7 @@
 package com.ppai.domain;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RecursoTecnologico {
@@ -128,7 +126,23 @@ public class RecursoTecnologico {
         for (Turno t: turno) {
             Date fechaActual = new Date();
             if (t.esPosteriorA(fechaActual) && t.esActivo()) {
-                String[] newTurno = {String.valueOf(t.getFechaHoraDesde()), String.valueOf(t.getFechaHoraHasta())};
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+                // Convert Date to Calendar
+                Calendar c1 = Calendar.getInstance();
+                Calendar c2 = Calendar.getInstance();
+
+                c1.setTime(t.getFechaHoraDesde());
+                c2.setTime(t.getFechaHoraHasta());
+                // Perform addition/subtraction
+                c1.add(Calendar.YEAR, -1900);
+                c2.add(Calendar.YEAR, -1900);
+
+                // Convert calendar back to Date
+                Date fechaHoraDesde = c1.getTime();
+                Date fechaHoraHasta = c2.getTime();
+
+                String[] newTurno = {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta)};
                 turnosFuturos.add(newTurno);
             }
         }

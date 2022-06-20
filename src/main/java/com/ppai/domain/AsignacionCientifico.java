@@ -16,7 +16,7 @@ public class AsignacionCientifico {
     public boolean esCientificoActivo() {
         if (this.fechaFin == null) {
             return true;
-        } else return new Date(System.currentTimeMillis()).before(this.fechaFin);
+        } else return new Date().before(this.fechaFin);
     }
 
     public boolean esTuCientifico(PersonalCientifico cientifico) {
