@@ -1,20 +1,19 @@
 package com.ppai.controllers;
 
-import com.ppai.config.vendors.CDIVendor;
-import com.ppai.config.vendors.CientificosVendor;
-import com.ppai.config.vendors.RecursosVendor;
-import com.ppai.config.vendors.UsuariosVendor;
+import com.ppai.config.vendors.*;
 import com.ppai.domain.*;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
+@RequestScoped
 public class ControladorRegistrarReservaTurno {
-
-//    private static Estado estadoReservado = GlobalVendor.getEstadoReservado();
-//    private static Turno turnoSeleccionado = GlobalVendor.getTurnoSeleccionado();
-    private static ArrayList<PersonalCientifico> personalCientifico = CientificosVendor.getCientificos();
+    private static Turno turnoSeleccionado;
     private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
     private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
+    private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
+    private static String metodoDeNotificacionSeleccionado;
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
@@ -32,7 +31,7 @@ public class ControladorRegistrarReservaTurno {
         return obtenerRecursosTecnologicosPorTipo(tiposRecurso);
     }
 
-    public ArrayList<Object> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
+    private ArrayList<Object> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
         ArrayList<Object> recursosTecnologicos = new ArrayList<>();
         centrosDeInvestigacion.forEach(centro -> {
             var recursos = new Object() {
@@ -53,27 +52,56 @@ public class ControladorRegistrarReservaTurno {
         // TODO implement here
     }
 
-    public void seleccionarRecursoTecnologico() {
-        validarCientificoPerteneceCIRecurso();
+    public ArrayList<Turno> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
+        return validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado);
     }
 
-    public void validarCientificoPerteneceCIRecurso() {
-        personalCientifico.forEach(cientifico -> {
-            if (cientifico.esTuUsuario(sesionActual.obtenerCientifico())) {
-                centrosDeInvestigacion.forEach(centroInvestigacion -> {
-                    centroInvestigacion.esTuCientifico(sesionActual.obtenerCientifico());
-                });
+    private ArrayList<Turno> validarCientificoPerteneceCIRecurso(String[] recursoTecnologicoSeleccionado) {
+        AtomicReference<ArrayList<Turno>> turnosFuturos = null;
+        centrosDeInvestigacion.forEach(centro -> {
+            if (centro.esTuNombre(recursoTecnologicoSeleccionado[0])) {
+                if (centro.esTuCientifico(sesionActual.obtenerCientifico())) {
+                    ArrayList<RecursoTecnologico> recursosDelCentro = centro.listarRecursosTecnológicos();
+                    for (RecursoTecnologico recurso : recursosDelCentro) {
+                        if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
+                            turnosFuturos.set(recurso.mostrarTurnosFuturos());
+                        }
+                    }
+                }
             }
         });
-
+        return turnosFuturos.get();
     }
 
-    public void seleccionarTurnoRT() {
-        // TODO implement here
+    public Object seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
+        return solicitarConfirmacionRT(turnoSeleccionado);
     }
 
-    public void solicitarConfirmacionRT() {
-        // TODO implement here
+    private Object solicitarConfirmacionRT(Turno turnoSeleccionado) {
+        // Guardamos el turno seleccionado.
+        ControladorRegistrarReservaTurno.turnoSeleccionado = turnoSeleccionado;
+
+        return new Object() {
+            // Mostrar datos reserva parcial.
+            public final Turno reservaParcial = turnoSeleccionado;
+            public final ArrayList<String> metodosDeNotificacionDisponibles = metodosDeNotificacion;
+        };
+    }
+
+    public void seleccionarMetodoNotificacion(String metodoNotificacion) {
+        metodoDeNotificacionSeleccionado = metodoNotificacion;
+    }
+
+    public void confirmarReservaTurno() {
+        buscarEstadoReservado();
+    }
+
+    private void buscarEstadoReservado() {
+        EstadosVendor.getEstados().forEach(estado -> {
+            if (estado.esAmbitoTurno() && estado.esReservado()) {
+                turnoSeleccionado.reservarTurno(estado);
+            }
+        });
     }
 
     public void confirmarReservaRT() {
@@ -81,18 +109,6 @@ public class ControladorRegistrarReservaTurno {
     }
 
     public void confirmarReservaYNotificacion() {
-        // TODO implement here
-    }
-
-    public void seleccionarMetodoNotificacion() {
-        // TODO implement here
-    }
-
-    public void confirmarReservaTurno() {
-        // TODO implement here
-    }
-
-    public void buscarEstadoReservado() {
         // TODO implement here
     }
 }

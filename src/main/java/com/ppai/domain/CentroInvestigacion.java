@@ -1,6 +1,8 @@
 package com.ppai.domain;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CentroInvestigacion {
     private String nombre;
@@ -15,15 +17,35 @@ public class CentroInvestigacion {
     private Date fechaBaja;
     private String motivoBaja;
     private ArrayList<RecursoTecnologico> recursos;
-    private Integer númeroResolución;
-    private Date fechaResolución;
+    private Integer numeroResolucion;
+    private Date fechaResolucion;
     private String reglamento;
     private Date fechaAlta;
     private String caracteristicas;
     private AsignacionDirector direc;
-    private ArrayList<AsignacionCientificoCI> cientificos;
+    private ArrayList<AsignacionCientificoCI> asignacionCientificoCIS;
 
-    public CentroInvestigacion(String nombre, String sigla, Direccion direccion, Telefono telefonos, String correoElectronico, PersonalCientifico director, Integer tiempoPrevioReserva, Date fechaInicio, Estado estado, Date fechaBaja, String motivoBaja, ArrayList<RecursoTecnologico> recursos, Integer númeroResolución, Date fechaResolución, String reglamento, Date fechaAlta, String caracteristicas, AsignacionDirector direc, ArrayList<AsignacionCientificoCI> cientificos) {
+    public CentroInvestigacion(
+        String nombre,
+        String sigla,
+        Direccion direccion,
+        Telefono telefonos,
+        String correoElectronico,
+        PersonalCientifico director,
+        Integer tiempoPrevioReserva,
+        Date fechaInicio,
+        Estado estado,
+        Date fechaBaja,
+        String motivoBaja,
+        ArrayList<RecursoTecnologico> recursos,
+        Integer numeroResolucion,
+        Date fechaResolucion,
+        String reglamento,
+        Date fechaAlta,
+        String caracteristicas,
+        AsignacionDirector direc,
+        ArrayList<AsignacionCientificoCI> asignacionCientificoCIS
+    ) {
         this.nombre = nombre;
         this.sigla = sigla;
         this.direccion = direccion;
@@ -36,21 +58,21 @@ public class CentroInvestigacion {
         this.fechaBaja = fechaBaja;
         this.motivoBaja = motivoBaja;
         this.recursos = recursos;
-        this.númeroResolución = númeroResolución;
-        this.fechaResolución = fechaResolución;
+        this.numeroResolucion = numeroResolucion;
+        this.fechaResolucion = fechaResolucion;
         this.reglamento = reglamento;
         this.fechaAlta = fechaAlta;
         this.caracteristicas = caracteristicas;
         this.direc = direc;
-        this.cientificos = cientificos;
+        this.asignacionCientificoCIS = asignacionCientificoCIS;
     }
 
     public void darDeBaja() {
         // TODO implement here
     }
 
-    public void listarRecursosTecnológicos() {
-        // TODO implement here
+    public ArrayList<RecursoTecnologico> listarRecursosTecnológicos() {
+        return this.recursos;
     }
 
     public void listarPersonal() {
@@ -90,11 +112,21 @@ public class CentroInvestigacion {
         return recursosEncontrados;
     }
 
-    public void esTuCientifico() {
-        // TODO implement here
+    public boolean esTuCientifico(PersonalCientifico cientifico) {
+        AtomicBoolean esTuCientifico = new AtomicBoolean(false);
+        this.asignacionCientificoCIS.forEach(asignacionCientificoCI -> {
+            if (asignacionCientificoCI.esCientifico(cientifico) && asignacionCientificoCI.esCientificoActivo()) {
+                esTuCientifico.set(true);
+            }
+        });
+        return esTuCientifico.get();
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public boolean esTuNombre(String nombre) {
+        return this.nombre.equals(nombre);
     }
 }

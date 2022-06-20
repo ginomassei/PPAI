@@ -1,7 +1,6 @@
 package com.ppai.domain;
 
 public class Estado {
-
     private String nombre;
     private String ambito;
 
@@ -22,8 +21,8 @@ public class Estado {
         // TODO implement here
     }
 
-    public void esReservado() {
-        // TODO implement here
+    public boolean esReservado() {
+        return this.nombre.equals("Reservado");
     }
 
     public boolean esBajaTecnica() {
@@ -32,5 +31,9 @@ public class Estado {
 
     public boolean esBajaDefinitiva() {
         return this.nombre.equals("Baja Definitiva");
+    }
+
+    public boolean esAmbitoTurno() {
+        return this.ambito.equals("Turno");
     }
 }

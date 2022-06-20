@@ -13,7 +13,7 @@ import java.util.Date;
 @Startup
 @Singleton
 public class EstadosVendor {
-    private ArrayList<Estado> estados;
+    private static ArrayList<Estado> estados;
     private ArrayList<CambioEstado> cambiosEstado;
     private ArrayList<Turno> turnos;
 
@@ -227,7 +227,7 @@ public class EstadosVendor {
         turnos.add(turno14);
     }
 
-    public ArrayList<Estado> getEstados() {
+    public static ArrayList<Estado> getEstados() {
         return estados;
     }
 

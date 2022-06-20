@@ -16,16 +16,13 @@ public class AsignacionCientifico {
         this.fechaFin = fechaFin;
     }
 
-    public void esActual() {
-        // TODO implement here
+    public boolean esCientificoActivo() {
+        if (this.fechaFin == null) {
+            return false;
+        } else return new Date(System.currentTimeMillis()).before(this.fechaFin);
     }
 
-    public void esCientificoActivo() {
-        // TODO implement here
+    public boolean esCientifico(PersonalCientifico cientifico) {
+        return this.cientifico.equals(cientifico);
     }
-
-    public void esCientifico() {
-        // TODO implement here
-    }
-
 }

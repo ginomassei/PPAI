@@ -3,7 +3,6 @@ package com.ppai.domain;
 import java.util.*;
 
 public class CambioEstado {
-
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private Estado estado;
@@ -28,5 +27,13 @@ public class CambioEstado {
 
     public boolean esBajaDefinitiva() {
         return this.estado.esBajaDefinitiva();
+    }
+
+    public void finalizar() {
+        this.fechaHoraHasta = new Date(System.currentTimeMillis());
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 }

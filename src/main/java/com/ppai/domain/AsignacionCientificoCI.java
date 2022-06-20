@@ -13,10 +13,9 @@ public class AsignacionCientificoCI extends AsignacionCientifico {
         this.turnos = turnos;
     }
 
-
-
     public ArrayList<Turno> mostrarTurnos() {
         return turnos;
     }
+
 
 }

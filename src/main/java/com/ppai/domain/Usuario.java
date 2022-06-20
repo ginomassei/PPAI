@@ -1,5 +1,9 @@
 package com.ppai.domain;
 
+import com.ppai.config.vendors.CientificosVendor;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 public class Usuario {
     private String contrasena;
     private Estado estado;
@@ -15,7 +19,13 @@ public class Usuario {
         // TODO implement here
     }
 
-    public void obtenerCientifico() {
-        // TODO implement here
+    public PersonalCientifico obtenerCientifico() {
+        AtomicReference<PersonalCientifico> atomicReference = new AtomicReference<>();
+        CientificosVendor.getCientificos().forEach(cientifico -> {
+            if (cientifico.esTuUsuario(this)) {
+                atomicReference.set(cientifico);
+            }
+        });
+        return atomicReference.get();
     }
 }

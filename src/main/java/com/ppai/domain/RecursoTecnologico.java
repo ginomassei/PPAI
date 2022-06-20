@@ -78,8 +78,10 @@ public class RecursoTecnologico {
         // TODO implement here
     }
 
-    public void miModeloYMarca() {
-        // TODO implement here
+    public boolean esMiModeloYMarca(String modelo, String marca) {
+        if (this.modelo.mostrarNombre().equals(modelo) && this.modelo.mostrarMarca().equals(marca)) {
+            return true;
+        } else return false;
     }
 
     public boolean esDeTipo(String nombreTipo) {
@@ -119,7 +121,14 @@ public class RecursoTecnologico {
         return aptoReserva.get();
     }
 
-    public void mostrarTurnosFuturos() {
-        // TODO implement here
+    public ArrayList<Turno> mostrarTurnosFuturos() {
+        ArrayList<Turno> turnosFuturos = new ArrayList<>();
+        for (Turno t: turno) {
+            Date fechaActual = new Date();
+            if (t.esPosteriorA(fechaActual) && t.esActivo()) {
+                turnosFuturos.add(t);
+            }
+        }
+        return turnosFuturos;
     }
 }

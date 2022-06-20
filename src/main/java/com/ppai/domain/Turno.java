@@ -1,9 +1,10 @@
 package com.ppai.domain;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Turno {
-    private ArrayList<CambioEstado> estado;
+    private ArrayList<CambioEstado> cambioEstados;
     private PersonalCientifico cientificoReserva;
     private PersonalCientifico cientifico;
     private Date fechaHoraDesde;
@@ -12,8 +13,17 @@ public class Turno {
     private Date fechaHoraInicioTurno;
     private Date fechaHoraFinTurno;
 
-    public Turno(ArrayList<CambioEstado> estado, PersonalCientifico cientificoReserva, PersonalCientifico cientifico, Date fechaHoraDesde, Date fechaHoraHasta, SolicitudReservaTurno solicitudesReserva, Date fechaHoraInicioTurno, Date fechaHoraFinTurno) {
-        this.estado = estado;
+    public Turno(
+        ArrayList<CambioEstado> cambioEstados,
+        PersonalCientifico cientificoReserva,
+        PersonalCientifico cientifico,
+        Date fechaHoraDesde,
+        Date fechaHoraHasta,
+        SolicitudReservaTurno solicitudesReserva,
+        Date fechaHoraInicioTurno,
+        Date fechaHoraFinTurno
+    ) {
+        this.cambioEstados = cambioEstados;
         this.cientificoReserva = cientificoReserva;
         this.cientifico = cientifico;
         this.fechaHoraDesde = fechaHoraDesde;
@@ -27,28 +37,35 @@ public class Turno {
         // TODO implement here
     }
 
-    public void reservarTurno() {
-        // TODO implement here
+    public void reservarTurno(Estado estado) {
+        finalizarUltimoCambioEstado();
+        CambioEstado nuevoCambioEstado = new CambioEstado(
+            new Date(),
+            null,
+            estado
+        );
+        cambioEstados.add(nuevoCambioEstado);
     }
 
-    public void esActivo() {
-        // TODO implement here
+    public boolean esActivo() {
+        AtomicBoolean activo = new AtomicBoolean(false);
+        cambioEstados.forEach(cambioEstado -> {
+            if (cambioEstado.esActual()) {
+                activo.set(true);
+            }
+        });
+        return activo.get();
     }
 
-    public void esPosteriorA() {
-        // TODO implement here
+    public boolean esPosteriorA(Date today) {
+        return fechaHoraDesde.after(today);
     }
 
-    public void cambiarEstado() {
-        // TODO implement here
+    private void finalizarUltimoCambioEstado() {
+        for (CambioEstado cambioEstado: cambioEstados) {
+            if (cambioEstado.esActual()) {
+                cambioEstado.finalizar();
+            }
+        }
     }
-
-    public void vincularNuevoCambioEstado() {
-        // TODO implement here
-    }
-
-    public void finalizarUltimoCambioEstado() {
-        // TODO implement here
-    }
-
 }

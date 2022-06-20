@@ -1,11 +1,10 @@
 package com.ppai.resources;
 
 import com.ppai.controllers.ControladorRegistrarReservaTurno;
+import com.ppai.domain.Turno;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -13,7 +12,8 @@ import java.util.Arrays;
 
 @Path("/turnos")
 public class ResourceReservarTurno {
-    ControladorRegistrarReservaTurno controladorReservaTurno = new ControladorRegistrarReservaTurno();
+    @Inject
+    ControladorRegistrarReservaTurno controladorReservaTurno;
 
     @GET
     @Path("/buscar-tipo-recurso-tecnologico")
@@ -30,8 +30,8 @@ public class ResourceReservarTurno {
     @Path("/buscar-recursos-tecnologicos-por-tipo")
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscarRecursosPorTipo(@QueryParam("tiposRecurso") String tiposRecurso) {
-
         if (tiposRecurso == null) return Response.serverError().build();
+
         ArrayList<String> tiposDeRecursos = new ArrayList<>(Arrays.asList(tiposRecurso.split(",")));
 
         Object recursosTecnologicosPorTipo = controladorReservaTurno.buscarRecursosTecnologicosPorTipo(tiposDeRecursos);
@@ -45,29 +45,44 @@ public class ResourceReservarTurno {
     @Path("/seleccionar-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
     public Response seleccionarRecursoTecnologico(@QueryParam("recursoSeleccionado") String recursoSeleccionado) {
-        controladorReservaTurno.seleccionarRecursoTecnologico();
-        return Response.ok("{\"message\":\"Hello World\"}").build();
+        String[] res = recursoSeleccionado.split(",");
+        ArrayList<Turno> turnosFuturos = controladorReservaTurno.seleccionarRecursoTecnologico(res);
+        return Response
+            .ok()
+            .entity(turnosFuturos)
+            .build();
     }
 
-    @GET
+    @POST
     @Path("/seleccionar-turno-recurso-tecnologico")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response seleccionarTurnoRecursoTecnologico() {
-        return Response.ok("{\"message\":\"Hello World\"}").build();
+    public Response seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
+        Object responseObject = controladorReservaTurno.seleccionarTurnoRecursoTecnologico(turnoSeleccionado);
+        return Response
+            .ok()
+            .entity(responseObject)
+            .build();
     }
 
     @GET
     @Path("/seleccionar-metodo-notificacion")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response seleccionarMetodoNotificacion() {
-        return Response.ok("{\"message\":\"Hello World\"}").build();
+    public Response seleccionarMetodoNotificacion(String metodoNotificacion) {
+        controladorReservaTurno.seleccionarMetodoNotificacion(metodoNotificacion);
+        return Response
+            .ok()
+            .build();
     }
 
     @GET
     @Path("/confirmar-reserva-turno")
     @Produces(MediaType.APPLICATION_JSON)
     public Response confirmarReservaTurno() {
-        return Response.ok("{\"message\":\"Hello World\"}").build();
+        controladorReservaTurno.confirmarReservaTurno();
+        return Response
+            .ok()
+            .build();
     }
 
     public void solicitarSeleccionTipoRecurso() {
