@@ -20,7 +20,7 @@ public class ControladorRegistrarReservaTurno {
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
         for (TipoRecurso tipoRecurso : RecursosVendor.getTiposRecurso()) {
-            tipoRecurso.mostrarCategoria();
+            tiposRecursoTecnologico.add(tipoRecurso.mostrarCategoria());
         }
         return tiposRecursoTecnologico;
     }
@@ -72,4 +72,5 @@ public class ControladorRegistrarReservaTurno {
     public void buscarEstadoReservado() {
         // TODO implement here
     }
+
 }
