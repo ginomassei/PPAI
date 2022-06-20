@@ -1,12 +1,21 @@
 package com.ppai.controllers;
 
-import com.ppai.config.GlobalVendor;
-import com.ppai.domain.TipoRecurso;
+import com.ppai.config.vendors.RecursosVendor;
+import com.ppai.domain.*;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 
 public class ControladorRegistrarReservaTurno {
-    public static ArrayList<TipoRecurso> tiposDeRecursos = GlobalVendor.getTiposRecurso();
+    @Inject
+    RecursosVendor recursosVendor;
+
+    private final ArrayList<TipoRecurso> tiposDeRecursosTecnologicos = recursosVendor.getTiposRecurso();
+//    private static Sesion sesionActual = .getSesionActual();
+//    private static PersonalCientifico cientificoLogueado = GlobalVendor.getCientificoLogueado();
+//    private static Estado estadoReservado = GlobalVendor.getEstadoReservado();
+//    private static ArrayList<CentroInvestigacion> centrosDeInvestigacion = GlobalVendor.getCentrosDeInvestigacion();
+//    private static Turno turnoSeleccionado = GlobalVendor.getTurnoSeleccionado();
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
@@ -14,7 +23,7 @@ public class ControladorRegistrarReservaTurno {
 
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
-        for (TipoRecurso tipoRecurso : tiposDeRecursos) {
+        for (TipoRecurso tipoRecurso : tiposDeRecursosTecnologicos) {
             tipoRecurso.mostrarCategoria();
         }
         return tiposRecursoTecnologico;
@@ -67,5 +76,4 @@ public class ControladorRegistrarReservaTurno {
     public void buscarEstadoReservado() {
         // TODO implement here
     }
-
 }
