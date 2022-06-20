@@ -20,7 +20,7 @@ public class RecursosVendor {
     MarcasVendor marcasVendor;
 
     private ArrayList<Caracteristica> caracteristicas;
-    private ArrayList<TipoRecurso> tiposRecurso;
+    private static ArrayList<TipoRecurso> tiposRecurso;
     private ArrayList<CaracteristicaRecurso> caracteristicasRecurso;
     private ArrayList<RecursoTecnologico> recursosTecnologicos;
 
@@ -41,7 +41,7 @@ public class RecursosVendor {
         return caracteristicas;
     }
 
-    public ArrayList<TipoRecurso> getTiposRecurso() {
+    public static ArrayList<TipoRecurso> getTiposRecurso() {
         return tiposRecurso;
     }
 

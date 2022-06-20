@@ -3,14 +3,10 @@ package com.ppai.controllers;
 import com.ppai.config.vendors.RecursosVendor;
 import com.ppai.domain.*;
 
-import javax.inject.Inject;
 import java.util.ArrayList;
 
 public class ControladorRegistrarReservaTurno {
-    @Inject
-    RecursosVendor recursosVendor;
 
-    private final ArrayList<TipoRecurso> tiposDeRecursosTecnologicos = recursosVendor.getTiposRecurso();
 //    private static Sesion sesionActual = .getSesionActual();
 //    private static PersonalCientifico cientificoLogueado = GlobalVendor.getCientificoLogueado();
 //    private static Estado estadoReservado = GlobalVendor.getEstadoReservado();
@@ -23,7 +19,7 @@ public class ControladorRegistrarReservaTurno {
 
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
-        for (TipoRecurso tipoRecurso : tiposDeRecursosTecnologicos) {
+        for (TipoRecurso tipoRecurso : RecursosVendor.getTiposRecurso()) {
             tipoRecurso.mostrarCategoria();
         }
         return tiposRecursoTecnologico;
