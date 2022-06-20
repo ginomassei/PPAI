@@ -70,7 +70,7 @@ public class ControladorRegistrarReservaTurno {
         PersonalCientifico cientificoLogueado = sesionActual.obtenerCientifico();
 
         for (CentroInvestigacion centro : centrosDeInvestigacion) {
-            if (centro.esTuCientifico(cientificoLogueado)) {
+            if (centro.esTuCientifico(cientificoLogueado) && centro.getNombre().equals(centroInv)) {
                 return centro;
             }
         }
