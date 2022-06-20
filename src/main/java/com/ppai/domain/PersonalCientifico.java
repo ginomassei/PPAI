@@ -33,4 +33,8 @@ public class PersonalCientifico {
     public void mostrarCientifico() {
         // TODO implement here
     }
+
+    public boolean esTuUsuario(Usuario usuario) {
+        return this.usuario.equals(usuario);
+    }
 }

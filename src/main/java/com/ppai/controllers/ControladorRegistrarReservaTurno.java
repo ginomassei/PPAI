@@ -1,18 +1,20 @@
 package com.ppai.controllers;
 
 import com.ppai.config.vendors.CDIVendor;
+import com.ppai.config.vendors.CientificosVendor;
 import com.ppai.config.vendors.RecursosVendor;
+import com.ppai.config.vendors.UsuariosVendor;
 import com.ppai.domain.*;
 
 import java.util.ArrayList;
 
 public class ControladorRegistrarReservaTurno {
 
-//    private static Sesion sesionActual = .getSesionActual();
-//    private static PersonalCientifico cientificoLogueado = GlobalVendor.getCientificoLogueado();
 //    private static Estado estadoReservado = GlobalVendor.getEstadoReservado();
-    private static ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
 //    private static Turno turnoSeleccionado = GlobalVendor.getTurnoSeleccionado();
+    private static ArrayList<PersonalCientifico> personalCientifico = CientificosVendor.getCientificos();
+    private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
+    private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
@@ -56,6 +58,13 @@ public class ControladorRegistrarReservaTurno {
     }
 
     public void validarCientificoPerteneceCIRecurso() {
+        personalCientifico.forEach(cientifico -> {
+            if (cientifico.esTuUsuario(sesionActual.obtenerCientifico())) {
+                centrosDeInvestigacion.forEach(centroInvestigacion -> {
+                    centroInvestigacion.esTuCientifico(sesionActual.obtenerCientifico());
+                });
+            }
+        });
 
     }
 
@@ -86,5 +95,4 @@ public class ControladorRegistrarReservaTurno {
     public void buscarEstadoReservado() {
         // TODO implement here
     }
-
 }

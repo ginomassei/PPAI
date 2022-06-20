@@ -44,7 +44,7 @@ public class ResourceReservarTurno {
     @GET
     @Path("/seleccionar-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response seleccionarRecursoTecnologico() {
+    public Response seleccionarRecursoTecnologico(@QueryParam("recursoSeleccionado") String recursoSeleccionado) {
         controladorReservaTurno.seleccionarRecursoTecnologico();
         return Response.ok("{\"message\":\"Hello World\"}").build();
     }

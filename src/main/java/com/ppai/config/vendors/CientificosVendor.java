@@ -19,7 +19,7 @@ public class CientificosVendor {
     @Inject
     UsuariosVendor usuariosVendor;
 
-    private ArrayList<PersonalCientifico> cientificos;
+    private static ArrayList<PersonalCientifico> cientificos;
     private ArrayList<AsignacionCientificoCI> asignacionesCientificoCI;
 
     @PostConstruct
@@ -97,7 +97,7 @@ public class CientificosVendor {
         asignacionesCientificoCI.add(asignacion6);
     }
 
-    public ArrayList<PersonalCientifico> getCientificos() {
+    public static ArrayList<PersonalCientifico> getCientificos() {
         return cientificos;
     }
 

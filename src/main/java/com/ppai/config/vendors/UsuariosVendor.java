@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @Singleton
 @Startup
 public class UsuariosVendor {
-    private ArrayList<Usuario> usuarios;
+    private static ArrayList<Usuario> usuarios;
 
     @PostConstruct
     public void init() {
@@ -18,7 +18,7 @@ public class UsuariosVendor {
         crearUsuarios();
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public static ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }
 
