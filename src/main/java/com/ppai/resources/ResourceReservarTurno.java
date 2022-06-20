@@ -46,6 +46,7 @@ public class ResourceReservarTurno {
     @Produces(MediaType.APPLICATION_JSON)
     public Response seleccionarRecursoTecnologico(@QueryParam("recursoSeleccionado") String recursoSeleccionado) {
         String[] res = recursoSeleccionado.split(",");
+        // [nombre del centro, modelo, marca]
         ArrayList<Turno> turnosFuturos = controladorReservaTurno.seleccionarRecursoTecnologico(res);
         return Response
             .ok()

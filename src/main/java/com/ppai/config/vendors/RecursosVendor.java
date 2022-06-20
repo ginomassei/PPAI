@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Singleton
 @Startup
 @DependsOn(value= {"EstadosVendor", "MarcasVendor"})
-public class RecursosVendor {
+public class    RecursosVendor {
     @Inject
     EstadosVendor estadosVendor;
 

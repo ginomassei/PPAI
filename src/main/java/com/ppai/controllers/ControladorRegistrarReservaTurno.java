@@ -63,12 +63,11 @@ public class ControladorRegistrarReservaTurno {
             for (RecursoTecnologico recurso : recursosDelCentro) {
                 if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
                     turnosFuturos = recurso.mostrarTurnosFuturos();
+                    return turnosFuturos;
                 }
             }
-        } else {
-            return null;
         }
-        return turnosFuturos;
+        return null
     }
 
     private CentroInvestigacion validarCientificoPerteneceCIRecurso(String centroInv) {

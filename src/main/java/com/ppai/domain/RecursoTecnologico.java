@@ -3,6 +3,7 @@ package com.ppai.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RecursoTecnologico {
@@ -78,8 +79,12 @@ public class RecursoTecnologico {
         // TODO implement here
     }
 
-    public boolean esMiModeloYMarca(String modelo, String marca) {
-        return this.modelo.mostrarNombre() == modelo && this.modelo.mostrarMarca() == marca;
+    public boolean esMiModeloYMarca(String modeloI, String marcaI) {
+        boolean esModelo = Objects.equals(this.modelo.mostrarNombre(), modeloI);
+        String marcaRecurso =  this.modelo.mostrarMarca();
+        boolean esMarca = Objects.equals(marcaRecurso, marcaI);
+        boolean retorno = esModelo && esMarca;
+        return retorno;
     }
 
     public boolean esDeTipo(String nombreTipo) {

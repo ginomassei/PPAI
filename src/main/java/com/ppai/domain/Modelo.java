@@ -24,6 +24,7 @@ public class Modelo {
         for (Marca marca: MarcasVendor.getMarcas()) {
             if (marca.esTuModelo(this)) {
                 miMarca = marca.mostrarNombre();
+                return miMarca;
             }
         }
         return miMarca;
