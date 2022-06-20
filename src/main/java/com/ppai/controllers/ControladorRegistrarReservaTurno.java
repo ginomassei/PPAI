@@ -5,6 +5,7 @@ import com.ppai.domain.*;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 @RequestScoped
@@ -53,24 +54,30 @@ public class ControladorRegistrarReservaTurno {
     }
 
     public ArrayList<Turno> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
-        return validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado);
-    }
+        ArrayList<Turno> turnosFuturos = null;
+        //recursoTecnologicoSeleccionado = [centro, modelo, marca];
+        CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
-    private ArrayList<Turno> validarCientificoPerteneceCIRecurso(String[] recursoTecnologicoSeleccionado) {
-        AtomicReference<ArrayList<Turno>> turnosFuturos = null;
-        centrosDeInvestigacion.forEach(centro -> {
-            if (centro.esTuNombre(recursoTecnologicoSeleccionado[0])) {
-                if (centro.esTuCientifico(sesionActual.obtenerCientifico())) {
-                    ArrayList<RecursoTecnologico> recursosDelCentro = centro.listarRecursosTecnológicos();
-                    for (RecursoTecnologico recurso : recursosDelCentro) {
-                        if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
-                            turnosFuturos.set(recurso.mostrarTurnosFuturos());
-                        }
-                    }
+        if (centroCientifico != null) {
+            ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
+            for (RecursoTecnologico recurso : recursosDelCentro) {
+                if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
+                    turnosFuturos = recurso.mostrarTurnosFuturos();
                 }
             }
-        });
-        return turnosFuturos.get();
+        } else {
+            return null;
+        }
+        return turnosFuturos;
+    }
+
+    private CentroInvestigacion validarCientificoPerteneceCIRecurso(String centroInv) {
+        for (CentroInvestigacion centro : centrosDeInvestigacion) {
+            if (centro.esTuNombre(centroInv) && centro.esTuCientifico(sesionActual.obtenerCientifico())) {
+                return centro;
+            }
+        }
+        return null;
     }
 
     public Object seleccionarTurnoRecursoTecnologico(Turno turnoSeleccionado) {
