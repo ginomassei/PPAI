@@ -12,7 +12,6 @@ public class ControladorRegistrarReservaTurno {
     private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
     private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
     private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
-    private static String metodoDeNotificacionSeleccionado;
     private static RecursoTecnologico recursoSeleccionado;
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
@@ -99,10 +98,7 @@ public class ControladorRegistrarReservaTurno {
         };
     }
 
-    public String seleccionarMetodoNotificacion(String metodoNotificacion) {
-        metodoDeNotificacionSeleccionado = metodoNotificacion;
-        return metodoNotificacion;
-    }
+    public void seleccionarMetodoNotificacion(String metodoNotificacion) {}
 
     public void confirmarReservaTurno() {
         buscarEstadoReservado();

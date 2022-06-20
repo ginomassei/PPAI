@@ -18,7 +18,7 @@ public class RecursoTecnologico {
     private Modelo modelo;
     private ArrayList<Turno> turno;
     private String periodicidadMp;
-    private String duraciónMp;
+    private String duracionMp;
 
     public RecursoTecnologico(
         int nroInventario,
@@ -34,7 +34,7 @@ public class RecursoTecnologico {
         Modelo modelo,
         ArrayList<Turno> turno,
         String periodicidadMp,
-        String duraciónMp
+        String duracionMp
     ) {
         this.nroInventario = nroInventario;
         this.fechaAlta = fechaAlta;
@@ -49,7 +49,7 @@ public class RecursoTecnologico {
         this.modelo = modelo;
         this.turno = turno;
         this.periodicidadMp = periodicidadMp;
-        this.duraciónMp = duraciónMp;
+        this.duracionMp = duracionMp;
     }
 
     public void mostrarRecurso() {

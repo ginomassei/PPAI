@@ -13,22 +13,6 @@ public class Turno {
     private Date fechaHoraFinTurno;
     private int id;
 
-    public Date getFechaHoraDesde() {
-        return fechaHoraDesde;
-    }
-
-    public Date getFechaHoraHasta() {
-        return fechaHoraHasta;
-    }
-
-    public Date getFechaHoraInicioTurno() {
-        return fechaHoraInicioTurno;
-    }
-
-    public Date getFechaHoraFinTurno() {
-        return fechaHoraFinTurno;
-    }
-
     public Turno(
         ArrayList<CambioEstado> cambioEstados,
         Date fechaHoraDesde,
@@ -96,7 +80,7 @@ public class Turno {
 
         c1.setTime(getFechaHoraDesde());
         c2.setTime(getFechaHoraHasta());
-        // Perform addition/subtraction
+        // Perform addition / subtraction
         c1.add(Calendar.YEAR, -1900);
         c2.add(Calendar.YEAR, -1900);
 
@@ -105,5 +89,21 @@ public class Turno {
         Date fechaHoraHasta = c2.getTime();
 
         return new String[] {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta), mostrarId()};
+    }
+
+    public Date getFechaHoraDesde() {
+        return fechaHoraDesde;
+    }
+
+    public Date getFechaHoraHasta() {
+        return fechaHoraHasta;
+    }
+
+    public Date getFechaHoraInicioTurno() {
+        return fechaHoraInicioTurno;
+    }
+
+    public Date getFechaHoraFinTurno() {
+        return fechaHoraFinTurno;
     }
 }
