@@ -17,7 +17,7 @@ public class RecursosVendor {
     EstadosVendor estadosVendor;
 
     @Inject
-    com.ppai.config.vendors.marcasVendor marcasVendor;
+    MarcasVendor marcasVendor;
 
     private ArrayList<Caracteristica> caracteristicas;
     private ArrayList<TipoRecurso> tiposRecurso;

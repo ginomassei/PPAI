@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @Singleton
 @Startup
-public class marcasVendor {
+public class MarcasVendor {
     public ArrayList<Modelo> modelos;
     public ArrayList<Marca> marcas;
 
