@@ -13,6 +13,7 @@ public class ControladorRegistrarReservaTurno {
     private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
     private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
     private static RecursoTecnologico recursoSeleccionado;
+    private static String[] recursoSeleccionadoAsString;
 
     public ArrayList<String> buscarTipoRecursoTecnologico() {
         return obtenerTiposRecursoTecnologico();
@@ -53,6 +54,7 @@ public class ControladorRegistrarReservaTurno {
 
     public ArrayList<String[]> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
         //recursoTecnologicoSeleccionado = [centro, modelo, marca];
+        recursoSeleccionadoAsString = recursoTecnologicoSeleccionado;
         CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
         if (centroCientifico != null) {
@@ -95,6 +97,7 @@ public class ControladorRegistrarReservaTurno {
             // Mostrar datos reserva parcial.
             public final String[] reservaParcial = turnoSeleccionado.mostrarTurno();
             public final ArrayList<String> metodosDeNotificacionDisponibles = metodosDeNotificacion;
+            public final String[] recursoTecnologico = recursoSeleccionadoAsString;
         };
     }
 
