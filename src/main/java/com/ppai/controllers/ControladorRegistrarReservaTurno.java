@@ -5,9 +5,20 @@ import com.ppai.domain.*;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Controlador responsable de gestionar el flujo de mensajes para el caso de uso
+ * Registrar Reserva turno.
+ * El controlador es llamado desde la clase resource correspondiente. Y se encarga de conectar la frontera con nuestro
+ * esquema de clases de entidad pertenecientes al modelo de negocio.
+ */
 @RequestScoped
 public class ControladorRegistrarReservaTurno {
+    /**
+     * En este caso, utilizamos los vendors, para simular una base de datos. Los mismos nos proveen de datos
+     * "hardcodeados" para que la aplicación sea funcional en esta primera instancia.
+     */
     private static Turno turnoSeleccionado;
     private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
     private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
@@ -19,6 +30,10 @@ public class ControladorRegistrarReservaTurno {
         return obtenerTiposRecursoTecnologico();
     }
 
+    /**
+     * Obtiene los recursos tecnológicos por tipo, obteniendo los recursos del vendor correspondiente.
+     * @return array de tipos de recursos tecnológicos.
+     */
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
         for (TipoRecurso tipoRecurso : RecursosVendor.getTiposRecurso()) {
@@ -53,7 +68,7 @@ public class ControladorRegistrarReservaTurno {
     }
 
     public ArrayList<String[]> seleccionarRecursoTecnologico(String[] recursoTecnologicoSeleccionado) {
-        //recursoTecnologicoSeleccionado = [centro, modelo, marca];
+        // recursoTecnologicoSeleccionado = [centro, modelo, marca];
         recursoSeleccionadoAsString = recursoTecnologicoSeleccionado;
         CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
@@ -104,15 +119,17 @@ public class ControladorRegistrarReservaTurno {
     public void seleccionarMetodoNotificacion(String metodoNotificacion) {}
 
     public void confirmarReservaTurno() {
-        buscarEstadoReservado();
+        Estado estadoReservado = buscarEstadoReservado();
+        turnoSeleccionado.reservarTurno(estadoReservado);
     }
 
-    private void buscarEstadoReservado() {
-        EstadosVendor.getEstados().forEach(estado -> {
+    private Estado buscarEstadoReservado() {
+        for (Estado estado: EstadosVendor.getEstados()) {
             if (estado.esAmbitoTurno() && estado.esReservado()) {
-                turnoSeleccionado.reservarTurno(estado);
+                return estado;
             }
-        });
+        }
+        return null;
     }
 
     public void confirmarReservaRT() {

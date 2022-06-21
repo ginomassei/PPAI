@@ -9,11 +9,21 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * La clase ResourceReservarTurno actúa como una clase del tipo Boundary, modelando la frontera de nuestro sistema,
+ * interactuando con el cliente que en este caso es un servidor web, que realiza las peticiones HTTP.
+ * Cada endpoint de esta clase, representa un mensaje que enviaría el actor a una clase "Pantalla"
+ * convencional. Los métodos que no se utilizan en esta clase, no aplican al caso de uso desarrollado.
+ */
 @Path("/turnos")
 public class ResourceReservarTurno {
     @Inject
     ControladorRegistrarReservaTurno controladorReservaTurno;
 
+    /**
+     * Obtiene los tipos de recurso tecnológicos disponibles en el sistema.
+     * @return Response con un array de strings del tipo de recurso, para que el usuario realice la selección.
+     */
     @GET
     @Path("/buscar-tipo-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +35,12 @@ public class ResourceReservarTurno {
             .build();
     }
 
+    /**
+     * Pasando un tipo de recurso como parámetro a la request. El sistema busca los recursos tecnológicos que coinciden
+     * con el tipo pasado por parámetro.
+     * @param tiposRecurso String
+     * @return Los recursos tecnológicos agrupados por centro de investigación según su tipo.
+     */
     @GET
     @Path("/buscar-recursos-tecnologicos-por-tipo")
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +56,11 @@ public class ResourceReservarTurno {
             .build();
     }
 
+    /**
+     * Selecciona un recurso que es pasado mediante parámetro en la request.
+     * @param recursoSeleccionado String
+     * @return Un array con los turnos disponibles para ese recurso.
+     */
     @GET
     @Path("/seleccionar-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
@@ -53,6 +74,11 @@ public class ResourceReservarTurno {
             .build();
     }
 
+    /**
+     * Cuando se le pasa un turno, selecciona el turno para su reserva.
+     * @param turnoSeleccionado String
+     * @return Retorna un objeto con el turno seleccionado, y los medios de notificación disponibles.
+     */
     @GET
     @Path("/seleccionar-turno-recurso-tecnologico")
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,6 +90,11 @@ public class ResourceReservarTurno {
             .build();
     }
 
+    /**
+     * Selecciona un método de notificación de los disponibles.
+     * @param metodoNotificacion el método de notificación.
+     * @return Mensaje de confirmación.
+     */
     @GET
     @Path("/seleccionar-metodo-notificacion")
     @Produces(MediaType.APPLICATION_JSON)
@@ -77,6 +108,10 @@ public class ResourceReservarTurno {
             .build();
     }
 
+    /**
+     * Confirma la reserva del turno.
+     * @return mensaje de confirmación.
+     */
     @GET
     @Path("/confirmar-reserva-turno")
     @Produces(MediaType.APPLICATION_JSON)

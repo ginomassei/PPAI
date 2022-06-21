@@ -659,7 +659,7 @@ public class    RecursosVendor {
         turnosRecurso15.add(estadosVendor.getTurnos().get(6));
 
         RecursoTecnologico recurso15 = new RecursoTecnologico(
-            94,
+            9312,
             null,
             tiposRecurso.get(4),
             caracteristicasRecurso15,
