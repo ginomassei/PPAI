@@ -1,6 +1,7 @@
 package com.ppai.domain;
 
 import com.ppai.config.vendors.CientificosVendor;
+import com.ppai.domain.state.Estado;
 
 import java.util.concurrent.atomic.AtomicReference;
 

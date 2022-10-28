@@ -1,5 +1,7 @@
 package com.ppai.domain;
 
+import com.ppai.domain.state.Estado;
+
 public class SolicitudReservaTurno {
     private AsignacionCientifico cientifico;
     private RecursoTecnologico recurso;

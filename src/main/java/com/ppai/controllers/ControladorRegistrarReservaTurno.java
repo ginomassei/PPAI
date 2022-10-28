@@ -2,10 +2,10 @@ package com.ppai.controllers;
 
 import com.ppai.config.vendors.*;
 import com.ppai.domain.*;
+import com.ppai.domain.state.Estado;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Controlador responsable de gestionar el flujo de mensajes para el caso de uso
@@ -119,17 +119,7 @@ public class ControladorRegistrarReservaTurno {
     public void seleccionarMetodoNotificacion(String metodoNotificacion) {}
 
     public void confirmarReservaTurno() {
-        Estado estadoReservado = buscarEstadoReservado();
-        turnoSeleccionado.reservarTurno(estadoReservado);
-    }
-
-    private Estado buscarEstadoReservado() {
-        for (Estado estado: EstadosVendor.getEstados()) {
-            if (estado.esAmbitoTurno() && estado.esReservado()) {
-                return estado;
-            }
-        }
-        return null;
+        turnoSeleccionado.reservarTurno();
     }
 
     public void confirmarReservaRT() {

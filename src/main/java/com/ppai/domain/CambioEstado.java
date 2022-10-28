@@ -1,5 +1,7 @@
 package com.ppai.domain;
 
+import com.ppai.domain.state.Estado;
+
 import java.util.*;
 
 public class CambioEstado {

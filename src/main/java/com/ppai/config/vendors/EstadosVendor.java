@@ -1,7 +1,7 @@
 package com.ppai.config.vendors;
 
 import com.ppai.domain.CambioEstado;
-import com.ppai.domain.Estado;
+import com.ppai.domain.state.Estado;
 import com.ppai.domain.Turno;
 import io.quarkus.runtime.Startup;
 

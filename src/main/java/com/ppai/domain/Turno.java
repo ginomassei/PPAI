@@ -1,5 +1,7 @@
 package com.ppai.domain;
 
+import com.ppai.domain.state.Estado;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -7,6 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Turno {
     private static int turnoGlobalTracker = 0;
     private ArrayList<CambioEstado> cambioEstados;
+    private Estado estado;
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private Date fechaHoraInicioTurno;
@@ -32,14 +35,9 @@ public class Turno {
         // TODO implement here
     }
 
-    public void reservarTurno(Estado estado) {
-        finalizarUltimoCambioEstado();
-        CambioEstado nuevoCambioEstado = new CambioEstado(
-            new Date(),
-            null,
-            estado
-        );
-        cambioEstados.add(nuevoCambioEstado);
+    public void reservarTurno() {
+        Date fechaHoraActual = new Date();
+        this.estado.reservarTurno(fechaHoraActual, this);
     }
 
     public boolean esActivo() {
@@ -91,6 +89,10 @@ public class Turno {
         return new String[] {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta), mostrarId()};
     }
 
+    public void vincularNuevoCambioEstado(CambioEstado cambioEstado) {
+        this.cambioEstados.add(cambioEstado);
+    }
+
     public Date getFechaHoraDesde() {
         return fechaHoraDesde;
     }
@@ -105,5 +107,17 @@ public class Turno {
 
     public Date getFechaHoraFinTurno() {
         return fechaHoraFinTurno;
+    }
+
+    public ArrayList<CambioEstado> getCambioEstados() {
+        return cambioEstados;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 }
