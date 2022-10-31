@@ -3,6 +3,7 @@ package com.ppai.domain;
 import java.util.*;
 
 public class AsignacionCientifico {
+
     private PersonalCientifico cientifico;
     private Date fechaInicio;
     private Date fechaFin;

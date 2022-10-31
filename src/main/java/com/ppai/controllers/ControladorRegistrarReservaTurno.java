@@ -1,6 +1,5 @@
 package com.ppai.controllers;
 
-import com.ppai.config.vendors.*;
 import com.ppai.domain.*;
 import com.ppai.domain.state.Estado;
 
@@ -20,9 +19,9 @@ public class ControladorRegistrarReservaTurno {
      * "hardcodeados" para que la aplicación sea funcional en esta primera instancia.
      */
     private static Turno turnoSeleccionado;
-    private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
-    private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
-    private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
+//    private static final Sesion sesionActual = new Sesion(UsuariosVendor.getUsuarios().get(0));
+//    private static final ArrayList<CentroInvestigacion> centrosDeInvestigacion = CDIVendor.getCentrosInvestigacion();
+//    private static final ArrayList<String> metodosDeNotificacion = MiscVendor.getMetodosDeNotificacion();
     private static RecursoTecnologico recursoSeleccionado;
     private static String[] recursoSeleccionadoAsString;
 
@@ -36,9 +35,9 @@ public class ControladorRegistrarReservaTurno {
      */
     private ArrayList<String> obtenerTiposRecursoTecnologico() {
         ArrayList<String> tiposRecursoTecnologico = new ArrayList<>();
-        for (TipoRecurso tipoRecurso : RecursosVendor.getTiposRecurso()) {
-            tiposRecursoTecnologico.add(tipoRecurso.mostrarCategoria());
-        }
+//        for (TipoRecurso tipoRecurso : RecursosVendor.getTiposRecurso()) {
+//            tiposRecursoTecnologico.add(tipoRecurso.mostrarCategoria());
+//        }
         return tiposRecursoTecnologico;
     }
 
@@ -48,18 +47,18 @@ public class ControladorRegistrarReservaTurno {
 
     private ArrayList<Object> obtenerRecursosTecnologicosPorTipo(ArrayList<String> tiposRecurso) {
         ArrayList<Object> recursosTecnologicos = new ArrayList<>();
-        centrosDeInvestigacion.forEach(centro -> {
-            var recursos = new Object() {
-                public final String centroTecnologico = centro.getNombre();
-                public ArrayList<ArrayList<String>> recursosTecnologicos = new ArrayList<>();
-            };
-            if (centro.estaDeBaja()) return;
-            ArrayList<ArrayList<String>> recursosDelCentro = centro.listarRecursosTecnologicosPorTipo(tiposRecurso);
-            if (recursosDelCentro != null) {
-                recursos.recursosTecnologicos = recursosDelCentro;
-            }
-            recursosTecnologicos.add(recursos);
-        });
+//        centrosDeInvestigacion.forEach(centro -> {
+//            var recursos = new Object() {
+//                public final String centroTecnologico = centro.getNombre();
+//                public ArrayList<ArrayList<String>> recursosTecnologicos = new ArrayList<>();
+//            };
+//            if (centro.estaDeBaja()) return;
+//            ArrayList<ArrayList<String>> recursosDelCentro = centro.listarRecursosTecnologicosPorTipo(tiposRecurso);
+//            if (recursosDelCentro != null) {
+//                recursos.recursosTecnologicos = recursosDelCentro;
+//            }
+//            recursosTecnologicos.add(recursos);
+//        });
         return recursosTecnologicos;
     }
 
@@ -85,13 +84,13 @@ public class ControladorRegistrarReservaTurno {
     }
 
     private CentroInvestigacion validarCientificoPerteneceCIRecurso(String centroInv) {
-        PersonalCientifico cientificoLogueado = sesionActual.obtenerCientifico();
+//        PersonalCientifico cientificoLogueado = sesionActual.obtenerCientifico();
 
-        for (CentroInvestigacion centro : centrosDeInvestigacion) {
-            if (centro.esTuCientifico(cientificoLogueado) && centro.getNombre().equals(centroInv)) {
-                return centro;
-            }
-        }
+//        for (CentroInvestigacion centro : centrosDeInvestigacion) {
+//            if (centro.esTuCientifico(cientificoLogueado) && centro.getNombre().equals(centroInv)) {
+//                return centro;
+//            }
+//        }
         return null;
     }
 
@@ -111,7 +110,7 @@ public class ControladorRegistrarReservaTurno {
         return new Object() {
             // Mostrar datos reserva parcial.
             public final String[] reservaParcial = turnoSeleccionado.mostrarTurno();
-            public final ArrayList<String> metodosDeNotificacionDisponibles = metodosDeNotificacion;
+//            public final ArrayList<String> metodosDeNotificacionDisponibles = metodosDeNotificacion;
             public final String[] recursoTecnologico = recursoSeleccionadoAsString;
         };
     }

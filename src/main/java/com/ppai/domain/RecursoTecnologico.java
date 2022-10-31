@@ -1,15 +1,32 @@
 package com.ppai.domain;
 
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Entity
+@Table(name = "RECURSOS_TECNOLOGICOS")
 public class RecursoTecnologico {
+    @Id
+    @Column(name = "ID_RECURSO_TECNOLOGICO")
+    private Long id;
+
+    @Column(name = "NRO_INVENTARIO")
     private int nroInventario;
+
+    @Column(name = "FECHA_ALTA")
     private Date fechaAlta;
+
+    @OneToOne
     private TipoRecurso tipo;
+
+    @OneToMany(mappedBy = "turno", cascade = CascadeType.ALL, targetEntity = CaracteristicaRecurso.class)
     private ArrayList<CaracteristicaRecurso> caracteristicas;
+
     private List<String> imagenes;
+
+    @OneToOne
     private Disponibilidad disponibilidad;
     private PersonalCientifico responsableTecnico;
     private ArrayList<CambioEstado> estado;
@@ -113,11 +130,11 @@ public class RecursoTecnologico {
 
     public boolean estaAptoReserva() {
         AtomicBoolean aptoReserva = new AtomicBoolean(false);
-        this.estado.forEach(cambioEstado -> {
-            if (cambioEstado.esActual()) {
-                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
-            }
-        });
+//        this.estado.forEach(cambioEstado -> {
+//            if (cambioEstado.esActual()) {
+//                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
+//            }
+//        });
         return aptoReserva.get();
     }
 
@@ -151,5 +168,13 @@ public class RecursoTecnologico {
 
     public ArrayList<Turno> getTurnos() {
         return turno;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

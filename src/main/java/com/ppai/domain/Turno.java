@@ -2,33 +2,48 @@ package com.ppai.domain;
 
 import com.ppai.domain.state.Estado;
 
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Entity
+@Table(name = "TURNOS")
 public class Turno {
-    private static int turnoGlobalTracker = 0;
-    private ArrayList<CambioEstado> cambioEstados;
+    @Id
+    @Column(name = "ID_TURNO")
+    private Long id;
+    @OneToMany(mappedBy = "turno", cascade = CascadeType.ALL, targetEntity = CambioEstado.class)
+    private List<CambioEstado> cambiosEstado;
+    @OneToOne
     private Estado estado;
+
+    @Column(name = "FECHA_HORA_DESDE")
     private Date fechaHoraDesde;
+
+    @Column(name = "FECHA_HORA_HASTA")
     private Date fechaHoraHasta;
+
+    @Column(name = "FECHA_HORA_INICIO_TURNO")
     private Date fechaHoraInicioTurno;
+
+    @Column(name = "FECHA_HORA_FIN_TURNO")
     private Date fechaHoraFinTurno;
-    private int id;
+
+    public Turno() {}
 
     public Turno(
-        ArrayList<CambioEstado> cambioEstados,
+        ArrayList<CambioEstado> cambiosEstado,
         Date fechaHoraDesde,
         Date fechaHoraHasta,
         Date fechaHoraInicioTurno,
         Date fechaHoraFinTurno
     ) {
-        this.cambioEstados = cambioEstados;
+        this.cambiosEstado = cambiosEstado;
         this.fechaHoraDesde = fechaHoraDesde;
         this.fechaHoraHasta = fechaHoraHasta;
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
-        id = turnoGlobalTracker++;
     }
 
     public void notificarInasistencia() {
@@ -42,7 +57,7 @@ public class Turno {
 
     public boolean esActivo() {
         AtomicBoolean activo = new AtomicBoolean(false);
-        cambioEstados.forEach(cambioEstado -> {
+        cambiosEstado.forEach(cambioEstado -> {
             if (cambioEstado.esActual()) {
                 activo.set(true);
             }
@@ -54,16 +69,8 @@ public class Turno {
         return fechaHoraDesde.after(today);
     }
 
-    private void finalizarUltimoCambioEstado() {
-        for (CambioEstado cambioEstado: cambioEstados) {
-            if (cambioEstado.esActual()) {
-                cambioEstado.finalizar();
-            }
-        }
-    }
-
     public String mostrarId() {
-        return Integer.toString(id);
+        return Integer.toString(Math.toIntExact(id));
     }
 
     public boolean esTuId(int id) {
@@ -90,27 +97,47 @@ public class Turno {
     }
 
     public void vincularNuevoCambioEstado(CambioEstado cambioEstado) {
-        this.cambioEstados.add(cambioEstado);
+        this.cambiosEstado.add(cambioEstado);
     }
 
     public Date getFechaHoraDesde() {
         return fechaHoraDesde;
     }
 
+    public void setFechaHoraDesde(Date fechaHoraDesde) {
+        this.fechaHoraDesde = fechaHoraDesde;
+    }
+
     public Date getFechaHoraHasta() {
         return fechaHoraHasta;
+    }
+
+    public void setFechaHoraHasta(Date fechaHoraHasta) {
+        this.fechaHoraHasta = fechaHoraHasta;
     }
 
     public Date getFechaHoraInicioTurno() {
         return fechaHoraInicioTurno;
     }
 
+    public void setFechaHoraInicioTurno(Date fechaHoraInicioTurno) {
+        this.fechaHoraInicioTurno = fechaHoraInicioTurno;
+    }
+
+    public void setFechaHoraFinTurno(Date fechaHoraFinTurno) {
+        this.fechaHoraFinTurno = fechaHoraFinTurno;
+    }
+
     public Date getFechaHoraFinTurno() {
         return fechaHoraFinTurno;
     }
 
-    public ArrayList<CambioEstado> getCambioEstados() {
-        return cambioEstados;
+    public List<CambioEstado> getCambiosEstado() {
+        return cambiosEstado;
+    }
+
+    public void setCambiosEstado(List<CambioEstado> cambioEstados) {
+        this.cambiosEstado = cambioEstados;
     }
 
     public Estado getEstado() {
@@ -119,5 +146,13 @@ public class Turno {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Long getId() {
+       return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

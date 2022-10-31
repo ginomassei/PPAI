@@ -1,7 +1,5 @@
 package com.ppai.domain;
 
-import com.ppai.config.vendors.MarcasVendor;
-
 public class Modelo {
     private String nombre;
     private String descripción;
@@ -21,12 +19,12 @@ public class Modelo {
 
     public String mostrarMarca() {
         String miMarca = "";
-        for (Marca marca: MarcasVendor.getMarcas()) {
-            if (marca.esTuModelo(this)) {
-                miMarca = marca.mostrarNombre();
-                return miMarca;
-            }
-        }
+//        for (Marca marca: MarcasVendor.getMarcas()) {
+//            if (marca.esTuModelo(this)) {
+//                miMarca = marca.mostrarNombre();
+//                return miMarca;
+//            }
+//        }
         return miMarca;
     }
 

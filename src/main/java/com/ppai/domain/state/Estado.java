@@ -4,11 +4,23 @@ import com.ppai.domain.CambioEstado;
 import com.ppai.domain.Turno;
 import org.jboss.resteasy.reactive.common.NotImplementedYet;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "ESTADOS")
 public abstract class Estado {
+
+    @Id
+    @Column(name = "ID_ESTADO")
+    private Long id;
+
+    @Column(name = "NOMBRE")
     private String nombre;
+
+    public Estado() {}
 
     public abstract void crearEstadoSiguiente(Turno turno);
 
@@ -17,7 +29,7 @@ public abstract class Estado {
     }
 
     public void finalizarUltimoCambioDeEstado(Turno turno) {
-        ArrayList<CambioEstado> cambiosEstado = turno.getCambioEstados();
+        List<CambioEstado> cambiosEstado = turno.getCambiosEstado();
         for (CambioEstado cambioEstado : cambiosEstado) {
             if (cambioEstado.esActual()) {
                 cambioEstado.finalizar();
@@ -34,15 +46,12 @@ public abstract class Estado {
         return this.nombre;
     }
 
-    public boolean esReservado() {
-        return this.nombre.equals("Reservado");
+    @Id
+    public Long getId() {
+        return id;
     }
 
-    public boolean esBajaTecnica() {
-        return this.nombre.equals("Baja Tecnica");
-    }
-
-    public boolean esBajaDefinitiva() {
-        return this.nombre.equals("Baja Definitiva");
+    public void setId(Long id) {
+        this.id = id;
     }
 }
