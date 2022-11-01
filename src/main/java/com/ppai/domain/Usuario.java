@@ -1,10 +1,12 @@
 package com.ppai.domain;
 
 import com.ppai.domain.state.Estado;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.concurrent.atomic.AtomicReference;
 
+@Data
 @Entity
 @Table(name = "USUARIOS")
 public class Usuario {
@@ -21,16 +23,6 @@ public class Usuario {
     @Column(name = "NOMBRE_USUARIO")
     private String nombreUsuario;
 
-    public Usuario(String contrasena, Estado estado, String nombreUsuario) {
-        this.password = contrasena;
-        this.estado = estado;
-        this.nombreUsuario = nombreUsuario;
-    }
-
-    public Usuario() {
-
-    }
-
     public void registrarBaja() {
         // TODO implement here
     }
@@ -43,37 +35,5 @@ public class Usuario {
 //            }
 //        });
         return atomicReference.get();
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
     }
 }

@@ -2,12 +2,14 @@ package com.ppai.domain.state;
 
 import com.ppai.domain.CambioEstado;
 import com.ppai.domain.Turno;
+import lombok.Data;
 import org.jboss.resteasy.reactive.common.NotImplementedYet;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Data
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "ESTADOS")
@@ -19,8 +21,6 @@ public abstract class Estado {
 
     @Column(name = "NOMBRE")
     private String nombre;
-
-    public Estado() {}
 
     public abstract void crearEstadoSiguiente(Turno turno);
 
@@ -44,14 +44,5 @@ public abstract class Estado {
 
     public String mostrar() {
         return this.nombre;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

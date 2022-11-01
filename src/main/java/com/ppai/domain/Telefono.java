@@ -1,10 +1,13 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "TELEFONOS")
 public class Telefono {
@@ -17,33 +20,4 @@ public class Telefono {
 
     @Column(name = "REFERENCIA")
     private String referencia;
-
-    public Telefono(String nroTelefono, String referencia) {
-        this.nroTelefono = nroTelefono;
-        this.referencia = referencia;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNroTelefono() {
-        return nroTelefono;
-    }
-
-    public void setNroTelefono(String nroTelefono) {
-        this.nroTelefono = nroTelefono;
-    }
-
-    public String getReferencia() {
-        return referencia;
-    }
-
-    public void setReferencia(String referencia) {
-        this.referencia = referencia;
-    }
 }

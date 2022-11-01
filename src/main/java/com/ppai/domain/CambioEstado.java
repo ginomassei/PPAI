@@ -1,10 +1,18 @@
 package com.ppai.domain;
 
 import com.ppai.domain.state.Estado;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Date;
+import java.util.Objects;
 
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "CAMBIOS_ESTADO")
 public class CambioEstado {
@@ -23,9 +31,13 @@ public class CambioEstado {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ID_TURNO")
+    @ToString.Exclude
     private Turno turno;
 
-    public CambioEstado() {}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="ID_RECURSO_TECNOLOGICO")
+    @ToString.Exclude
+    private RecursoTecnologico recursoTecnologico;
 
     public CambioEstado(Date fechaHoraDesde, Date fechaHoraHasta, Estado estado) {
         this.fechaHoraDesde = fechaHoraDesde;
@@ -45,39 +57,16 @@ public class CambioEstado {
         this.fechaHoraHasta = new Date();
     }
 
-    public Estado getEstado() {
-        return estado;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        CambioEstado that = (CambioEstado) o;
+        return id != null && Objects.equals(id, that.id);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getFechaHoraDesde() {
-        return fechaHoraDesde;
-    }
-
-    public void setFechaHoraDesde(Date fechaHoraDesde) {
-        this.fechaHoraDesde = fechaHoraDesde;
-    }
-
-    public Date getFechaHoraHasta() {
-        return fechaHoraHasta;
-    }
-
-    public void setFechaHoraHasta(Date fechaHoraHasta) {
-        this.fechaHoraHasta = fechaHoraHasta;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public Turno getTurno() {
-        return turno;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

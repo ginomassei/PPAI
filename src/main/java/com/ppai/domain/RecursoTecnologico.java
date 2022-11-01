@@ -1,10 +1,13 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Data
 @Entity
 @Table(name = "RECURSOS_TECNOLOGICOS")
 public class RecursoTecnologico {
@@ -21,53 +24,35 @@ public class RecursoTecnologico {
     @OneToOne
     private TipoRecurso tipo;
 
-    @OneToMany(mappedBy = "turno", cascade = CascadeType.ALL, targetEntity = CaracteristicaRecurso.class)
+    @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = CaracteristicaRecurso.class)
     private ArrayList<CaracteristicaRecurso> caracteristicas;
-
-    private List<String> imagenes;
 
     @OneToOne
     private Disponibilidad disponibilidad;
-    private PersonalCientifico responsableTecnico;
-    private ArrayList<CambioEstado> estado;
-    private MantenimientoPreventivo mantPreventivos;
-    private MantenimientoCorrectivo mantCorrectivos;
-    private Modelo modelo;
-    private ArrayList<Turno> turno;
-    private String periodicidadMp;
-    private String duracionMp;
 
-    public RecursoTecnologico(
-        int nroInventario,
-        Date fechaAlta,
-        TipoRecurso tipo,
-        ArrayList<CaracteristicaRecurso> caracteristicas,
-        List<String> imagenes,
-        Disponibilidad disponibilidad,
-        PersonalCientifico responsableTecnico,
-        ArrayList<CambioEstado> estado,
-        MantenimientoPreventivo mantPreventivos,
-        MantenimientoCorrectivo mantCorrectivos,
-        Modelo modelo,
-        ArrayList<Turno> turno,
-        String periodicidadMp,
-        String duracionMp
-    ) {
-        this.nroInventario = nroInventario;
-        this.fechaAlta = fechaAlta;
-        this.tipo = tipo;
-        this.caracteristicas = caracteristicas;
-        this.imagenes = imagenes;
-        this.disponibilidad = disponibilidad;
-        this.responsableTecnico = responsableTecnico;
-        this.estado = estado;
-        this.mantPreventivos = mantPreventivos;
-        this.mantCorrectivos = mantCorrectivos;
-        this.modelo = modelo;
-        this.turno = turno;
-        this.periodicidadMp = periodicidadMp;
-        this.duracionMp = duracionMp;
-    }
+    @OneToOne
+    private PersonalCientifico responsableTecnico;
+
+    @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = CambioEstado.class)
+    private ArrayList<CambioEstado> estado;
+
+    @OneToOne
+    private MantenimientoPreventivo mantPreventivos;
+
+    @OneToOne
+    private MantenimientoCorrectivo mantCorrectivos;
+
+    @OneToOne
+    private Modelo modelo;
+
+    @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = Turno.class)
+    private ArrayList<Turno> turno;
+
+    @Column(name = "PERIODICIDAD_MANTENIMIENTO_PREVENTIVO")
+    private String periodicidadMp;
+
+    @Column(name = "DURACION_MANTENIMIENTO_PREVENTIVO")
+    private String duracionMp;
 
     public void mostrarRecurso() {
         // TODO implement here
@@ -164,17 +149,5 @@ public class RecursoTecnologico {
             }
         }
         return turnosFuturos;
-    }
-
-    public ArrayList<Turno> getTurnos() {
-        return turno;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
