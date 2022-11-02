@@ -5,11 +5,15 @@ import com.ppai.domain.gestion_mantenimiento.MantenimientoCorrectivo;
 import com.ppai.domain.gestion_mantenimiento.MantenimientoPreventivo;
 import com.ppai.domain.gestion_recursos_tecnologicos.estados.CambioEstadoRecurso;
 import com.ppai.domain.gestion_turnos.Turno;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Data
+@AllArgsConstructor
 public class RecursoTecnologico {
     private int nroInventario;
     private Date fechaAlta;
@@ -25,38 +29,6 @@ public class RecursoTecnologico {
     private ArrayList<Turno> turno;
     private String periodicidadMp;
     private String duracionMp;
-
-    public RecursoTecnologico(
-        int nroInventario,
-        Date fechaAlta,
-        TipoRecurso tipo,
-        ArrayList<CaracteristicaRecurso> caracteristicas,
-        List<String> imagenes,
-        Disponibilidad disponibilidad,
-        PersonalCientifico responsableTecnico,
-        ArrayList<CambioEstadoRecurso> estado,
-        MantenimientoPreventivo mantPreventivos,
-        MantenimientoCorrectivo mantCorrectivos,
-        Modelo modelo,
-        ArrayList<Turno> turno,
-        String periodicidadMp,
-        String duracionMp
-    ) {
-        this.nroInventario = nroInventario;
-        this.fechaAlta = fechaAlta;
-        this.tipo = tipo;
-        this.caracteristicas = caracteristicas;
-        this.imagenes = imagenes;
-        this.disponibilidad = disponibilidad;
-        this.responsableTecnico = responsableTecnico;
-        this.estado = estado;
-        this.mantPreventivos = mantPreventivos;
-        this.mantCorrectivos = mantCorrectivos;
-        this.modelo = modelo;
-        this.turno = turno;
-        this.periodicidadMp = periodicidadMp;
-        this.duracionMp = duracionMp;
-    }
 
     public void mostrarRecurso() {
         // TODO implement here
@@ -78,10 +50,12 @@ public class RecursoTecnologico {
         // TODO implement here
     }
 
-    public void esTipo() {
-        // TODO implement here
-    }
-
+    /**
+     * Responde si el Recurso tecnológico es de un modelo y una marca especificos.
+     * @param modeloI Modelo a chequear.
+     * @param marcaI Marca a chequear.
+     * @return boolean true; si el recurso es del modelo y marca ingresados por parámetro.
+     */
     public boolean esMiModeloYMarca(String modeloI, String marcaI) {
         boolean esModelo = Objects.equals(this.modelo.mostrarNombre(), modeloI);
         String marcaRecurso =  this.modelo.mostrarMarca();
@@ -90,10 +64,19 @@ public class RecursoTecnologico {
         return retorno;
     }
 
+    /**
+     * Responde si el recurso es de cierto tipo.
+     * @param nombreTipo Tipo del que queremos saber si el recurso pertenece.
+     * @return true si el recurso es de ese tipo.
+     */
     public boolean esDeTipo(String nombreTipo) {
         return this.tipo.mostrarCategoria().equals(nombreTipo);
     }
 
+    /**
+     * Muestra el modelo y la marca del recurso.
+     * @return string con el modelo y la marca.
+     */
     public ArrayList<String> mostrarModeloYMarca() {
         String modelo = this.modelo.mostrarNombre();
         String marca = this.modelo.mostrarMarca();
@@ -103,10 +86,18 @@ public class RecursoTecnologico {
         return modeloYMarca;
     }
 
+    /**
+     * Retorna el número de inventario.
+     * @return String con el numero del inventario.
+     */
     public String mostrarNumeroRT() {
         return Integer.toString(this.nroInventario);
     }
 
+    /**
+     * Muestra el estaqdo actual del recurso.
+     * @return Nombre del estado actual en que se encuentra el recurso.
+     */
     public String mostrarEstado() {
         String estadoActual = null;
         for (CambioEstadoRecurso e: estado) {
@@ -117,6 +108,11 @@ public class RecursoTecnologico {
         return estadoActual;
     }
 
+    /**
+     * Responde si el recurso esta disponible para ser reservado.
+     * Que este reservado quiere decir que no esta en baja tecnica o definitiva
+     * @return true; si esta disponible.
+     */
     public boolean estaAptoReserva() {
         AtomicBoolean aptoReserva = new AtomicBoolean(false);
         this.estado.forEach(cambioEstadoRecurso -> {
@@ -127,6 +123,10 @@ public class RecursoTecnologico {
         return aptoReserva.get();
     }
 
+    /**
+     * Muestra todos los turnos disponibles para el recurso.
+     * @return array con un string de turnos.
+     */
     public ArrayList<String[]> mostrarTurnosFuturos() {
         ArrayList<String[]> turnosFuturos = new ArrayList<>();
         for (Turno t: turno) {
@@ -153,9 +153,5 @@ public class RecursoTecnologico {
             }
         }
         return turnosFuturos;
-    }
-
-    public ArrayList<Turno> getTurnos() {
-        return turno;
     }
 }

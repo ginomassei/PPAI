@@ -1,24 +1,14 @@
 package com.ppai.domain.gestion_recursos_tecnologicos;
 
 import com.ppai.config.vendors.MarcasVendor;
-import com.ppai.domain.gestion_recursos_tecnologicos.Marca;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class Modelo {
     private String nombre;
-    private String descripción;
-
-    public Modelo(String nombre, String descripción) {
-        this.nombre = nombre;
-        this.descripción = descripción;
-    }
-
-    public void mostrar() {
-        // TODO implement here
-    }
-
-    public void modificar() {
-        // TODO implement here
-    }
+    private String descripcion;
 
     public String mostrarMarca() {
         String miMarca = "";
