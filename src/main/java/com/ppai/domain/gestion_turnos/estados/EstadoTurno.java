@@ -61,10 +61,6 @@ public abstract class EstadoTurno {
         return this instanceof Disponible;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String mostrarEstado() {
         return this.nombre;
     }

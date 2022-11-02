@@ -26,7 +26,7 @@ public class RecursoTecnologico {
     private MantenimientoPreventivo mantPreventivos;
     private MantenimientoCorrectivo mantCorrectivos;
     private Modelo modelo;
-    private ArrayList<Turno> turno;
+    private ArrayList<Turno> turnos;
     private String periodicidadMp;
     private String duracionMp;
 
@@ -129,7 +129,7 @@ public class RecursoTecnologico {
      */
     public ArrayList<String[]> mostrarTurnosFuturos() {
         ArrayList<String[]> turnosFuturos = new ArrayList<>();
-        for (Turno t: turno) {
+        for (Turno t: turnos) {
             Date fechaActual = new Date();
             if (t.esPosteriorA(fechaActual) && t.esActivo()) {
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
