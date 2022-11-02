@@ -1,7 +1,5 @@
 package com.ppai.domain.gestion_recursos_tecnologicos;
 
-import java.util.*;
-
 public class Caracteristica {
 
     private String nombre;

@@ -6,7 +6,6 @@ import com.ppai.domain.gestion_turnos.Turno;
 import java.util.*;
 
 public class AsignacionCientificoCI extends AsignacionCientifico {
-
     private ArrayList<Turno> turnos;
 
     public AsignacionCientificoCI(PersonalCientifico cientifico, Date fechaInicio, Date fechaFin, ArrayList<Turno> turnos) {

@@ -1,10 +1,10 @@
 package com.ppai.domain.gestion_mantenimiento;
 
-import com.ppai.domain.gestion_mantenimiento.Demora;
-import com.ppai.domain.gestion_mantenimiento.Mantenimiento;
+import lombok.Data;
 
 import java.util.*;
 
+@Data
 public class MantenimientoPreventivo extends Mantenimiento {
     private Date fechaInicioPrevista;
 

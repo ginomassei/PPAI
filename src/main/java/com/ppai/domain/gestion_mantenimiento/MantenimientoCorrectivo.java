@@ -1,7 +1,5 @@
 package com.ppai.domain.gestion_mantenimiento;
 
-import com.ppai.domain.gestion_mantenimiento.Mantenimiento;
-
 import java.util.Date;
 
 public class MantenimientoCorrectivo extends Mantenimiento {
