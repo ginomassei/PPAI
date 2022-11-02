@@ -1,4 +1,7 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_cientificos.cientifico;
+
+import com.ppai.domain.gestion_centro_investigacion.Telefono;
+import com.ppai.domain.gestion_usuarios.Usuario;
 
 public class PersonalCientifico {
     private int legajo;

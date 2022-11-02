@@ -1,5 +1,7 @@
 package com.ppai.domain;
 
+import com.ppai.domain.turno.Turno;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;

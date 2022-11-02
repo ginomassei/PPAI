@@ -1,4 +1,6 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_cientificos.asignaciones;
+
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 
 import java.util.*;
 

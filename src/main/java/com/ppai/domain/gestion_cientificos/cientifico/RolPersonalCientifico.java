@@ -1,4 +1,4 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_cientificos.cientifico;
 
 public class RolPersonalCientifico {
     private String descripcion;

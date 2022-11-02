@@ -1,6 +1,8 @@
 package com.ppai.domain;
 
-import com.ppai.domain.state.Estado;
+import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionCientificoCI;
+import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionDirector;
+import com.ppai.domain.turno.estados.EstadoTurno;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -14,7 +16,7 @@ public class CentroInvestigacion {
     private PersonalCientifico director;
     private Integer tiempoPrevioReserva;
     private Date fechaInicio;
-    private Estado estado;
+    private EstadoTurno estado;
     private Date fechaBaja;
     private String motivoBaja;
     private ArrayList<RecursoTecnologico> recursos;
@@ -35,7 +37,7 @@ public class CentroInvestigacion {
         PersonalCientifico director,
         Integer tiempoPrevioReserva,
         Date fechaInicio,
-        Estado estado,
+        EstadoTurno estado,
         Date fechaBaja,
         String motivoBaja,
         ArrayList<RecursoTecnologico> recursos,

@@ -1,7 +1,8 @@
-package com.ppai.domain;
+package com.ppai.domain.turno;
 
-import com.ppai.domain.state.Disponible;
-import com.ppai.domain.state.Estado;
+import com.ppai.domain.CambioEstado;
+import com.ppai.domain.turno.estados.Disponible;
+import com.ppai.domain.turno.estados.EstadoTurno;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -9,8 +10,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Turno {
     private static int turnoGlobalTracker = 0;
-    private ArrayList<CambioEstado> cambioEstados;
-    private Estado estado;
+    private ArrayList<CambioEstadoTurno> cambioEstados;
+    private EstadoTurno estadoTurno;
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private Date fechaHoraInicioTurno;
@@ -18,7 +19,7 @@ public class Turno {
     private int id;
 
     public Turno(
-        ArrayList<CambioEstado> cambioEstados,
+        ArrayList<CambioEstadoTurno> cambioEstados,
         Date fechaHoraDesde,
         Date fechaHoraHasta,
         Date fechaHoraInicioTurno,
@@ -30,7 +31,7 @@ public class Turno {
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
         id = turnoGlobalTracker++;
-        estado = new Disponible();
+        estadoTurno = new Disponible();
     }
 
     public void notificarInasistencia() {
@@ -39,13 +40,13 @@ public class Turno {
 
     public void reservarTurno() {
         Date fechaHoraActual = new Date();
-        this.estado.reservarTurno(fechaHoraActual, this);
+        this.estadoTurno.reservarTurno(fechaHoraActual, this);
     }
 
     public boolean esActivo() {
         AtomicBoolean activo = new AtomicBoolean(false);
         cambioEstados.forEach(cambioEstado -> {
-            if (cambioEstado.esActual() && estado.esDisponible()) {
+            if (cambioEstado.esActual() && estadoTurno.esDisponible()) {
                 activo.set(true);
             }
         });
@@ -54,14 +55,6 @@ public class Turno {
 
     public boolean esPosteriorA(Date today) {
         return fechaHoraDesde.after(today);
-    }
-
-    private void finalizarUltimoCambioEstado() {
-        for (CambioEstado cambioEstado: cambioEstados) {
-            if (cambioEstado.esActual()) {
-                cambioEstado.finalizar();
-            }
-        }
     }
 
     public String mostrarId() {
@@ -91,7 +84,7 @@ public class Turno {
         return new String[] {formatter.format(fechaHoraDesde), formatter.format(fechaHoraHasta), mostrarId()};
     }
 
-    public void vincularNuevoCambioEstado(CambioEstado cambioEstado) {
+    public void vincularNuevoCambioEstado(CambioEstadoTurno cambioEstado) {
         this.cambioEstados.add(cambioEstado);
     }
 
@@ -111,15 +104,15 @@ public class Turno {
         return fechaHoraFinTurno;
     }
 
-    public ArrayList<CambioEstado> getCambioEstados() {
+    public ArrayList<CambioEstadoTurno> getCambioEstados() {
         return cambioEstados;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public EstadoTurno getEstado() {
+        return estadoTurno;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setEstado(EstadoTurno estadoTurno) {
+        this.estadoTurno = estadoTurno;
     }
 }
