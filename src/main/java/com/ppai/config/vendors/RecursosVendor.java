@@ -235,13 +235,11 @@ public class    RecursosVendor {
         ArrayList<Turno> turnosRecurso15 = new ArrayList<>();
 
 
-        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(5));
-        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(6));
-        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(7));
+        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(0));
+        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(1));
+        cambiosEstadoRecursoActivo.add(estadosVendor.getCambiosEstado().get(2));
 
-        cambiosEstadoRecursoDeBaja.add(estadosVendor.getCambiosEstado().get(5));
-        cambiosEstadoRecursoDeBaja.add(estadosVendor.getCambiosEstado().get(6));
-        cambiosEstadoRecursoDeBaja.add(estadosVendor.getCambiosEstado().get(8));
+        cambiosEstadoRecursoDeBaja.add(estadosVendor.getCambiosEstado().get(3));
 
         caracteristicasRecurso1.add(caracteristicasRecurso.get(10));
         caracteristicasRecurso1.add(caracteristicasRecurso.get(15));

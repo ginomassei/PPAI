@@ -1,7 +1,7 @@
 package com.ppai.config.vendors;
 
 import com.ppai.domain.CambioEstado;
-import com.ppai.domain.state.Estado;
+import com.ppai.domain.state.*;
 import com.ppai.domain.Turno;
 import io.quarkus.runtime.Startup;
 
@@ -38,56 +38,31 @@ public class EstadosVendor {
         CambioEstado cambioEstado2 = new CambioEstado(fechaDesde2, fechaHasta2, estados.get(2));
         Date fechaDesde3 = new Date(2022,02,2,18,00);
         Date fechaHasta3 = new Date(2022,02,2,20,30);
-        CambioEstado cambioEstado3 = new CambioEstado(fechaDesde3, fechaHasta3, estados.get(5));
-        Date fechaDesde4 = new Date(2022,02,5,17,00);
-        CambioEstado cambioEstado4 = new CambioEstado(fechaDesde4, null, estados.get(6));
-        Date fechaDesde5 = new Date(2022,03,2,8,00);
-        CambioEstado cambioEstado5 = new CambioEstado(fechaDesde5, null, estados.get(0));
 
         // Cambios de estado para recursos
         Date fechaDesde6 = new Date(2022,01,23,9,00);
         Date fechaHasta6 = new Date(2022,01,23,12,00);
-        CambioEstado cambioEstado6 = new CambioEstado(fechaDesde6, fechaHasta6, estados.get(8));
+        CambioEstado cambioEstado6 = new CambioEstado(fechaDesde6, fechaHasta6, estados.get(3));
         Date fechaDesde7 = new Date(2022,01,25,11,00);
         Date fechaHasta7 = new Date(2022,01,25,12,00);
-        CambioEstado cambioEstado7 = new CambioEstado(fechaDesde7, fechaHasta7, estados.get(9));
-        Date fechaDesde8 = new Date(2022,02,2,18,00);
-        CambioEstado cambioEstado8 = new CambioEstado(fechaDesde8, null, estados.get(8));
-        Date fechaDesde9 = new Date(2022,02,2,18,00);
-        CambioEstado cambioEstado9 = new CambioEstado(fechaDesde9, null, estados.get(9));
+        CambioEstado cambioEstado7 = new CambioEstado(fechaDesde7, fechaHasta7, estados.get(4));
+
 
         cambiosEstado.add(cambioEstado1);
         cambiosEstado.add(cambioEstado2);
-        cambiosEstado.add(cambioEstado3);
-        cambiosEstado.add(cambioEstado4);
-        cambiosEstado.add(cambioEstado5);
         cambiosEstado.add(cambioEstado6);
         cambiosEstado.add(cambioEstado7);
-        cambiosEstado.add(cambioEstado8);
-        cambiosEstado.add(cambioEstado9);
     }
 
     public void crearEstados() {
-        Estado estado1 = new Estado("Disponible", "Turno");
-        Estado estado2 = new Estado("Anulado", "Turno");
-        Estado estado3 = new Estado("PendienteDeConfirmacion", "Turno");
-        Estado estado4 = new Estado("CanceladoPorMant", "Turno");
-        Estado estado5 = new Estado("ConReservaConfirmado", "Turno");
-        Estado estado6 = new Estado("EnUso", "Turno");
-        Estado estado7 = new Estado("Finalizado", "Turno");
-        Estado estado8 = new Estado("AnuladoNoEjecutado", "Turno");
-        Estado estado9 = new Estado("Activo", "RecursoTecnologico");
-        Estado estado10 = new Estado("Baja Tecnica", "RecursoTecnologico");
-        Estado estado11 = new Estado("Baja Definitiva", "RecursoTecnologico");
+        Estado estado1 = new Disponible();
+        Estado estado2 = new Reservado();
+        Estado estado9 = new Activo();
+        Estado estado10 = new BajaTecnica();
+        Estado estado11 = new BajaDefinitiva();
 
         estados.add(estado1);
         estados.add(estado2);
-        estados.add(estado3);
-        estados.add(estado4);
-        estados.add(estado5);
-        estados.add(estado6);
-        estados.add(estado7);
-        estados.add(estado8);
         estados.add(estado9);
         estados.add(estado10);
         estados.add(estado11);
@@ -99,13 +74,11 @@ public class EstadosVendor {
         cambiosEstadoFinalizado.add(cambiosEstado.get(0));
         cambiosEstadoFinalizado.add(cambiosEstado.get(1));
         cambiosEstadoFinalizado.add(cambiosEstado.get(2));
-        cambiosEstadoFinalizado.add(cambiosEstado.get(3));
 
         ArrayList<CambioEstado> cambiosEstadoDisponible = new ArrayList<>();
         cambiosEstadoDisponible.add(cambiosEstado.get(0));
         cambiosEstadoDisponible.add(cambiosEstado.get(1));
         cambiosEstadoDisponible.add(cambiosEstado.get(2));
-        cambiosEstadoDisponible.add(cambiosEstado.get(4));
 
         // Turno finalizado
         Date fechaDesde1 = new Date(2022,03,23,9,00);
