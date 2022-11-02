@@ -20,7 +20,8 @@ public class Marca {
     @Column(name = "DESCRIPCION")
     private String descripcion;
 
-    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Modelo> modelos;
 
     public boolean esTuModelo(Modelo modelo) {
