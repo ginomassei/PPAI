@@ -2,28 +2,54 @@ package com.ppai.domain.gestion_turnos.estados;
 
 import com.ppai.domain.gestion_turnos.CambioEstadoTurno;
 import com.ppai.domain.gestion_turnos.Turno;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Esta clase pertenece a la implementación del patrón de diseño State, para gestionar los estados de la clase turno.
+ * <p>
+ * Esta clase implementará los metodos correspondientes a los cambio de estado de la clase turno lanzándo un error
+ * de transición inválida para los métodos que no hayan sido implementados por las clases estado concretas.
+ * <p>
+ * Ademas de que contiene los métodos que responden a que instancia de EstadoTurno responde cada clase en particular.
+ */
+@Data
 public abstract class EstadoTurno {
     private String nombre;
 
+    /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * @param fechaHoraActual Fecha hora de la reserva.
+     * @param turno El turno al cual le vamos a cambiar el estado.
+     */
     public void reservarTurno(Date fechaHoraActual, Turno turno) {
         throw new Error("Transicion inválida");
     }
 
-    public void finalizarUltimoCambioDeEstado(Turno turno) {
+    /**
+     * Común para todos los estados del turno concretos. Este método se encarga de finalizar el último cambio de estado
+     * del turno para dar paso a un nuevo cambio de estado.
+     * @param turno el turno a finalizar el cambio de estado.
+     */
+    public void finalizarUltimoCambioDeEstado(Turno turno, Date fechaHoraActual) {
         ArrayList<CambioEstadoTurno> cambiosEstado = turno.getCambioEstados();
         for (CambioEstadoTurno cambioEstado : cambiosEstado) {
             if (cambioEstado.esActual()) {
-                cambioEstado.finalizar();
+                cambioEstado.setFechaHoraHasta(fechaHoraActual);
+                break;
             }
         }
     }
 
-    public void crearNuevoCambioEstado(Date fechaHoraDesde, Turno turno) {
-        CambioEstadoTurno cambioEstado = new CambioEstadoTurno(fechaHoraDesde, null, turno.getEstado());
+    /**
+     * Responsable de crear el nuevo cambio de estado y vincularlo al turno.
+     * @param fechaHoraDesde Hora de inicio del cambio de estado.
+     * @param turno Turno en cuestion.
+     */
+    public void crearNuevoCambioEstado(Date fechaHoraDesde, Turno turno, EstadoTurno nuevoEstado) {
+        CambioEstadoTurno cambioEstado = new CambioEstadoTurno(fechaHoraDesde, null, nuevoEstado);
         turno.vincularNuevoCambioEstado(cambioEstado);
     }
 

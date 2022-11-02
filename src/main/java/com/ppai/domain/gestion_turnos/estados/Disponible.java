@@ -11,9 +11,9 @@ public class Disponible extends EstadoTurno {
 
     @Override
     public void reservarTurno(Date fechaHoraActual, Turno turno) {
-        this.finalizarUltimoCambioDeEstado(turno);
+        this.finalizarUltimoCambioDeEstado(turno, fechaHoraActual);
         EstadoTurno estadoTurnoReservado = new Reservado();
         turno.setEstado(estadoTurnoReservado);
-        this.crearNuevoCambioEstado(fechaHoraActual, turno);
+        this.crearNuevoCambioEstado(fechaHoraActual, turno, estadoTurnoReservado);
     }
 }

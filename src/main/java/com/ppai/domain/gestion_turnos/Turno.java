@@ -2,15 +2,17 @@ package com.ppai.domain.gestion_turnos;
 
 import com.ppai.domain.gestion_turnos.estados.Disponible;
 import com.ppai.domain.gestion_turnos.estados.EstadoTurno;
+import lombok.Data;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Data
 public class Turno {
     private static int turnoGlobalTracker = 0;
     private ArrayList<CambioEstadoTurno> cambioEstados;
-    private EstadoTurno estadoTurno;
+    private EstadoTurno estado;
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private Date fechaHoraInicioTurno;
@@ -30,7 +32,7 @@ public class Turno {
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
         id = turnoGlobalTracker++;
-        estadoTurno = new Disponible();
+        estado = new Disponible();
     }
 
     public void notificarInasistencia() {
@@ -39,13 +41,13 @@ public class Turno {
 
     public void reservarTurno() {
         Date fechaHoraActual = new Date();
-        this.estadoTurno.reservarTurno(fechaHoraActual, this);
+        this.estado.reservarTurno(fechaHoraActual, this);
     }
 
     public boolean esActivo() {
         AtomicBoolean activo = new AtomicBoolean(false);
         cambioEstados.forEach(cambioEstado -> {
-            if (cambioEstado.esActual() && estadoTurno.esDisponible()) {
+            if (cambioEstado.esActual() && estado.esDisponible()) {
                 activo.set(true);
             }
         });
@@ -85,33 +87,5 @@ public class Turno {
 
     public void vincularNuevoCambioEstado(CambioEstadoTurno cambioEstado) {
         this.cambioEstados.add(cambioEstado);
-    }
-
-    public Date getFechaHoraDesde() {
-        return fechaHoraDesde;
-    }
-
-    public Date getFechaHoraHasta() {
-        return fechaHoraHasta;
-    }
-
-    public Date getFechaHoraInicioTurno() {
-        return fechaHoraInicioTurno;
-    }
-
-    public Date getFechaHoraFinTurno() {
-        return fechaHoraFinTurno;
-    }
-
-    public ArrayList<CambioEstadoTurno> getCambioEstados() {
-        return cambioEstados;
-    }
-
-    public EstadoTurno getEstado() {
-        return estadoTurno;
-    }
-
-    public void setEstado(EstadoTurno estadoTurno) {
-        this.estadoTurno = estadoTurno;
     }
 }
