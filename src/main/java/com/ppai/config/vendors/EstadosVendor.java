@@ -1,12 +1,15 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.gestion_recursos_tecnologicos.CambioEstado;
-import com.ppai.domain.gestion_turnos.turno.CambioEstadoTurno;
-import com.ppai.domain.state.*;
-import com.ppai.domain.gestion_turnos.turno.Turno;
-import com.ppai.domain.gestion_turnos.turno.estados.Disponible;
-import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
-import com.ppai.domain.gestion_turnos.turno.estados.Reservado;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.CambioEstadoRecurso;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.Activo;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.BajaDefinitiva;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.BajaTecnica;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.EstadoRecurso;
+import com.ppai.domain.gestion_turnos.CambioEstadoTurno;
+import com.ppai.domain.gestion_turnos.Turno;
+import com.ppai.domain.gestion_turnos.estados.Disponible;
+import com.ppai.domain.gestion_turnos.estados.EstadoTurno;
+import com.ppai.domain.gestion_turnos.estados.Reservado;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;
@@ -18,8 +21,8 @@ import java.util.Date;
 @Singleton
 public class EstadosVendor {
     private static ArrayList<EstadoTurno> estadosTurno;
-    private static ArrayList<Estado> estadosRecurso;
-    private ArrayList<CambioEstado> cambiosEstado;
+    private static ArrayList<EstadoRecurso> estadosRecurso;
+    private ArrayList<CambioEstadoRecurso> cambiosEstado;
     private ArrayList<CambioEstadoTurno> cambiosEstadoTurno;
     private ArrayList<Turno> turnos;
 
@@ -56,38 +59,38 @@ public class EstadosVendor {
         // Cambios de estado para recursos
         Date fechaDesde6 = new Date(2022,01,23,9,00);
         Date fechaHasta6 = new Date(2022,01,23,12,00);
-        CambioEstado cambioEstado5 = new CambioEstado(fechaDesde6, fechaHasta6, estadosRecurso.get(0));
+        CambioEstadoRecurso cambioEstadoRecurso5 = new CambioEstadoRecurso(fechaDesde6, fechaHasta6, estadosRecurso.get(0));
         Date fechaDesde7 = new Date(2022,01,25,11,00);
         Date fechaHasta7 = new Date(2022,01,25,12,00);
-        CambioEstado cambioEstado6 = new CambioEstado(fechaDesde7, fechaHasta7, estadosRecurso.get(1));
+        CambioEstadoRecurso cambioEstadoRecurso6 = new CambioEstadoRecurso(fechaDesde7, fechaHasta7, estadosRecurso.get(1));
         Date fechaDesde8 = new Date(2022,02,2,18,00);
-        CambioEstado cambioEstado7 = new CambioEstado(fechaDesde8, null, estadosRecurso.get(0));
+        CambioEstadoRecurso cambioEstadoRecurso7 = new CambioEstadoRecurso(fechaDesde8, null, estadosRecurso.get(0));
         Date fechaDesde9 = new Date(2022,02,2,18,00);
-        CambioEstado cambioEstado8 = new CambioEstado(fechaDesde9, null, estadosRecurso.get(0));
+        CambioEstadoRecurso cambioEstadoRecurso8 = new CambioEstadoRecurso(fechaDesde9, null, estadosRecurso.get(0));
 
         cambiosEstadoTurno.add(cambioEstado0);
         cambiosEstadoTurno.add(cambioEstado1);
         cambiosEstadoTurno.add(cambioEstado2);
         cambiosEstadoTurno.add(cambioEstado3);
         cambiosEstadoTurno.add(cambioEstado4);
-        cambiosEstado.add(cambioEstado5);
-        cambiosEstado.add(cambioEstado6);
-        cambiosEstado.add(cambioEstado7);
-        cambiosEstado.add(cambioEstado8);
+        cambiosEstado.add(cambioEstadoRecurso5);
+        cambiosEstado.add(cambioEstadoRecurso6);
+        cambiosEstado.add(cambioEstadoRecurso7);
+        cambiosEstado.add(cambioEstadoRecurso8);
     }
 
     public void crearEstados() {
         EstadoTurno estadoTurno0 = new Disponible();
         EstadoTurno estadoTurno1 = new Reservado();
-        Estado estado2 = new Activo();
-        Estado estado3 = new BajaTecnica();
-        Estado estado4 = new BajaDefinitiva();
+        EstadoRecurso estadoRecurso2 = new Activo();
+        EstadoRecurso estadoRecurso3 = new BajaTecnica();
+        EstadoRecurso estadoRecurso4 = new BajaDefinitiva();
 
         estadosTurno.add(estadoTurno0);
         estadosTurno.add(estadoTurno1);
-        estadosRecurso.add(estado2);
-        estadosRecurso.add(estado3);
-        estadosRecurso.add(estado4);
+        estadosRecurso.add(estadoRecurso2);
+        estadosRecurso.add(estadoRecurso3);
+        estadosRecurso.add(estadoRecurso4);
     }
 
     private void crearTurnos() {
@@ -206,7 +209,7 @@ public class EstadosVendor {
         turnos.add(turno14);
     }
 
-    public ArrayList<CambioEstado> getCambiosEstado() {
+    public ArrayList<CambioEstadoRecurso> getCambiosEstado() {
         return cambiosEstado;
     }
 

@@ -1,15 +1,13 @@
-package com.ppai.domain.gestion_recursos_tecnologicos;
-
-import com.ppai.domain.gestion_recursos_tecnologicos.estados.EstadoRecurso;
+package com.ppai.domain.gestion_recursos_tecnologicos.estados;
 
 import java.util.*;
 
-public class CambioEstado {
+public class CambioEstadoRecurso {
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
     private EstadoRecurso estadoRecurso;
 
-    public CambioEstado(Date fechaHoraDesde, Date fechaHoraHasta, EstadoRecurso estadoRecurso) {
+    public CambioEstadoRecurso(Date fechaHoraDesde, Date fechaHoraHasta, EstadoRecurso estadoRecurso) {
         this.fechaHoraDesde = fechaHoraDesde;
         this.fechaHoraHasta = fechaHoraHasta;
         this.estadoRecurso = estadoRecurso;

@@ -3,7 +3,8 @@ package com.ppai.domain.gestion_recursos_tecnologicos;
 import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 import com.ppai.domain.gestion_mantenimiento.MantenimientoCorrectivo;
 import com.ppai.domain.gestion_mantenimiento.MantenimientoPreventivo;
-import com.ppai.domain.gestion_turnos.turno.Turno;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.CambioEstadoRecurso;
+import com.ppai.domain.gestion_turnos.Turno;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -17,7 +18,7 @@ public class RecursoTecnologico {
     private List<String> imagenes;
     private Disponibilidad disponibilidad;
     private PersonalCientifico responsableTecnico;
-    private ArrayList<CambioEstado> estado;
+    private ArrayList<CambioEstadoRecurso> estado;
     private MantenimientoPreventivo mantPreventivos;
     private MantenimientoCorrectivo mantCorrectivos;
     private Modelo modelo;
@@ -33,7 +34,7 @@ public class RecursoTecnologico {
         List<String> imagenes,
         Disponibilidad disponibilidad,
         PersonalCientifico responsableTecnico,
-        ArrayList<CambioEstado> estado,
+        ArrayList<CambioEstadoRecurso> estado,
         MantenimientoPreventivo mantPreventivos,
         MantenimientoCorrectivo mantCorrectivos,
         Modelo modelo,
@@ -108,7 +109,7 @@ public class RecursoTecnologico {
 
     public String mostrarEstado() {
         String estadoActual = null;
-        for (CambioEstado e: estado) {
+        for (CambioEstadoRecurso e: estado) {
             if (e.esActual()) {
                 estadoActual = e.mostrarEstado();
             }
@@ -118,9 +119,9 @@ public class RecursoTecnologico {
 
     public boolean estaAptoReserva() {
         AtomicBoolean aptoReserva = new AtomicBoolean(false);
-        this.estado.forEach(cambioEstado -> {
-            if (cambioEstado.esActual()) {
-                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
+        this.estado.forEach(cambioEstadoRecurso -> {
+            if (cambioEstadoRecurso.esActual()) {
+                if (!(cambioEstadoRecurso.esBajaTecnica() || cambioEstadoRecurso.esBajaDefinitiva())) aptoReserva.set(true);
             }
         });
         return aptoReserva.get();

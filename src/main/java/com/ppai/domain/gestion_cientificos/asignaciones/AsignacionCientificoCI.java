@@ -1,7 +1,7 @@
 package com.ppai.domain.gestion_cientificos.asignaciones;
 
 import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
-import com.ppai.domain.gestion_turnos.turno.Turno;
+import com.ppai.domain.gestion_turnos.Turno;
 
 import java.util.*;
 

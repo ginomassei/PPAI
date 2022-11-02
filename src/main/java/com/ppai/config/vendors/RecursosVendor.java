@@ -1,7 +1,8 @@
 package com.ppai.config.vendors;
 
 import com.ppai.domain.gestion_recursos_tecnologicos.*;
-import com.ppai.domain.gestion_turnos.turno.Turno;
+import com.ppai.domain.gestion_recursos_tecnologicos.estados.CambioEstadoRecurso;
+import com.ppai.domain.gestion_turnos.Turno;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;
@@ -200,8 +201,8 @@ public class    RecursosVendor {
     }
 
     public void crearRecursosTecnologicos() {
-        ArrayList<CambioEstado> cambiosEstadoRecursoActivo = new ArrayList<>();
-        ArrayList<CambioEstado> cambiosEstadoRecursoDeBaja = new ArrayList<>();
+        ArrayList<CambioEstadoRecurso> cambiosEstadoRecursoActivo = new ArrayList<>();
+        ArrayList<CambioEstadoRecurso> cambiosEstadoRecursoDeBaja = new ArrayList<>();
 
         ArrayList<CaracteristicaRecurso> caracteristicasRecurso1 = new ArrayList<>();
         ArrayList<CaracteristicaRecurso> caracteristicasRecurso2 = new ArrayList<>();

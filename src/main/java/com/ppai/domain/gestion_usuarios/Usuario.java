@@ -2,7 +2,7 @@ package com.ppai.domain.gestion_usuarios;
 
 import com.ppai.config.vendors.CientificosVendor;
 import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
-import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_turnos.estados.EstadoTurno;
 
 import java.util.concurrent.atomic.AtomicReference;
 

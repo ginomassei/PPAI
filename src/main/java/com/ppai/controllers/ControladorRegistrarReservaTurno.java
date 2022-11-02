@@ -5,7 +5,7 @@ import com.ppai.domain.gestion_centro_investigacion.CentroInvestigacion;
 import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 import com.ppai.domain.gestion_recursos_tecnologicos.RecursoTecnologico;
 import com.ppai.domain.gestion_recursos_tecnologicos.TipoRecurso;
-import com.ppai.domain.gestion_turnos.turno.Turno;
+import com.ppai.domain.gestion_turnos.Turno;
 import com.ppai.domain.gestion_usuarios.Sesion;
 
 import javax.enterprise.context.RequestScoped;

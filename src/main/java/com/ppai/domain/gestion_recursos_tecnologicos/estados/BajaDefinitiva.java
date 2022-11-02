@@ -1,6 +1,6 @@
-package com.ppai.domain.state;
+package com.ppai.domain.gestion_recursos_tecnologicos.estados;
 
-public class BajaDefinitiva extends Estado {
+public class BajaDefinitiva extends EstadoRecurso {
     public BajaDefinitiva() {
         super.setNombre("Baja definitiva");
     }

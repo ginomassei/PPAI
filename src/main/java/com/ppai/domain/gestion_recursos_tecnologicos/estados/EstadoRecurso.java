@@ -1,6 +1,6 @@
-package com.ppai.domain.state;
+package com.ppai.domain.gestion_recursos_tecnologicos.estados;
 
-public abstract class Estado {
+public abstract class EstadoRecurso {
     private String nombre;
 
     public void setNombre(String nombre) {
