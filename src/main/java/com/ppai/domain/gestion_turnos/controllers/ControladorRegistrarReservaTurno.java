@@ -77,7 +77,7 @@ public class ControladorRegistrarReservaTurno {
         CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
         if (centroCientifico != null) {
-            ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
+            ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnologicos();
             for (RecursoTecnologico recurso : recursosDelCentro) {
                 if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
                     recursoSeleccionado = recurso;
