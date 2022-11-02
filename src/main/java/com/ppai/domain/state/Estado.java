@@ -11,7 +11,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "NOMBRE_ESTADO", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "ESTADOS")
 public abstract class Estado {
 

@@ -2,16 +2,11 @@ package com.ppai.domain;
 
 import com.ppai.domain.state.Estado;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 @Entity
 @Table(name = "CAMBIOS_ESTADO")
 public class CambioEstado {
@@ -48,18 +43,5 @@ public class CambioEstado {
 
     public void finalizar() {
         this.fechaHoraHasta = new Date();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        CambioEstado that = (CambioEstado) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
     }
 }
