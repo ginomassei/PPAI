@@ -103,7 +103,7 @@ public class CentroInvestigacion {
 
         tiposRecursos.forEach(tipo -> {
             this.recursos.forEach( rt -> {
-                if (rt.esDeTipo(tipo) & rt.estaAptoReserva()) {
+                if (rt.esDeTipo(tipo) && rt.estaAptoReserva()) {
                     ArrayList<String> modeloYMarca = rt.mostrarModeloYMarca();
                     String nroInventario = rt.mostrarNumeroRT();
                     String estado = rt.mostrarEstado();

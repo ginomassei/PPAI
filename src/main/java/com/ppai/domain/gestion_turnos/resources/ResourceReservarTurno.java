@@ -1,6 +1,6 @@
-package com.ppai.resources;
+package com.ppai.domain.gestion_turnos.resources;
 
-import com.ppai.controllers.ControladorRegistrarReservaTurno;
+import com.ppai.domain.gestion_turnos.controllers.ControladorRegistrarReservaTurno;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

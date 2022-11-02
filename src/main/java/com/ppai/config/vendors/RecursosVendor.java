@@ -259,7 +259,7 @@ public class    RecursosVendor {
         turnosRecurso1.add(estadosVendor.getTurnos().get(12));
 
         RecursoTecnologico recurso1 = new RecursoTecnologico(
-            39,
+            1,
             null,
             tiposRecurso.get(0),
             caracteristicasRecurso1,
@@ -289,7 +289,7 @@ public class    RecursosVendor {
         turnosRecurso2.add(estadosVendor.getTurnos().get(13));
 
         RecursoTecnologico recurso2 = new RecursoTecnologico(
-            14,
+            2,
             null,
             tiposRecurso.get(0),
             caracteristicasRecurso2,
@@ -319,7 +319,7 @@ public class    RecursosVendor {
         turnosRecurso3.add(estadosVendor.getTurnos().get(11));
 
         RecursoTecnologico recurso3 = new RecursoTecnologico(
-            2,
+            3,
             null,
             tiposRecurso.get(0),
             caracteristicasRecurso3,
@@ -349,7 +349,7 @@ public class    RecursosVendor {
         turnosRecurso4.add(estadosVendor.getTurnos().get(9));
 
         RecursoTecnologico recurso4 = new RecursoTecnologico(
-            98,
+            4,
             null,
             tiposRecurso.get(1),
             caracteristicasRecurso4,
@@ -379,7 +379,7 @@ public class    RecursosVendor {
         turnosRecurso5.add(estadosVendor.getTurnos().get(12));
 
         RecursoTecnologico recurso5 = new RecursoTecnologico(
-            46,
+            5,
             null,
             tiposRecurso.get(1),
             caracteristicasRecurso5,
@@ -409,7 +409,7 @@ public class    RecursosVendor {
         turnosRecurso6.add(estadosVendor.getTurnos().get(10));
 
         RecursoTecnologico recurso6 = new RecursoTecnologico(
-            77,
+            6,
             null,
             tiposRecurso.get(1),
             caracteristicasRecurso6,
@@ -437,7 +437,7 @@ public class    RecursosVendor {
         turnosRecurso7.add(estadosVendor.getTurnos().get(13));
 
         RecursoTecnologico recurso7 = new RecursoTecnologico(
-            84,
+            7,
             null,
             tiposRecurso.get(2),
             caracteristicasRecurso7,
@@ -465,7 +465,7 @@ public class    RecursosVendor {
         turnosRecurso8.add(estadosVendor.getTurnos().get(12));
 
         RecursoTecnologico recurso8 = new RecursoTecnologico(
-            33,
+            8,
             null,
             tiposRecurso.get(2),
             caracteristicasRecurso8,
@@ -493,7 +493,7 @@ public class    RecursosVendor {
         turnosRecurso9.add(estadosVendor.getTurnos().get(11));
 
         RecursoTecnologico recurso9 = new RecursoTecnologico(
-            5,
+            9,
             null,
             tiposRecurso.get(2),
             caracteristicasRecurso9,
@@ -521,7 +521,7 @@ public class    RecursosVendor {
         turnosRecurso10.add(estadosVendor.getTurnos().get(13));
 
         RecursoTecnologico recurso10 = new RecursoTecnologico(
-            19,
+            10,
             null,
             tiposRecurso.get(3),
             caracteristicasRecurso10,
@@ -549,7 +549,7 @@ public class    RecursosVendor {
         turnosRecurso11.add(estadosVendor.getTurnos().get(11));
 
         RecursoTecnologico recurso11 = new RecursoTecnologico(
-            39,
+            11,
             null,
             tiposRecurso.get(3),
             caracteristicasRecurso11,
@@ -577,7 +577,7 @@ public class    RecursosVendor {
         turnosRecurso12.add(estadosVendor.getTurnos().get(13));
 
         RecursoTecnologico recurso12 = new RecursoTecnologico(
-            2,
+            12,
             null,
             tiposRecurso.get(3),
             caracteristicasRecurso12,
@@ -605,7 +605,7 @@ public class    RecursosVendor {
         turnosRecurso13.add(estadosVendor.getTurnos().get(12));
 
         RecursoTecnologico recurso13 = new RecursoTecnologico(
-            94,
+            13,
             null,
             tiposRecurso.get(4),
             caracteristicasRecurso13,
@@ -633,7 +633,7 @@ public class    RecursosVendor {
         turnosRecurso14.add(estadosVendor.getTurnos().get(11));
 
         RecursoTecnologico recurso14 = new RecursoTecnologico(
-            94,
+            14,
             null,
             tiposRecurso.get(4),
             caracteristicasRecurso14,
@@ -661,7 +661,7 @@ public class    RecursosVendor {
         turnosRecurso15.add(estadosVendor.getTurnos().get(6));
 
         RecursoTecnologico recurso15 = new RecursoTecnologico(
-            9312,
+            15,
             null,
             tiposRecurso.get(4),
             caracteristicasRecurso15,

@@ -1,4 +1,4 @@
-package com.ppai.controllers;
+package com.ppai.domain.gestion_turnos.controllers;
 
 import com.ppai.config.vendors.*;
 import com.ppai.domain.gestion_centro_investigacion.CentroInvestigacion;
