@@ -101,12 +101,12 @@ public class ControladorRegistrarReservaTurno {
 
     private Object solicitarConfirmacionRT(String idTurnoSeleccionado) {
         // Buscar turno seleccionado
-//        for (Turno turno : recursoSeleccionado.getTurnos()) {
-//            if (turno.esTuId(Integer.parseInt(idTurnoSeleccionado))) {
-//                turnoSeleccionado = turno;
-//                break;
-//            }
-//        }
+        for (Turno turno : recursoSeleccionado.getTurnos()) {
+            if (turno.esTuId(Integer.parseInt(idTurnoSeleccionado))) {
+                turnoSeleccionado = turno;
+                break;
+            }
+        }
 
         return new Object() {
             // Mostrar datos reserva parcial.

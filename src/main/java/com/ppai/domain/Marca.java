@@ -1,33 +1,27 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.*;
 
+@Data
+@Entity
+@Table(name = "MARCAS")
 public class Marca {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_MARCA", nullable = false)
+    private Long id;
+
+    @Column(name = "NOMBRE")
     private String nombre;
-    private String descripción;
-    private ArrayList<Modelo> modelos;
 
-    public Marca(String nombre, String descripción, ArrayList<Modelo> modelos) {
-        this.nombre = nombre;
-        this.descripción = descripción;
-        this.modelos = modelos;
-    }
+    @Column(name = "DESCRIPCION")
+    private String descripcion;
 
-    public void mostrar() {
-        // TODO implement here
-    }
-
-    public void modificar() {
-        // TODO implement here
-    }
-
-    public void mostrarMarca() {
-        // TODO implement here
-    }
-
-    public String mostrarNombre() {
-        return this.nombre;
-    }
+    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+    private List<Modelo> modelos;
 
     public boolean esTuModelo(Modelo modelo) {
         return this.modelos.contains(modelo);

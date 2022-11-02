@@ -10,9 +10,9 @@ import javax.persistence.*;
 public class PersonalCientifico {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private int legajo;
+    @Column(name = "LEGAJO_PERSONAL_CIENTIFICO", nullable = false)
+    private Long legajo;
+
     private String nombre;
     private String apellido;
     private String nroDocumento;
@@ -33,7 +33,7 @@ public class PersonalCientifico {
         return this.usuario.equals(usuario);
     }
 
-    public int getLegajo() {
+    public Long getLegajo() {
         return legajo;
     }
 }

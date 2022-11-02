@@ -47,37 +47,13 @@ public class RecursoTecnologico {
     private Modelo modelo;
 
     @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = Turno.class)
-    private List<Turno> turno;
+    private List<Turno> turnos;
 
     @Column(name = "PERIODICIDAD_MANTENIMIENTO_PREVENTIVO")
     private String periodicidadMp;
 
     @Column(name = "DURACION_MANTENIMIENTO_PREVENTIVO")
     private String duracionMp;
-
-    public void mostrarRecurso() {
-        // TODO implement here
-    }
-
-    public void cancelarTurnoMantenimiento() {
-        // TODO implement here
-    }
-
-    public void mostrarCaracXTipoRecurso() {
-        // TODO implement here
-    }
-
-    public void actualizarDisponibilidad() {
-        // TODO implement here
-    }
-
-    public void darDeBaja() {
-        // TODO implement here
-    }
-
-    public void esTipo() {
-        // TODO implement here
-    }
 
     public boolean esMiModeloYMarca(String modeloI, String marcaI) {
         boolean esModelo = Objects.equals(this.modelo.mostrarNombre(), modeloI);
@@ -116,17 +92,17 @@ public class RecursoTecnologico {
 
     public boolean estaAptoReserva() {
         AtomicBoolean aptoReserva = new AtomicBoolean(false);
-//        this.estado.forEach(cambioEstado -> {
-//            if (cambioEstado.esActual()) {
-//                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
-//            }
-//        });
+        this.estado.forEach(cambioEstado -> {
+            if (cambioEstado.esActual()) {
+                if (!(cambioEstado.esBajaTecnica() || cambioEstado.esBajaDefinitiva())) aptoReserva.set(true);
+            }
+        });
         return aptoReserva.get();
     }
 
     public ArrayList<String[]> mostrarTurnosFuturos() {
         ArrayList<String[]> turnosFuturos = new ArrayList<>();
-        for (Turno t: turno) {
+        for (Turno t: turnos) {
             Date fechaActual = new Date();
             if (t.esPosteriorA(fechaActual) && t.esActivo()) {
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");

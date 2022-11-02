@@ -1,5 +1,7 @@
 package com.ppai.domain;
 
+import com.ppai.domain.state.BajaDefinitiva;
+import com.ppai.domain.state.BajaTecnica;
 import com.ppai.domain.state.Estado;
 import lombok.*;
 
@@ -43,5 +45,13 @@ public class CambioEstado {
 
     public void finalizar() {
         this.fechaHoraHasta = new Date();
+    }
+
+    public boolean esBajaTecnica() {
+        return this.estado instanceof BajaTecnica;
+    }
+
+    public boolean esBajaDefinitiva() {
+        return this.estado instanceof BajaDefinitiva;
     }
 }

@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @Table(name = "USUARIOS")
 public class Usuario {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_USUARIO")
     private Long id;
 
@@ -23,12 +24,9 @@ public class Usuario {
     @Column(name = "NOMBRE_USUARIO")
     private String nombreUsuario;
 
-    public void registrarBaja() {
-        // TODO implement here
-    }
-
     public PersonalCientifico obtenerCientifico() {
         AtomicReference<PersonalCientifico> atomicReference = new AtomicReference<>();
+        // TODO
 //        CientificosVendor.getCientificos().forEach(cientifico -> {
 //            if (cientifico.esTuUsuario(this)) {
 //                atomicReference.set(cientifico);

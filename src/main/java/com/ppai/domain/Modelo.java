@@ -13,26 +13,19 @@ public class Modelo {
     @Column(name = "ID_MODELO", nullable = false)
     private Long id;
 
+    @Column(name = "NOMBRE")
     private String nombre;
-    private String descripción;
 
-    public void mostrar() {
-        // TODO implement here
-    }
+    @Column(name = "DESCRIPCION")
+    private String descripcion;
 
-    public void modificar() {
-        // TODO implement here
-    }
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_MARCA")
+    private Marca marca;
 
     public String mostrarMarca() {
-        String miMarca = "";
-//        for (Marca marca: MarcasVendor.getMarcas()) {
-//            if (marca.esTuModelo(this)) {
-//                miMarca = marca.mostrarNombre();
-//                return miMarca;
-//            }
-//        }
-        return miMarca;
+//        return this.marca.getNombre();
+        return "";
     }
 
     public String mostrarNombre() {

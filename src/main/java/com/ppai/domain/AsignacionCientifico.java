@@ -15,6 +15,7 @@ public class AsignacionCientifico {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "LEGAJO_PERSONAL_CIENTIFICO")
     private PersonalCientifico cientifico;
 
     @Column(name = "FECHA_INICIO")

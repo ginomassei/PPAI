@@ -17,7 +17,10 @@ public class CentroInvestigacion {
     @Column(name = "ID_CENTRO_INVESTIGACION", nullable = false)
     private Long id;
 
+    @Column(name = "NOMBRE")
     private String nombre;
+
+    @Column(name = "SIGLA")
     private String sigla;
 
     @OneToOne
@@ -26,30 +29,44 @@ public class CentroInvestigacion {
     @OneToOne
     private Telefono telefonos;
 
+    @Column(name = "CORREO_ELECTRONICO")
     private String correoElectronico;
 
     @ManyToOne
     private PersonalCientifico director;
 
+    @Column(name = "TIEMPO_PREVIO_RESERVA")
     private Integer tiempoPrevioReserva;
 
+    @Column(name = "FECHA_INICIO")
     private Date fechaInicio;
 
     @ManyToOne
     private Estado estado;
 
+    @Column(name = "FECHA_BAJA")
     private Date fechaBaja;
 
+    @Column(name = "MOTIVO_BAJA")
     private String motivoBaja;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_RECURSO_TECNOLOGICO")
     private List<RecursoTecnologico> recursos;
 
+    @Column(name = "NRO_RESOLUCION")
     private Integer numeroResolucion;
+
+    @Column(name = "FECHA_RESOLUCION")
     private Date fechaResolucion;
+
+    @Column(name = "REGLAMENTO")
     private String reglamento;
+
+    @Column(name = "FECHA_ALTA")
     private Date fechaAlta;
+
+    @Column(name = "CARACTERISTICAS")
     private String caracteristicas;
 
     @OneToOne
