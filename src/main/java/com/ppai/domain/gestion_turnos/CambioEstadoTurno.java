@@ -1,6 +1,6 @@
-package com.ppai.domain.gestion_turnos.turno;
+package com.ppai.domain.gestion_turnos;
 
-import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_turnos.estados.EstadoTurno;
 
 import java.util.*;
 

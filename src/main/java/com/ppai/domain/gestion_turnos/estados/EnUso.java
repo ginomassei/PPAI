@@ -1,4 +1,4 @@
-package com.ppai.domain.gestion_turnos.turno.estados;
+package com.ppai.domain.gestion_turnos.estados;
 
 public class EnUso extends EstadoTurno {
     public EnUso() {
