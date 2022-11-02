@@ -1,8 +1,11 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.*;
 
+@Data
 @Entity
 @Table(name = "DISPONIBILIDAD")
 public class Disponibilidad {
@@ -23,16 +26,7 @@ public class Disponibilidad {
     @Column(name = "FECHA_HASTA")
     private Date fechaVigenciaHasta;
 
-    public Disponibilidad(Date dia, FranjaHoraria franjasHorarias, Date fechaVigenciaDesde, Date fechaVigenciaHasta) {
-        this.dia = dia;
-        this.franjasHorarias = franjasHorarias;
-        this.fechaVigenciaDesde = fechaVigenciaDesde;
-        this.fechaVigenciaHasta = fechaVigenciaHasta;
-    }
 
-    public Disponibilidad() {
-
-    }
 
     public void modificar() {
         // TODO implement here
@@ -40,45 +34,5 @@ public class Disponibilidad {
 
     public void mostrar() {
         // TODO implement here
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Date getDia() {
-        return dia;
-    }
-
-    public void setDia(Date dia) {
-        this.dia = dia;
-    }
-
-    public FranjaHoraria getFranjasHorarias() {
-        return franjasHorarias;
-    }
-
-    public void setFranjasHorarias(FranjaHoraria franjasHorarias) {
-        this.franjasHorarias = franjasHorarias;
-    }
-
-    public Date getFechaVigenciaDesde() {
-        return fechaVigenciaDesde;
-    }
-
-    public void setFechaVigenciaDesde(Date fechaVigenciaDesde) {
-        this.fechaVigenciaDesde = fechaVigenciaDesde;
-    }
-
-    public Date getFechaVigenciaHasta() {
-        return fechaVigenciaHasta;
-    }
-
-    public void setFechaVigenciaHasta(Date fechaVigenciaHasta) {
-        this.fechaVigenciaHasta = fechaVigenciaHasta;
     }
 }

@@ -1,19 +1,17 @@
 package com.ppai.domain;
 
-import com.ppai.domain.AsignacionCientifico;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.*;
 
+@Data
+@Entity
+@Table(name = "ASIGNACIONES_CIENTIFICO_CI")
 public class AsignacionCientificoCI extends AsignacionCientifico {
 
-    private ArrayList<Turno> turnos;
-
-    public AsignacionCientificoCI(PersonalCientifico cientifico, Date fechaInicio, Date fechaFin,ArrayList<Turno> turnos) {
-        super(cientifico, fechaInicio, fechaFin);
-        this.turnos = turnos;
-    }
-
-    public ArrayList<Turno> mostrarTurnos() {
-        return turnos;
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_TURNO")
+    private List<Turno> turnos;
 }

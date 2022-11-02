@@ -5,6 +5,7 @@ import com.ppai.domain.state.Estado;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Controlador responsable de gestionar el flujo de mensajes para el caso de uso
@@ -72,7 +73,7 @@ public class ControladorRegistrarReservaTurno {
         CentroInvestigacion centroCientifico = validarCientificoPerteneceCIRecurso(recursoTecnologicoSeleccionado[0]);
 
         if (centroCientifico != null) {
-            ArrayList<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
+            List<RecursoTecnologico> recursosDelCentro = centroCientifico.listarRecursosTecnológicos();
             for (RecursoTecnologico recurso : recursosDelCentro) {
                 if (recurso.esMiModeloYMarca(recursoTecnologicoSeleccionado[1], recursoTecnologicoSeleccionado[2])) {
                     recursoSeleccionado = recurso;
@@ -100,12 +101,12 @@ public class ControladorRegistrarReservaTurno {
 
     private Object solicitarConfirmacionRT(String idTurnoSeleccionado) {
         // Buscar turno seleccionado
-        for (Turno turno : recursoSeleccionado.getTurnos()) {
-            if (turno.esTuId(Integer.parseInt(idTurnoSeleccionado))) {
-                turnoSeleccionado = turno;
-                break;
-            }
-        }
+//        for (Turno turno : recursoSeleccionado.getTurnos()) {
+//            if (turno.esTuId(Integer.parseInt(idTurnoSeleccionado))) {
+//                turnoSeleccionado = turno;
+//                break;
+//            }
+//        }
 
         return new Object() {
             // Mostrar datos reserva parcial.

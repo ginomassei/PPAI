@@ -1,9 +1,11 @@
 package com.ppai.domain;
 
-import java.util.Date;
+import lombok.Data;
 
-public class MantenimientoCorrectivo extends Mantenimiento {
-    public MantenimientoCorrectivo(Date fechaInicio, Date fechaFin) {
-        super(fechaInicio, null, fechaFin);
-    }
-}
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "MANTENIMIENTOS_CORRECTIVOS")
+public class MantenimientoCorrectivo extends Mantenimiento { }

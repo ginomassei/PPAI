@@ -1,18 +1,28 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.*;
 
+@Data
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "ASIGNACIONES_CIENTIFICOS")
 public class AsignacionCientifico {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_ASIGNACION_CIENTIFICO", nullable = false)
+    private Long id;
 
+    @OneToOne
     private PersonalCientifico cientifico;
-    private Date fechaInicio;
-    private Date fechaFin;
 
-    public AsignacionCientifico(PersonalCientifico cientifico, Date fechaInicio, Date fechaFin) {
-        this.cientifico = cientifico;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-    }
+    @Column(name = "FECHA_INICIO")
+    private Date fechaInicio;
+
+    @Column(name = "FECHA_FIN")
+    private Date fechaFin;
 
     public boolean esCientificoActivo() {
         if (this.fechaFin == null) {

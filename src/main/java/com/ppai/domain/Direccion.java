@@ -1,21 +1,22 @@
 package com.ppai.domain;
 
-import java.util.*;
 
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name = "DIRECCIONES")
 public class Direccion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_DIRECCION", nullable = false)
+    private Long id;
 
     private String calle;
     private Integer numero;
     private String edificio;
     private Integer piso;
     private String coordenadas;
-
-    public Direccion(String calle, Integer numero, String edificio, Integer piso, String coordenadas) {
-        this.calle = calle;
-        this.numero = numero;
-        this.edificio = edificio;
-        this.piso = piso;
-        this.coordenadas = coordenadas;
-    }
-
 }

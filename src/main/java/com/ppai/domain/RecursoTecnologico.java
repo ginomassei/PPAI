@@ -25,7 +25,7 @@ public class RecursoTecnologico {
     private TipoRecurso tipo;
 
     @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = CaracteristicaRecurso.class)
-    private ArrayList<CaracteristicaRecurso> caracteristicas;
+    private List<CaracteristicaRecurso> caracteristicas;
 
     @OneToOne
     private Disponibilidad disponibilidad;
@@ -34,7 +34,7 @@ public class RecursoTecnologico {
     private PersonalCientifico responsableTecnico;
 
     @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = CambioEstado.class)
-    private ArrayList<CambioEstado> estado;
+    private List<CambioEstado> estado;
 
     @OneToOne
     private MantenimientoPreventivo mantPreventivos;
@@ -42,11 +42,12 @@ public class RecursoTecnologico {
     @OneToOne
     private MantenimientoCorrectivo mantCorrectivos;
 
-    @OneToOne
+    @ManyToOne()
+    @JoinColumn(name = "ID_MODELO")
     private Modelo modelo;
 
     @OneToMany(mappedBy = "recursoTecnologico", cascade = CascadeType.ALL, targetEntity = Turno.class)
-    private ArrayList<Turno> turno;
+    private List<Turno> turno;
 
     @Column(name = "PERIODICIDAD_MANTENIMIENTO_PREVENTIVO")
     private String periodicidadMp;

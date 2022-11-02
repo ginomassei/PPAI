@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,7 +22,7 @@ public class TipoRecurso {
 
     @Column(name = "CARACTERISTICAS")
     @OneToMany(mappedBy = "tipoRecurso", cascade = CascadeType.ALL, targetEntity = Caracteristica.class)
-    private ArrayList<Caracteristica> caracteristicas;
+    private List<Caracteristica> caracteristicas;
 
     public String mostrarCategoria() {
         return this.nombre;

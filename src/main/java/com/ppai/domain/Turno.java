@@ -17,7 +17,8 @@ public class Turno {
     @Column(name = "ID_TURNO")
     private Long id;
 
-    @OneToMany(mappedBy = "turno", cascade = CascadeType.ALL, targetEntity = CambioEstado.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CAMBIO_ESTADO")
     private List<CambioEstado> cambiosEstado;
 
     @OneToOne
@@ -39,6 +40,11 @@ public class Turno {
     @JoinColumn(name="ID_RECURSO_TECNOLOGICO")
     @ToString.Exclude
     private RecursoTecnologico recursoTecnologico;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_ASIGNACION_CIENTIFICO")
+    @ToString.Exclude
+    private AsignacionCientificoCI asignacionCientificoCI;
 
     public void reservarTurno() {
         Date fechaHoraActual = new Date();

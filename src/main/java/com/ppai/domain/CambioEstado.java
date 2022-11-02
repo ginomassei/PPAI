@@ -12,7 +12,6 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "CAMBIOS_ESTADO")
 public class CambioEstado {
@@ -38,12 +37,6 @@ public class CambioEstado {
     @JoinColumn(name="ID_RECURSO_TECNOLOGICO")
     @ToString.Exclude
     private RecursoTecnologico recursoTecnologico;
-
-    public CambioEstado(Date fechaHoraDesde, Date fechaHoraHasta, Estado estado) {
-        this.fechaHoraDesde = fechaHoraDesde;
-        this.fechaHoraHasta = fechaHoraHasta;
-        this.estado = estado;
-    }
 
     public String mostrarEstado() {
         return this.estado.mostrar();

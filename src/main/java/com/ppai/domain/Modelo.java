@@ -1,13 +1,20 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name = "MODELOS")
 public class Modelo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_MODELO", nullable = false)
+    private Long id;
+
     private String nombre;
     private String descripción;
-
-    public Modelo(String nombre, String descripción) {
-        this.nombre = nombre;
-        this.descripción = descripción;
-    }
 
     public void mostrar() {
         // TODO implement here

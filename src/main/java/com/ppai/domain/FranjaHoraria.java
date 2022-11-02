@@ -1,10 +1,13 @@
 package com.ppai.domain;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "FRANJAS_HORARIAS")
 public class FranjaHoraria {
@@ -13,25 +16,12 @@ public class FranjaHoraria {
     @Column(name = "ID_FRANJA_HORARIA")
     private Long id;
 
+    @Column(name = "HORA_DESDE")
     private String horaDesde;
+
+    @Column(name = "HORA_HASTA")
     private String horaHasta;
+
+    @Column(name = "PERIODOS_FRACCIONARIOS")
     private Integer periodosFraccionamiento;
-
-    public FranjaHoraria(String horaDesde, String horaHasta, Integer periodosFraccionamiento) {
-        this.horaDesde = horaDesde;
-        this.horaHasta = horaHasta;
-        this.periodosFraccionamiento = periodosFraccionamiento;
-    }
-
-    public FranjaHoraria() {
-
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }

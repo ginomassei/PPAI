@@ -1,13 +1,18 @@
 package com.ppai.domain;
 
-import java.util.*;
+import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "ASIGNACIONES_RECURSOS_TECNOLOGICOS")
 public class AsignacionRT extends AsignacionCientifico {
 
+    @ManyToOne
+    @JoinColumn(name = "ID_RECURSO_TECNOLOGICO")
     private RecursoTecnologico recursoTecnologico;
-
-    public AsignacionRT(PersonalCientifico cientifico, CentroInvestigacion centroInvestigacion, Date fechaInicio, Date fechaFin, PersonalCientifico personalCientifico, RecursoTecnologico recursoTecnologico) {
-        super(cientifico, fechaInicio, fechaFin);
-        this.recursoTecnologico = recursoTecnologico;
-    }
 }

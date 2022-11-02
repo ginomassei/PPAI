@@ -18,7 +18,11 @@ public class PersonalCientifico {
     private String nroDocumento;
     private String correoInstitucional;
     private String correoPersonal;
+
+    @OneToOne
     private Telefono telefono;
+
+    @OneToOne
     private Usuario usuario;
 
     public void mostrarCientifico() {

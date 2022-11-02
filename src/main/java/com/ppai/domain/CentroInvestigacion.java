@@ -3,76 +3,67 @@ package com.ppai.domain;
 import com.ppai.domain.state.Estado;
 
 import java.util.*;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Data
+@Entity
+@Table(name = "CENTROS_INVESTIGACION")
 public class CentroInvestigacion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_CENTRO_INVESTIGACION", nullable = false)
+    private Long id;
+
     private String nombre;
     private String sigla;
+
+    @OneToOne
     private Direccion direccion;
+
+    @OneToOne
     private Telefono telefonos;
+
     private String correoElectronico;
+
+    @ManyToOne
     private PersonalCientifico director;
+
     private Integer tiempoPrevioReserva;
+
     private Date fechaInicio;
+
+    @ManyToOne
     private Estado estado;
+
     private Date fechaBaja;
+
     private String motivoBaja;
-    private ArrayList<RecursoTecnologico> recursos;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_RECURSO_TECNOLOGICO")
+    private List<RecursoTecnologico> recursos;
+
     private Integer numeroResolucion;
     private Date fechaResolucion;
     private String reglamento;
     private Date fechaAlta;
     private String caracteristicas;
-    private AsignacionDirector direc;
-    private ArrayList<AsignacionCientificoCI> asignacionCientificoCIS;
 
-    public CentroInvestigacion(
-        String nombre,
-        String sigla,
-        Direccion direccion,
-        Telefono telefonos,
-        String correoElectronico,
-        PersonalCientifico director,
-        Integer tiempoPrevioReserva,
-        Date fechaInicio,
-        Estado estado,
-        Date fechaBaja,
-        String motivoBaja,
-        ArrayList<RecursoTecnologico> recursos,
-        Integer numeroResolucion,
-        Date fechaResolucion,
-        String reglamento,
-        Date fechaAlta,
-        String caracteristicas,
-        AsignacionDirector direc,
-        ArrayList<AsignacionCientificoCI> asignacionCientificoCIS
-    ) {
-        this.nombre = nombre;
-        this.sigla = sigla;
-        this.direccion = direccion;
-        this.telefonos = telefonos;
-        this.correoElectronico = correoElectronico;
-        this.director = director;
-        this.tiempoPrevioReserva = tiempoPrevioReserva;
-        this.fechaInicio = fechaInicio;
-        this.estado = estado;
-        this.fechaBaja = fechaBaja;
-        this.motivoBaja = motivoBaja;
-        this.recursos = recursos;
-        this.numeroResolucion = numeroResolucion;
-        this.fechaResolucion = fechaResolucion;
-        this.reglamento = reglamento;
-        this.fechaAlta = fechaAlta;
-        this.caracteristicas = caracteristicas;
-        this.direc = direc;
-        this.asignacionCientificoCIS = asignacionCientificoCIS;
-    }
+    @OneToOne
+    private AsignacionDirector direc;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_ASIGNACION_CIENTIFICO")
+    private List<AsignacionCientificoCI> asignacionCientificoCIS;
 
     public void darDeBaja() {
         // TODO implement here
     }
 
-    public ArrayList<RecursoTecnologico> listarRecursosTecnológicos() {
+    public List<RecursoTecnologico> listarRecursosTecnológicos() {
         return this.recursos;
     }
 
@@ -121,10 +112,6 @@ public class CentroInvestigacion {
             }
         });
         return esTuCientifico.get();
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public boolean esTuNombre(String nombre) {

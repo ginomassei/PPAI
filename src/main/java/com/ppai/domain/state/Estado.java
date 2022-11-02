@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "ESTADOS")
 public abstract class Estado {
 
@@ -38,7 +38,9 @@ public abstract class Estado {
     }
 
     public void crearNuevoCambioEstado(Date fechaHoraDesde, Turno turno) {
-        CambioEstado cambioEstado = new CambioEstado(fechaHoraDesde, null, turno.getEstado());
+        CambioEstado cambioEstado = new CambioEstado();
+        cambioEstado.setFechaHoraDesde(fechaHoraDesde);
+        cambioEstado.setEstado(turno.getEstado());
         turno.vincularNuevoCambioEstado(cambioEstado);
     }
 
