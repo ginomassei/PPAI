@@ -22,4 +22,9 @@ public class Disponible extends Estado {
         Estado estadoReservado = new Reservado();
         turno.setEstado(estadoReservado);
     }
+
+    @Override
+    public boolean esDisponible() {
+        return true;
+    }
 }

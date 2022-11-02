@@ -1,5 +1,6 @@
 package com.ppai.domain;
 
+import com.ppai.domain.state.Disponible;
 import com.ppai.domain.state.Estado;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +30,7 @@ public class Turno {
         this.fechaHoraInicioTurno = fechaHoraInicioTurno;
         this.fechaHoraFinTurno = fechaHoraFinTurno;
         id = turnoGlobalTracker++;
+        estado = new Disponible();
     }
 
     public void notificarInasistencia() {
@@ -43,7 +45,7 @@ public class Turno {
     public boolean esActivo() {
         AtomicBoolean activo = new AtomicBoolean(false);
         cambioEstados.forEach(cambioEstado -> {
-            if (cambioEstado.esActual()) {
+            if (cambioEstado.esActual() && estado.esDisponible()) {
                 activo.set(true);
             }
         });

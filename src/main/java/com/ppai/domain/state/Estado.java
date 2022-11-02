@@ -40,5 +40,9 @@ public abstract class Estado {
         return false;
     }
 
+    public boolean esDisponible() {
+        return false;
+    }
+
     public abstract String mostrarEstado();
 }
