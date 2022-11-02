@@ -29,6 +29,41 @@ public abstract class EstadoTurno {
     }
 
     /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     */
+    public void registrarUso() {
+        throw new Error("Transicion inválida");
+    }
+
+    /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     */
+    public void registrarFinUso() {
+        throw new Error("Transicion inválida");
+    }
+
+    /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     */
+    public void cancelarReserva() {
+        throw new Error("Transicion inválida");
+    }
+
+    /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     */
+    public void anular() {
+        throw new Error("Transicion inválida");
+    }
+
+    /**
+     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     */
+    public void cancelarPorMantenimiento() {
+        throw new Error("Transicion inválida");
+    }
+
+    /**
      * Común para todos los estados del turno concretos. Este método se encarga de finalizar el último cambio de estado
      * del turno para dar paso a un nuevo cambio de estado.
      * @param turno el turno a finalizar el cambio de estado.
@@ -61,7 +96,27 @@ public abstract class EstadoTurno {
         return this instanceof Disponible;
     }
 
-    public String mostrarEstado() {
-        return this.nombre;
+    public boolean esPendienteDeConfirmacion() {
+        return this instanceof PendienteConfirmacion;
+    }
+
+    public boolean esAnuladoNoEjecutado() {
+        return this instanceof AnuladoNoEjecutado;
+    }
+
+    public boolean esCanceladoPorMantenimiento() {
+        return this instanceof CanceladoPorMantenimiento;
+    }
+
+    public boolean esEnUso() {
+        return this instanceof EnUso;
+    }
+
+    public boolean esFinalizado() {
+        return this instanceof Finalizado;
+    }
+
+    public boolean esAnulado() {
+        return this instanceof Anulado;
     }
 }

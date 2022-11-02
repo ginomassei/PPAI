@@ -14,7 +14,7 @@ public class CambioEstadoTurno {
     private EstadoTurno estadoTurno;
 
     public String mostrarEstado() {
-        return this.estadoTurno.mostrarEstado();
+        return this.estadoTurno.getNombre();
     }
 
     public boolean esActual() {
