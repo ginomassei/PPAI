@@ -7,4 +7,9 @@ public class Activo extends Estado {
     public void crearEstadoSiguiente(Turno turno) {
 
     }
+
+    @Override
+    public String mostrarEstado() {
+        return "Activo";
+    }
 }

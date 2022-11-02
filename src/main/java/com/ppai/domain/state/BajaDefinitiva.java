@@ -7,4 +7,14 @@ public class BajaDefinitiva extends Estado {
     public void crearEstadoSiguiente(Turno turno) {
 
     }
+
+    @Override
+    public boolean esBajaDefinitiva() {
+        return true;
+    }
+
+    @Override
+    public String mostrarEstado() {
+        return "Baja Definitiva";
+    }
 }

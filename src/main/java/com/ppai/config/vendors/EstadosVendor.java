@@ -35,37 +35,50 @@ public class EstadosVendor {
         CambioEstado cambioEstado1 = new CambioEstado(fechaDesde1, fechaHasta1, estados.get(0));
         Date fechaDesde2 = new Date(2022,01,25,11,00);
         Date fechaHasta2 = new Date(2022,01,25,12,00);
-        CambioEstado cambioEstado2 = new CambioEstado(fechaDesde2, fechaHasta2, estados.get(2));
+        CambioEstado cambioEstado2 = new CambioEstado(fechaDesde2, fechaHasta2, estados.get(1));
         Date fechaDesde3 = new Date(2022,02,2,18,00);
         Date fechaHasta3 = new Date(2022,02,2,20,30);
+        CambioEstado cambioEstado3 = new CambioEstado(fechaDesde3, fechaHasta3, estados.get(0));
+        Date fechaDesde4 = new Date(2022,02,5,17,00);
+        CambioEstado cambioEstado4 = new CambioEstado(fechaDesde4, null, estados.get(1));
+        Date fechaDesde5 = new Date(2022,03,2,8,00);
+        CambioEstado cambioEstado5 = new CambioEstado(fechaDesde5, null, estados.get(0));
 
         // Cambios de estado para recursos
         Date fechaDesde6 = new Date(2022,01,23,9,00);
         Date fechaHasta6 = new Date(2022,01,23,12,00);
-        CambioEstado cambioEstado6 = new CambioEstado(fechaDesde6, fechaHasta6, estados.get(3));
+        CambioEstado cambioEstado6 = new CambioEstado(fechaDesde6, fechaHasta6, estados.get(2));
         Date fechaDesde7 = new Date(2022,01,25,11,00);
         Date fechaHasta7 = new Date(2022,01,25,12,00);
-        CambioEstado cambioEstado7 = new CambioEstado(fechaDesde7, fechaHasta7, estados.get(4));
-
+        CambioEstado cambioEstado7 = new CambioEstado(fechaDesde7, fechaHasta7, estados.get(3));
+        Date fechaDesde8 = new Date(2022,02,2,18,00);
+        CambioEstado cambioEstado8 = new CambioEstado(fechaDesde8, null, estados.get(2));
+        Date fechaDesde9 = new Date(2022,02,2,18,00);
+        CambioEstado cambioEstado9 = new CambioEstado(fechaDesde9, null, estados.get(3));
 
         cambiosEstado.add(cambioEstado1);
         cambiosEstado.add(cambioEstado2);
+        cambiosEstado.add(cambioEstado3);
+        cambiosEstado.add(cambioEstado4);
+        cambiosEstado.add(cambioEstado5);
         cambiosEstado.add(cambioEstado6);
         cambiosEstado.add(cambioEstado7);
+        cambiosEstado.add(cambioEstado8);
+        cambiosEstado.add(cambioEstado9);
     }
 
     public void crearEstados() {
         Estado estado1 = new Disponible();
         Estado estado2 = new Reservado();
-        Estado estado9 = new Activo();
-        Estado estado10 = new BajaTecnica();
-        Estado estado11 = new BajaDefinitiva();
+        Estado estado3 = new Activo();
+        Estado estado4 = new BajaTecnica();
+        Estado estado5 = new BajaDefinitiva();
 
         estados.add(estado1);
         estados.add(estado2);
-        estados.add(estado9);
-        estados.add(estado10);
-        estados.add(estado11);
+        estados.add(estado3);
+        estados.add(estado4);
+        estados.add(estado5);
     }
 
     private void crearTurnos() {

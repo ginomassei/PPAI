@@ -13,6 +13,11 @@ public class Disponible extends Estado {
     }
 
     @Override
+    public String mostrarEstado() {
+        return "Disponible";
+    }
+
+    @Override
     public void crearEstadoSiguiente(Turno turno) {
         Estado estadoReservado = new Reservado();
         turno.setEstado(estadoReservado);

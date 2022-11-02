@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Estado {
-    private String nombre;
-
     public abstract void crearEstadoSiguiente(Turno turno);
 
     public void reservarTurno(Date fechaHoraActual, Turno turno) {
@@ -30,19 +28,17 @@ public abstract class Estado {
         turno.vincularNuevoCambioEstado(cambioEstado);
     }
 
-    public String mostrar() {
-        return this.nombre;
-    }
-
     public boolean esReservado() {
-        return this.nombre.equals("Reservado");
+        return false;
     }
 
     public boolean esBajaTecnica() {
-        return this.nombre.equals("Baja Tecnica");
+        return false;
     }
 
     public boolean esBajaDefinitiva() {
-        return this.nombre.equals("Baja Definitiva");
+        return false;
     }
+
+    public abstract String mostrarEstado();
 }

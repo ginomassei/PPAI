@@ -8,4 +8,14 @@ public class Reservado extends Estado {
     public void crearEstadoSiguiente(Turno turno) {
 
     }
+
+    @Override
+    public boolean esReservado() {
+        return true;
+    }
+
+    @Override
+    public String mostrarEstado() {
+        return "Reservado";
+    }
 }

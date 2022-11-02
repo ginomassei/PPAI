@@ -15,8 +15,8 @@ public class CambioEstado {
         this.estado = estado;
     }
 
-    public String mostrarEstado(){
-        return this.estado.mostrar();
+    public String mostrarEstado() {
+        return this.estado.mostrarEstado();
     }
 
     public boolean esActual() {
