@@ -1,6 +1,7 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.*;
+import com.ppai.domain.gestion_recursos_tecnologicos.*;
+import com.ppai.domain.gestion_turnos.turno.Turno;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;

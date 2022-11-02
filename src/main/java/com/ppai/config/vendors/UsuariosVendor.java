@@ -1,6 +1,6 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.Usuario;
+import com.ppai.domain.gestion_usuarios.Usuario;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;

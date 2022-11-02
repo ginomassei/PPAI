@@ -1,6 +1,7 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_recursos_tecnologicos;
 
 import com.ppai.config.vendors.MarcasVendor;
+import com.ppai.domain.gestion_recursos_tecnologicos.Marca;
 
 public class Modelo {
     private String nombre;

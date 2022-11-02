@@ -1,6 +1,8 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.*;
+import com.ppai.domain.gestion_centro_investigacion.CentroInvestigacion;
+import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionCientificoCI;
+import com.ppai.domain.gestion_recursos_tecnologicos.RecursoTecnologico;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;

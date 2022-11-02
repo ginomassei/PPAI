@@ -1,6 +1,9 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_recursos_tecnologicos;
 
-import com.ppai.domain.turno.Turno;
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
+import com.ppai.domain.gestion_mantenimiento.MantenimientoCorrectivo;
+import com.ppai.domain.gestion_mantenimiento.MantenimientoPreventivo;
+import com.ppai.domain.gestion_turnos.turno.Turno;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

@@ -1,8 +1,10 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_centro_investigacion;
 
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionCientificoCI;
 import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionDirector;
-import com.ppai.domain.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_recursos_tecnologicos.RecursoTecnologico;
+import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;

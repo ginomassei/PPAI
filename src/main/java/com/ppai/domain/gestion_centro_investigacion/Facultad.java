@@ -1,6 +1,6 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_centro_investigacion;
 
-import java.util.*;
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 
 public class Facultad {
 

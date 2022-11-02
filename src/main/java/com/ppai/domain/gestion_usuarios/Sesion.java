@@ -1,4 +1,7 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_usuarios;
+
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
+import com.ppai.domain.gestion_usuarios.Usuario;
 
 public class Sesion {
     public Usuario usuario;

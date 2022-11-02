@@ -1,4 +1,4 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_centro_investigacion;
 
 public class Telefono {
     private String nroTelefono;

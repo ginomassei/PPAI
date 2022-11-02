@@ -1,6 +1,4 @@
-package com.ppai.domain.turno.estados;
-
-import com.ppai.domain.turno.estados.EstadoTurno;
+package com.ppai.domain.gestion_turnos.turno.estados;
 
 public class PendienteConfirmacion extends EstadoTurno {
 

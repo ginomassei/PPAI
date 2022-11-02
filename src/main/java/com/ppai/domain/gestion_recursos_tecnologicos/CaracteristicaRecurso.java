@@ -1,6 +1,6 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_recursos_tecnologicos;
 
-import java.util.*;
+import com.ppai.domain.gestion_recursos_tecnologicos.Caracteristica;
 
 public class CaracteristicaRecurso {
 

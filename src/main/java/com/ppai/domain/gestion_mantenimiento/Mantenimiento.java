@@ -1,4 +1,6 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_mantenimiento;
+
+import com.ppai.domain.gestion_mantenimiento.Demora;
 
 import java.util.*;
 

@@ -1,8 +1,11 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.CambioEstado;
+import com.ppai.domain.gestion_recursos_tecnologicos.CambioEstado;
 import com.ppai.domain.state.*;
-import com.ppai.domain.Turno;
+import com.ppai.domain.gestion_turnos.turno.Turno;
+import com.ppai.domain.gestion_turnos.turno.estados.Disponible;
+import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_turnos.turno.estados.Reservado;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +16,7 @@ import java.util.Date;
 @Startup
 @Singleton
 public class EstadosVendor {
-    private static ArrayList<Estado> estados;
+    private static ArrayList<EstadoTurno> estados;
     private ArrayList<CambioEstado> cambiosEstado;
     private ArrayList<Turno> turnos;
 
@@ -69,14 +72,14 @@ public class EstadosVendor {
     }
 
     public void crearEstados() {
-        Estado estado0 = new Disponible();
-        Estado estado1 = new Reservado();
-        Estado estado2 = new Activo();
-        Estado estado3 = new BajaTecnica();
-        Estado estado4 = new BajaDefinitiva();
+        EstadoTurno estadoTurno0 = new Disponible();
+        EstadoTurno estadoTurno1 = new Reservado();
+        EstadoTurno estado2 = new Activo();
+        EstadoTurno estado3 = new BajaTecnica();
+        EstadoTurno estado4 = new BajaDefinitiva();
 
-        estados.add(estado0);
-        estados.add(estado1);
+        estados.add(estadoTurno0);
+        estados.add(estadoTurno1);
         estados.add(estado2);
         estados.add(estado3);
         estados.add(estado4);
@@ -282,7 +285,7 @@ public class EstadosVendor {
         turnos.add(turno14);
     }
 
-    public static ArrayList<Estado> getEstados() {
+    public static ArrayList<EstadoTurno> getEstados() {
         return estados;
     }
 

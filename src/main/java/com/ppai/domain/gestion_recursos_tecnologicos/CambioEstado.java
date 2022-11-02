@@ -1,4 +1,4 @@
-package com.ppai.domain;
+package com.ppai.domain.gestion_recursos_tecnologicos;
 
 import com.ppai.domain.state.Estado;
 

@@ -1,8 +1,7 @@
-package com.ppai.domain.turno;
+package com.ppai.domain.gestion_turnos.turno;
 
-import com.ppai.domain.CambioEstado;
-import com.ppai.domain.turno.estados.Disponible;
-import com.ppai.domain.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_turnos.turno.estados.Disponible;
+import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

@@ -1,8 +1,8 @@
-package com.ppai.domain.turno;
+package com.ppai.domain.gestion_turnos.turno;
 
 import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionCientifico;
-import com.ppai.domain.RecursoTecnologico;
-import com.ppai.domain.turno.estados.EstadoTurno;
+import com.ppai.domain.gestion_recursos_tecnologicos.RecursoTecnologico;
+import com.ppai.domain.gestion_turnos.turno.estados.EstadoTurno;
 
 public class SolicitudReservaTurno {
     private AsignacionCientifico cientifico;

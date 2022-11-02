@@ -1,7 +1,7 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.AsignacionCientificoCI;
-import com.ppai.domain.PersonalCientifico;
+import com.ppai.domain.gestion_cientificos.asignaciones.AsignacionCientificoCI;
+import com.ppai.domain.gestion_cientificos.cientifico.PersonalCientifico;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;

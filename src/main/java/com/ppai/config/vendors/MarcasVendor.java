@@ -1,7 +1,7 @@
 package com.ppai.config.vendors;
 
-import com.ppai.domain.Marca;
-import com.ppai.domain.Modelo;
+import com.ppai.domain.gestion_recursos_tecnologicos.Marca;
+import com.ppai.domain.gestion_recursos_tecnologicos.Modelo;
 import io.quarkus.runtime.Startup;
 
 import javax.annotation.PostConstruct;
