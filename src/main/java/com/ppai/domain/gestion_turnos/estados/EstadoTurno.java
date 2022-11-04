@@ -13,14 +13,14 @@ import java.util.Date;
  * Esta clase implementará los metodos correspondientes a los cambio de estado de la clase turno lanzándo un error
  * de transición inválida para los métodos que no hayan sido implementados por las clases estado concretas.
  * <p>
- * Ademas de que contiene los métodos que responden a que instancia de EstadoTurno responde cada clase en particular.
+ * Además de que contiene los métodos que responden a que instancia de EstadoTurno responde cada clase en particular.
  */
 @Data
 public abstract class EstadoTurno {
     private String nombre;
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      * @param fechaHoraActual Fecha hora de la reserva.
      * @param turno El turno al cual le vamos a cambiar el estado.
      */
@@ -29,35 +29,35 @@ public abstract class EstadoTurno {
     }
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      */
     public void registrarUso() {
         throw new Error("Transicion inválida");
     }
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      */
     public void registrarFinUso() {
         throw new Error("Transicion inválida");
     }
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      */
     public void cancelarReserva() {
         throw new Error("Transicion inválida");
     }
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      */
     public void anular() {
         throw new Error("Transicion inválida");
     }
 
     /**
-     * Este método debe ser sobreescrito por las clase concreta que corresponde para realizar la reserva del turno.
+     * Este método debe ser sobreescrito por las clases concreta que corresponde para realizar la reserva del turno.
      */
     public void cancelarPorMantenimiento() {
         throw new Error("Transicion inválida");
